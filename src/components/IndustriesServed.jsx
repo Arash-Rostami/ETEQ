@@ -1,34 +1,43 @@
-export default function IndustriesServed({t}) {
+export default function IndustriesServed({ t }) {
     const industryIcons = [
         'medication', 'biotech', 'restaurant', 'science', 'factory'
     ];
 
     return (
-        <section id="industries" className="py-24 bg-[#F5F7FA]">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">{t.industries.title}</h2>
-                    <p className="text-gray-600 text-lg">
-                        Providing specialized engineering strategic consulting across a diverse range of critical global
-                        sectors.
+        <section id="industries" className="py-24 bg-[var(--surface-container)]">
+            <div className="container mx-auto px-4">
+                <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+                    <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.industries.title}</h2>
+                    <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full mb-8"></div>
+                    <p className="body-large text-[var(--on-surface-variant)]">
+                        {t.industries.description}
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+                <div className="flex flex-wrap justify-center gap-4 md:gap-6 animate-fade-in delay-200">
                     {t.industries.list.map((industry, index) => (
                         <div
                             key={index}
-                            className="group flex items-center bg-white hover:bg-gradient-to-r hover:from-[#FF7F6E] hover:to-[#7B5C9D] px-8 py-5 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-transparent cursor-default"
+                            className="group flex items-center bg-[var(--surface)] hover:bg-eteq-gradient px-8 py-4 rounded-full shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/20 hover:border-transparent cursor-default"
                         >
-                       <span
-                           className="material-symbols-outlined mr-4 text-[#7B5C9D] group-hover:text-white transition-colors text-3xl">
-                        {industryIcons[index] || 'business_center'}
-                       </span>
-                            <span className="text-lg font-bold text-gray-800 group-hover:text-white transition-colors">
-                        {industry}
-                       </span>
+                            <span className="material-symbols-outlined mr-3 text-[var(--primary)] group-hover:text-white transition-colors text-2xl">
+                                {industryIcons[index] || 'business_center'}
+                            </span>
+                            <span className="label-large text-[var(--on-surface)] group-hover:text-white transition-colors font-bold uppercase tracking-wider">
+                                {industry}
+                            </span>
                         </div>
                     ))}
+                </div>
+
+                {/* Additional Visual Element: Brand Partners Placeholder */}
+                <div className="mt-24 pt-12 border-t border-[var(--outline)]/10 text-center opacity-40">
+                    <p className="label-large uppercase tracking-[0.4em] text-[var(--on-surface-variant)] mb-10">{t.industries.globalExperience}</p>
+                    <div className="flex flex-wrap justify-center gap-12 grayscale">
+                        {['TAKEDA', 'DSM', 'DANONE', 'SUNTORY', 'TERUMO'].map(name => (
+                            <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

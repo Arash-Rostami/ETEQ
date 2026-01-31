@@ -1,23 +1,35 @@
 export default function Certifications({ t }) {
-    return (
-        <section className="py-20 bg-[#F5F7FA]">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center text-center">
-                    <h2 className="text-sm font-bold text-gray-500 uppercase tracking-[0.3em] mb-12">{t.certifications.title}</h2>
+    const certs = t.certifications.list;
+    const icons = ['assignment', 'psychology', 'search_check', 'lock'];
 
-                    <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-                        {t.certifications.list.map((cert, index) => (
-                            <div key={index} className="flex flex-col items-center group">
-                                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 border border-gray-100 group-hover:scale-110 transition-transform duration-300">
-                                    <span className="material-symbols-outlined text-4xl text-[#2E4C8B]">workspace_premium</span>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-sm font-bold text-gray-900 leading-tight max-w-[120px]">{cert.name}</div>
-                                    {cert.year && <div className="text-xs font-bold text-[#7B5C9D] mt-1">{cert.year}</div>}
-                                </div>
+    return (
+        <section className="py-24 bg-[var(--surface-container)]">
+            <div className="container mx-auto px-4">
+                <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+                    <h2 className="headline-large text-[var(--on-surface)] mb-4">{t.certifications.title}</h2>
+                    <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full"></div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in delay-200">
+                    {certs.map((cert, index) => (
+                        <div
+                            key={index}
+                            className="group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20"
+                        >
+                            <div className="w-12 h-12 rounded-xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <span className="material-symbols-outlined text-2xl">{icons[index] || 'verified'}</span>
                             </div>
-                        ))}
-                    </div>
+                            <h3 className="label-large text-[var(--on-surface)] font-bold mb-2 group-hover:text-[var(--primary)] transition-colors uppercase tracking-tight">
+                                {cert.name}
+                            </h3>
+                            {cert.year && (
+                                <div className="text-xs text-[var(--on-surface-variant)] font-medium uppercase tracking-[0.2em]">
+                                    {t.certifications.certified} {cert.year}
+                                </div>
+                            )}
+                            <div className="mt-4 h-1 w-0 bg-eteq-gradient group-hover:w-full transition-all duration-500 rounded-full"></div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

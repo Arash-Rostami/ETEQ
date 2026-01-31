@@ -7,13 +7,16 @@ export const en = {
         industries: "Industries"
     },
     hero: {
-        title: "Senior Engineering Expertise, Delivered Directly: 35 Years of Leadership in Sustainability and Operational Excellence",
+        badge: "35+ Years of Leadership",
+        titlePrimary: "Senior Engineering",
+        titleSecondary: "Expertise, Delivered.",
         subtitle: "Empowering global industries with strategic engineering and sustainable growth.",
-        cta1: "Our Services",
-        cta2: "Contact Us"
+        cta1: "Schedule a Strategic Consultation",
+        cta2: "Contact ETEQ"
     },
     trustBuilders: {
         title: "Proven Results",
+        description: "Demonstrated impact across sustainability, efficiency, and operational excellence for global manufacturing leaders.",
         stats: [
             { value: "76%", label: "CO₂ Reduction" },
             { value: "17%", label: "Energy Savings" },
@@ -25,6 +28,9 @@ export const en = {
     },
     services: {
         title: "Our Services",
+        description: "Strategic solutions designed to optimize your operations, reduce environmental impact, and drive sustainable growth.",
+        explore: "Explore All Services",
+        learnMore: "Learn More",
         items: [
             { title: "Engineering Strategy", description: "Comprehensive strategic planning for large-scale engineering operations." },
             { title: "Net Zero Roadmaps", description: "Actionable paths toward carbon neutrality and sustainable energy usage." },
@@ -33,6 +39,8 @@ export const en = {
     },
     whyChoose: {
         title: "Why Choose ETEQ",
+        visualTitle: "Excellence by Design",
+        visualSubtitle: "Driven by data, refined by 35 years of global engineering leadership.",
         points: [
             { title: "Direct Expert Access", description: "Work directly with senior leadership." },
             { title: "Decades of Leadership", description: "35 years of proven track record." },
@@ -47,16 +55,20 @@ export const en = {
     founder: {
         title: "Founder Spotlight",
         name: "Dariushi Rosutami",
-        role: "Senior Engineering Consultant",
+        role: "Founder & Principal Consultant",
         bio: "Dariushi Rosutami is a seasoned engineering leader with over 35 years of experience in driving operational excellence and sustainability across global process industries. Having held leadership roles at Takeda, DSM, and Danone, he brings a wealth of direct, high-level expertise to ETEQ.",
-        credentials: ["PMP 2014", "Lean Six Sigma Green Belt 2017", "ISO Auditor", "LOTOTO Master"]
+        credentials: ["PMP 2014", "Lean Six Sigma Green Belt 2017", "ISO Auditor", "LOTOTO Master"],
+        cta: "Learn More About Dariushi"
     },
     industries: {
         title: "Industries Served",
+        description: "Specialized engineering strategy and operational consulting tailored for high-precision manufacturing sectors.",
+        globalExperience: "Global Experience",
         list: ["Pharmaceutical", "Life Sciences", "Food & Beverage", "Glass/Container", "Process Industries"]
     },
     timeline: {
         title: "Experience Timeline",
+        description: "A career defined by leadership at the intersection of complex engineering and global business strategy.",
         events: [
             { year: "Current", company: "ETEQ Engineering", role: "Founder & Lead Consultant" },
             { year: "Previous", company: "Takeda", role: "Engineering Leadership" },
@@ -67,6 +79,7 @@ export const en = {
     },
     certifications: {
         title: "Certifications",
+        certified: "Certified",
         list: [
             { name: "PMP", year: "2014" },
             { name: "Lean Six Sigma Green Belt", year: "2017" },
@@ -76,15 +89,19 @@ export const en = {
     },
     cta: {
         title: "Ready to Transform Your Engineering Operations?",
-        subtitle: "Let's discuss how our expertise can drive your success.",
-        cta1: "Get a Consultation",
-        cta2: "View Case Studies"
+        subtitle: "Schedule a no-obligation strategic consultation today.",
+        cta1: "Schedule a Consultation",
+        cta2: "Contact ETEQ"
     },
     footer: {
         tagline: "Senior Engineering Expertise, Delivered Directly.",
         quickLinks: "Quick Links",
         contactInfo: "Contact Info",
-        followUs: "Follow Us",
+        stayConnected: "Stay Connected",
+        newsletter: "Receive strategic insights directly to your inbox.",
+        emailPlaceholder: "Email address",
+        privacy: "Privacy Policy",
+        terms: "Terms of Service",
         rights: "All rights reserved."
     }
 };

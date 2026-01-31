@@ -1,28 +1,45 @@
 export default function TrustBuilders({ t }) {
+    const stats = t.trustBuilders.stats;
+    const icons = [
+        'eco', 'energy_savings_leaf', 'trending_up', 'verified', 'public', 'fact_check'
+    ];
+
     return (
-        <section className="py-20 bg-[#F5F7FA]">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.trustBuilders.title}</h2>
-                    <div className="w-20 h-1.5 bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] mx-auto rounded-full"></div>
+        <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center max-w-3xl mx-auto mb-20 animate-slide-up">
+                    <h2 className="headline-large text-[var(--on-surface)] mb-4">{t.trustBuilders.title}</h2>
+                    <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full mb-8"></div>
+                    <p className="body-large text-[var(--on-surface-variant)]">
+                        {t.trustBuilders.description}
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {t.trustBuilders.stats.map((stat, index) => (
+                    {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 text-center flex flex-col items-center justify-center"
+                            className="group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center animate-fade-in"
+                            style={{ animationDelay: `${index * 100}ms` }}
                         >
-                            <div className="text-3xl md:text-4xl font-extrabold bg-gradient-to-br from-[#7B5C9D] to-[#2E4C8B] bg-clip-text text-transparent mb-2">
+                            <div className="w-14 h-14 rounded-2xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:bg-eteq-gradient group-hover:text-white transition-all duration-500 shadow-sm">
+                                <span className="material-symbols-outlined text-3xl">
+                                    {icons[index] || 'analytics'}
+                                </span>
+                            </div>
+                            <div className="display-medium font-bold text-[var(--on-surface)] mb-2 tracking-tight">
                                 {stat.value}
                             </div>
-                            <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider leading-tight">
+                            <div className="label-large text-[var(--on-surface-variant)] font-medium">
                                 {stat.label}
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+
+            {/* Background Decorative Element */}
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--color-purple)]/5 rounded-full blur-[80px]"></div>
         </section>
     );
 }
