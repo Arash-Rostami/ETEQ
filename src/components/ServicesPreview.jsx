@@ -1,41 +1,64 @@
 export default function ServicesPreview({ t }) {
-    const icons = ['strategy', 'eco', 'bolt'];
+    const services = t.services.items;
+    const gradients = [
+        'from-[var(--color-coral)] to-[var(--color-purple)]',
+        'from-[var(--color-purple)] to-[var(--color-deep-blue)]',
+        'from-[var(--color-bright-cyan)] to-[var(--color-deep-blue)]'
+    ];
+    const icons = ['engineering', 'eco', 'bolt'];
 
     return (
-        <section id="services" className="py-24 bg-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4 md:space-y-0">
-                    <div className="max-w-2xl">
-                        <h2 className="text-sm font-bold text-[#FF7F6E] uppercase tracking-[0.2em] mb-3">What we do</h2>
-                        <h3 className="text-3xl md:text-5xl font-bold text-gray-900">{t.services.title}</h3>
+        <section id="services" className="py-24 bg-[var(--background)]">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                    <div className="max-w-2xl animate-slide-up">
+                        <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.services.title}</h2>
+                        <div className="h-1.5 w-24 bg-eteq-gradient rounded-full mb-6"></div>
+                        <p className="body-large text-[var(--on-surface-variant)]">
+                            {t.services.description}
+                        </p>
                     </div>
-                    <p className="text-gray-500 max-w-sm">
-                        Leveraging decades of global experience to deliver precision-engineered solutions for complex industrial challenges.
-                    </p>
+                    <a href="#contact" className="hidden md:flex items-center text-[var(--primary)] font-bold label-large hover:translate-x-2 transition-transform">
+                        {t.services.explore} <span className="material-symbols-outlined ml-2">arrow_forward</span>
+                    </a>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
-                    {t.services.items.map((service, index) => (
+                    {services.map((service, index) => (
                         <div
                             key={index}
-                            className="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden flex flex-col h-full"
+                            className="group relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col"
                         >
-                            {/* Gradient accent bar */}
-                            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#FF7F6E] via-[#7B5C9D] to-[#2E4C8B]"></div>
+                            {/* Top Gradient Accent Bar */}
+                            <div className={`h-2 w-full bg-gradient-to-r ${gradients[index]}`}></div>
 
-                            <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-[#7B5C9D] group-hover:text-white transition-colors">
-                                <span className="material-symbols-outlined text-3xl">{icons[index]}</span>
+                            <div className="p-10 flex flex-col h-full">
+                                <div className="w-16 h-16 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    <span className={`material-symbols-outlined text-4xl bg-gradient-to-br ${gradients[index]} bg-clip-text text-transparent`}>
+                                        {icons[index]}
+                                    </span>
+                                </div>
+
+                                <h3 className="headline-small text-[var(--on-surface)] mb-4 group-hover:text-[var(--primary)] transition-colors">
+                                    {service.title}
+                                </h3>
+
+                                <p className="body-large text-[var(--on-surface-variant)] mb-10 flex-grow leading-relaxed">
+                                    {service.description}
+                                </p>
+
+                                <a href="#contact" className="flex items-center text-[var(--primary)] font-bold label-large group/btn w-fit">
+                                    {t.services.learnMore}
+                                    <span className="material-symbols-outlined ml-2 text-xl group-hover/btn:translate-x-2 transition-transform">
+                                        chevron_right
+                                    </span>
+                                </a>
                             </div>
 
-                            <h4 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h4>
-                            <p className="text-gray-600 leading-relaxed flex-grow">
-                                {service.description}
-                            </p>
-
-                            <div className="mt-8 flex items-center text-[#7B5C9D] font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
-                                <span>Learn more</span>
-                                <span className="material-symbols-outlined ml-2">arrow_forward</span>
-                            </div>
+                            {/* Decorative Background Icon */}
+                            <span className="absolute -bottom-10 -right-10 material-symbols-outlined text-[160px] opacity-[0.03] group-hover:opacity-[0.05] transition-opacity pointer-events-none">
+                                {icons[index]}
+                            </span>
                         </div>
                     ))}
                 </div>
