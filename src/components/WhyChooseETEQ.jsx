@@ -1,71 +1,56 @@
 export default function WhyChooseETEQ({ t }) {
+    const points = t.whyChoose.points;
     const icons = [
-        'person_check', 'history', 'verified', 'hub',
-        'public', 'precision_manufacturing', 'query_stats', 'psychology'
+        'person_check', 'history', 'bolt', 'sync_alt',
+        'savings', 'gavel', 'construction', 'star'
     ];
 
     return (
-        <section id="about" className="py-24 bg-[#F5F7FA] overflow-hidden">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-24 bg-[var(--surface-container)] overflow-hidden">
+            <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    {/* Left Column: Content */}
+                    <div className="animate-slide-up">
+                        <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.whyChoose.title}</h2>
+                        <div className="h-1.5 w-24 bg-eteq-gradient rounded-full mb-12"></div>
 
-                    {/* Left Column: Benefits */}
-                    <div>
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-12">{t.whyChoose.title}</h2>
-
-                        <div className="grid sm:grid-cols-2 gap-8">
-                            {t.whyChoose.points.map((point, index) => (
-                                <div key={index} className="flex flex-col">
-                                    <div className="w-10 h-10 rounded-lg bg-[#7B5C9D]/10 flex items-center justify-center mb-4 text-[#7B5C9D]">
-                                        <span className="material-symbols-outlined text-2xl">{icons[index]}</span>
+                        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+                            {points.map((point, index) => (
+                                <div key={index} className="flex items-start space-x-4 p-4 rounded-2xl hover:bg-[var(--surface)] transition-all duration-300 group">
+                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center group-hover:bg-eteq-gradient group-hover:text-white transition-all">
+                                        <span className="material-symbols-outlined text-xl">{icons[index] || 'check'}</span>
                                     </div>
-                                    <h4 className="text-lg font-bold text-gray-900 mb-2">{point.title}</h4>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        {point.description}
-                                    </p>
+                                    <div>
+                                        <h4 className="label-large text-[var(--on-surface)] font-bold mb-1">{point.title}</h4>
+                                        <p className="text-sm text-[var(--on-surface-variant)] leading-snug">{point.description}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Right Column: Abstract Visual */}
-                    <div className="relative">
-                        <div className="aspect-square rounded-[2rem] bg-gradient-to-br from-[#FF7F6E] via-[#7B5C9D] to-[#2E4C8B] shadow-2xl relative overflow-hidden flex items-center justify-center p-12 group">
-                            {/* This is the placeholder for the abstract visual */}
-                            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-
-                            <div className="relative z-10 text-white text-center">
-                                <span className="material-symbols-outlined text-9xl opacity-50 group-hover:scale-110 transition-transform duration-700">engineering</span>
-                                <p className="mt-4 font-medium tracking-widest uppercase">Innovation & Excellence</p>
+                    {/* Right Column: Visual */}
+                    <div className="relative hidden lg:block">
+                        <div className="relative z-10 rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-4)] aspect-square max-w-md mx-auto group">
+                            <div className="absolute inset-0 bg-eteq-gradient opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
+                                <div className="w-24 h-24 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8">
+                                    <span className="material-symbols-outlined text-6xl text-white">workspace_premium</span>
+                                </div>
+                                <h3 className="headline-large text-white mb-4">Excellence by Design</h3>
+                                <p className="body-large text-white/80">
+                                    Driven by data, refined by 35 years of global engineering leadership.
+                                </p>
                             </div>
 
-                            {/* Suggestions for Premium Image in comments:
-                  - 3D abstract render of interconnected metallic nodes or futuristic architectural structures
-                  - High-exposure shot of a modern manufacturing facility with light trails
-                  - Macro shot of complex high-precision machinery components
-              */}
-
-                            {/*
-                Suggestion for premium image:
-                Use a high-quality 3D abstract visualization representing "Strategic Engineering" or
-                "Sustainable Energy Flow". Search for: "abstract futuristic engineering 3d render"
-              */}
+                            {/* Decorative Circles */}
+                            <div className="absolute -top-10 -right-10 w-40 h-40 border-2 border-white/20 rounded-full"></div>
+                            <div className="absolute -bottom-20 -left-20 w-64 h-64 border-4 border-white/10 rounded-full"></div>
                         </div>
 
-                        {/* Floating Card */}
-                        <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-gray-100">
-                            <div className="flex items-center space-x-4">
-                                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                    <span className="material-symbols-outlined">check_circle</span>
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-bold text-gray-900">100%</div>
-                                    <div className="text-xs text-gray-500 uppercase font-bold tracking-tighter">Reliability Rate</div>
-                                </div>
-                            </div>
-                        </div>
+                        {/* Background Glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[var(--color-bright-cyan)]/10 rounded-full blur-[100px] z-0"></div>
                     </div>
-
                 </div>
             </div>
         </section>

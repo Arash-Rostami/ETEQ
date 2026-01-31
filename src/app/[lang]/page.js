@@ -33,32 +33,6 @@ export default async function HomePage({params}) {
                 href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"
             />
 
-            {/* Smooth Scroll and Custom Styles */}
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        html {
-          scroll-behavior: smooth;
-        }
-        section {
-          scroll-margin-top: 80px;
-        }
-        .font-poppins {
-          font-family: var(--font-poppins), sans-serif;
-        }
-        .font-noto {
-          font-family: var(--font-noto-sans-jp), sans-serif;
-        }
-        @keyframes gradient-flow {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient-flow 15s ease infinite;
-        }
-      `
-            }}/>
 
             <Header t={t} lang={lang}/>
 

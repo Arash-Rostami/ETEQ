@@ -1,35 +1,29 @@
 export default function FinalCTA({ t }) {
     return (
-        <section id="contact" className="py-24 relative overflow-hidden">
-            {/* Specified Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00B8D4] to-[#2E4C8B] animate-gradient"></div>
+        <section id="contact" className="py-24 bg-[var(--background)]">
+            <div className="container mx-auto px-4">
+                <div className="relative overflow-hidden rounded-[var(--shape-extra-large)] bg-eteq-gradient-alt shadow-[var(--elevation-4)] p-12 md:p-24 text-center animate-scale-in">
+                    {/* Background Decorative Circles */}
+                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-black/10 rounded-full blur-2xl"></div>
 
-            {/* Decorative Overlays */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,_white_0%,_transparent_50%)]"></div>
-            </div>
+                    <div className="relative z-10 max-w-3xl mx-auto">
+                        <h2 className="display-medium text-white mb-6">
+                            {t.cta.title}
+                        </h2>
+                        <p className="body-large text-white/80 mb-12">
+                            {t.cta.subtitle}
+                        </p>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 max-w-4xl mx-auto leading-tight">
-                    {t.cta.title}
-                </h2>
-                <p className="text-white/80 text-xl mb-12 max-w-2xl mx-auto">
-                    {t.cta.subtitle}
-                </p>
-
-                <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                    <a
-                        href={`mailto:${t.header.email}`}
-                        className="w-full sm:w-auto px-10 py-4 bg-white text-[#2E4C8B] rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
-                    >
-                        {t.cta.cta1}
-                    </a>
-                    <a
-                        href="#services"
-                        className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all"
-                    >
-                        {t.cta.cta2}
-                    </a>
+                        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <button className="w-full sm:w-auto px-10 py-4 bg-white text-[var(--primary)] rounded-full font-bold text-lg shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-3)] hover:scale-105 active:scale-95 transition-all">
+                                {t.cta.cta1}
+                            </button>
+                            <button className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                                {t.cta.cta2}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
