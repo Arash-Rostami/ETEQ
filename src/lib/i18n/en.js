@@ -4,6 +4,7 @@ export const en = {
         contact: "Contact",
         services: "Services",
         about: "About",
+        bio: "Bio",
         industries: "Industries"
     },
     hero: {
@@ -15,12 +16,18 @@ export const en = {
     trustBuilders: {
         title: "Proven Results",
         stats: [
-            { value: "76%", label: "CO₂ Reduction" },
-            { value: "17%", label: "Energy Savings" },
-            { value: "20%", label: "OpEx Improvement" },
-            { value: "35+", label: "Years Experience" },
-            { value: "50+", label: "Global Projects" },
-            { value: "100%", label: "Compliance Rate" }
+            { value: "76%", label: "CO₂ Reduction Achieved", icon: "eco" },
+            { value: "17%", label: "Energy Savings Delivered", icon: "bolt" },
+            { value: "15%", label: "Productivity Improvement", icon: "precision_manufacturing" },
+            { value: "20%", label: "Cost Reduction", icon: "trending_down" },
+            { value: "Zero", label: "FDA/PMDA Audit Findings", icon: "verified" },
+            { value: "7,400+", label: "Hours Saved via Automation", icon: "schedule" },
+            { value: "59", label: "Added Production Days/Year", icon: "calendar_today" },
+            { value: "15+", label: "Years Senior Leadership", icon: "workspace_premium" },
+            { value: "35+", label: "Engineering Leadership", icon: "military_tech" },
+            { value: "F500", label: "Proven Real-World Strategies", icon: "stars" },
+            { value: "Global", label: "Multi-site Implementation", icon: "public" },
+            { value: "ROI", label: "Measurable Business Impact", icon: "analytics" }
         ]
     },
     services: {
@@ -73,7 +80,8 @@ export const en = {
         name: "Dariushi Rosutami",
         role: "Senior Engineering Consultant",
         bio: "Dariushi Rosutami is a seasoned engineering leader with over 35 years of experience in driving operational excellence and sustainability across global process industries. Having held leadership roles at Takeda, DSM, and Danone, he brings a wealth of direct, high-level expertise to ETEQ.",
-        credentials: ["PMP 2014", "Lean Six Sigma Green Belt 2017", "ISO Auditor", "LOTOTO Master"]
+        credentials: ["PMP 2014", "Lean Six Sigma Green Belt 2017", "ISO Auditor", "LOTOTO Master"],
+        viewFullBio: "View Full Bio"
     },
     industries: {
         title: "Industries Served",
@@ -110,6 +118,31 @@ export const en = {
         contactInfo: "Contact Info",
         followUs: "Follow Us",
         rights: "All rights reserved."
+    },
+    bioPage: {
+        title: "Consultant Bio",
+        subtitle: "Over 35 Years of Distinguished Engineering Leadership",
+        content: [
+            "Dariushi Rosutami brings over 35 years of distinguished operational engineering leadership across the pharmaceutical, life sciences, and food & beverage manufacturing sectors, with 15 years in senior leadership positions at global and Japanese companies.",
+            "As Head of Engineering at Takeda Pharmaceutical Company Limited, Dariushi led strategic transformation initiatives that delivered remarkable results: a 76% reduction in CO₂ emissions through decarbonization and electrification projects, 17% site-wide energy reduction aligned with Net Zero goals, and 15% improvement in production efficiency while reducing annual operating costs by 20%. His leadership saved over 7,400 hours through Robotic Process Automation, unlocking 59 additional production days annually, and maintained zero audit findings from FDA and PMDA inspections.",
+            "Prior to Takeda, Dariushi held senior positions at DSM Japan as Director of Production Management, Quality Assurance, and SHE, and at Danone Japan as Senior Operations Manager, where he drove productivity improvements, built reliable organizations, and managed comprehensive energy and CO₂ reduction programs. His career also includes leadership at a well-established Japanese manufacturing company with long heritage, where he managed production, quality control, and led major factory construction projects.",
+            "Dariushi is PMP certified, Lean Six Sigma Green Belt certified, and a certified Quality Auditor (ISO9001, ISO14001, FSSC22000). He is multilingual (Japanese native-level with Kanji Proficiency Level 2, business-level English, conversational French, and basic German), enabling seamless collaboration across global operations.",
+            "At ETEQ, Dariushi leverages this extensive operational experience to help organizations achieve measurable results in sustainability, operational excellence, and regulatory compliance. His hands-on approach delivers actionable strategies proven in complex, highly regulated manufacturing environments."
+        ],
+        specialties: [
+            "Pharmaceutical & Life Sciences",
+            "Food & Beverage Manufacturing",
+            "Net Zero & Decarbonization",
+            "Operational Excellence",
+            "Regulatory Compliance (FDA/PMDA)",
+            "Robotic Process Automation (RPA)"
+        ],
+        languages: [
+            { name: "Japanese", level: "Native (Kanji Proficiency Level 2)" },
+            { name: "English", level: "Business" },
+            { name: "French", level: "Conversational" },
+            { name: "German", level: "Basic" }
+        ]
     },
     aboutPage: {
         title: "About ETEQ",
