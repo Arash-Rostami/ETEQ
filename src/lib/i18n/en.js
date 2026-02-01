@@ -25,10 +25,34 @@ export const en = {
     },
     services: {
         title: "Our Services",
+        learnMore: "Learn More",
+        showLess: "Show Less",
         items: [
-            { title: "Engineering Strategy", description: "Comprehensive strategic planning for large-scale engineering operations." },
-            { title: "Net Zero Roadmaps", description: "Actionable paths toward carbon neutrality and sustainable energy usage." },
-            { title: "Energy Optimization", description: "Maximizing efficiency and reducing waste across process industries." }
+            {
+                title: "Engineering Strategy & Organizational Development",
+                summary: "Transform your engineering capabilities with comprehensive strategy development and organizational structuring.",
+                fullDescription: "From building high-performing teams to optimizing cross-functional collaboration, we create frameworks that deliver measurable results across manufacturing, pharmaceutical, and life sciences operations."
+            },
+            {
+                title: "Net Zero & Environmental Roadmap Development",
+                summary: "Achieve ambitious sustainability targets with data-driven CO₂ Net Zero roadmaps tailored to your operations.",
+                fullDescription: "We develop comprehensive environmental strategies from initial assessment through implementation, ensuring compliance while optimizing energy efficiency, reducing carbon footprint, and maximizing ROI on sustainability investments."
+            },
+            {
+                title: "Energy Optimization & Efficiency Solutions",
+                summary: "Reduce operational costs and environmental impact through systematic energy audits and efficiency improvements.",
+                fullDescription: "Our proven methodologies identify opportunities for optimization across facilities, from equipment-level interventions to facility-wide system upgrades, delivering measurable reductions in energy use per square meter."
+            },
+            {
+                title: "CAPEX Planning & Facility Installation Management",
+                summary: "Navigate complex capital projects with confidence through expert CAPEX budget development and facility upgrade planning.",
+                fullDescription: "We manage the entire lifecycle from feasibility studies and budget preparation to contractor selection and installation oversight, ensuring projects deliver on time, on budget, and aligned with your strategic objectives."
+            },
+            {
+                title: "Workplace Safety & Regulatory Compliance",
+                summary: "Protect your workforce and ensure regulatory compliance with comprehensive safety program development and implementation.",
+                fullDescription: "Drawing on deep expertise in international safety standards and protocols, we create customized safety frameworks that reduce risk, improve safety culture, and maintain compliance across global operations."
+            }
         ]
     },
     whyChoose: {
