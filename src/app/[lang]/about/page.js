@@ -39,7 +39,7 @@ export default async function AboutPage({ params }) {
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="animate-slide-up">
-                            <h2 className="headline-large text-[var(--on-surface)] mb-6">Expertise Forged in Leadership</h2>
+                            <h2 className="headline-large text-[var(--on-surface)] mb-6">{page.founderTitle}</h2>
                             <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
                                 {page.founderContext}
                             </p>
@@ -156,7 +156,7 @@ export default async function AboutPage({ params }) {
                             href={`/${lang}/contact`}
                             className="inline-flex items-center px-10 py-4 bg-white text-[var(--primary)] rounded-full hover:shadow-[var(--elevation-4)] hover:scale-105 active:scale-95 transition-all font-bold text-lg"
                         >
-                            Discuss Your Project
+                            {page.expertise.cta}
                             <span className="material-symbols-outlined ml-2">arrow_forward</span>
                         </a>
                     </div>

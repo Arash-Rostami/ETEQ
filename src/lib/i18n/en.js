@@ -114,6 +114,7 @@ export const en = {
     aboutPage: {
         title: "About ETEQ",
         intro: "ETEQ is a boutique engineering consulting firm founded on over 35 years of proven operational leadership across pharmaceutical, life sciences, and food & beverage manufacturing industries.",
+        founderTitle: "Expertise Forged in Leadership",
         founderContext: "Our founder, Dariushi Rosutami, held Head of Engineering positions at industry leaders including Takeda Pharmaceutical, DSM Japan, and Danone Japan, where he was directly responsible for delivering transformational results.",
         differentiation: {
             title: "What Makes ETEQ Different?",
@@ -140,7 +141,8 @@ export const en = {
         expertise: {
             title: "Transforming Performance",
             description: "With deep expertise spanning engineering strategy, Net Zero implementation, energy optimization, CAPEX planning, workplace safety, and regulatory compliance (GMP, FDA, ISO, food safety), ETEQ delivers data-driven solutions that transform operational performance while advancing environmental responsibility.",
-            closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively."
+            closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively.",
+            cta: "Discuss Your Project"
         }
     }
 };
