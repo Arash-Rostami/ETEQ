@@ -120,10 +120,10 @@ export const en = {
             title: "What Makes ETEQ Different?",
             subtitle: "As a boutique firm, we offer what large consulting companies cannot.",
             points: [
-                { title: "Senior Expertise", description: "Direct access to senior expertise from day one, not layers of junior consultants." },
-                { title: "Rapid Response", description: "Agile operations and flexible engagement models for quick turnaround." },
-                { title: "Cost Efficiency", description: "Efficient solutions without the overhead costs of large firms." },
-                { title: "Proven Strategies", description: "Practical, implementable strategies shaped by decades of results, not theories." }
+                { title: "Senior Expertise", description: "Direct access to senior expertise from day one, not layers of junior consultants.", icon: "award_star" },
+                { title: "Rapid Response", description: "Agile operations and flexible engagement models for quick turnaround.", icon: "bolt" },
+                { title: "Cost Efficiency", description: "Efficient solutions without the overhead costs of large firms.", icon: "savings" },
+                { title: "Proven Strategies", description: "Practical, implementable strategies shaped by decades of results, not theories.", icon: "verified" }
             ]
         },
         results: {

@@ -121,14 +121,31 @@ export default async function AboutPage({ params }) {
                             {page.differentiation.points.map((point, index) => (
                                 <div
                                     key={index}
-                                    className="p-10 rounded-[var(--shape-extra-large)] bg-[var(--surface-container)] hover:bg-[var(--surface)] border border-transparent hover:border-[var(--outline)]/20 shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-500 group animate-fade-in"
+                                    className="relative p-10 rounded-[var(--shape-extra-large)] bg-[var(--surface)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] hover:-translate-y-2 transition-all duration-500 group animate-fade-in overflow-hidden"
+                                    style={{ animationDelay: `${index * 150}ms` }}
                                 >
-                                    <h3 className="headline-small text-[var(--on-surface)] mb-4 group-hover:text-[var(--primary)] transition-colors">
-                                        {point.title}
-                                    </h3>
-                                    <p className="body-large text-[var(--on-surface-variant)] leading-relaxed">
-                                        {point.description}
-                                    </p>
+                                    {/* Hover Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div className="relative z-10">
+                                        <div className="w-16 h-16 rounded-2xl bg-[var(--surface-container)] flex items-center justify-center mb-8 group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-500 shadow-inner">
+                                            <span className="material-symbols-outlined text-3xl transition-transform duration-500 group-hover:rotate-12">
+                                                {point.icon}
+                                            </span>
+                                        </div>
+
+                                        <h3 className="headline-small text-[var(--on-surface)] mb-4 group-hover:text-[var(--primary)] transition-colors">
+                                            {point.title}
+                                        </h3>
+                                        <p className="body-large text-[var(--on-surface-variant)] leading-relaxed">
+                                            {point.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Decorative background number */}
+                                    <span className="absolute -bottom-10 -right-6 text-9xl font-bold text-[var(--on-surface)]/5 pointer-events-none group-hover:text-[var(--primary)]/10 transition-colors">
+                                        0{index + 1}
+                                    </span>
                                 </div>
                             ))}
                         </div>
