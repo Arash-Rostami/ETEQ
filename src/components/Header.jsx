@@ -28,7 +28,9 @@ export default function Header({ t }) {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ease-out ${
-                scrolled ? 'header-scrolled h-16' : 'bg-transparent h-20'
+                scrolled
+                ? 'header-scrolled mt-4 mx-4 md:mx-8 rounded-[var(--shape-full)] h-16'
+                : 'bg-transparent h-20'
             }`}
         >
             <div className="container mx-auto px-4 h-full">

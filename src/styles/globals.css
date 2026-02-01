@@ -345,3 +345,16 @@ section {
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+
+/* Scrolled Header Styles */
+.header-scrolled {
+    background-color: color-mix(in srgb, var(--surface), transparent 15%);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--elevation-3);
+    border: 1px solid color-mix(in srgb, var(--outline), transparent 85%);
+}
+
+/* Smooth transition for header elements */
+header * {
+    transition: all var(--duration-medium3) var(--easing-standard);
+}
