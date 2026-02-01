@@ -110,5 +110,37 @@ export const en = {
         contactInfo: "Contact Info",
         followUs: "Follow Us",
         rights: "All rights reserved."
+    },
+    aboutPage: {
+        title: "About ETEQ",
+        intro: "ETEQ is a boutique engineering consulting firm founded on over 35 years of proven operational leadership across pharmaceutical, life sciences, and food & beverage manufacturing industries.",
+        founderContext: "Our founder, Dariushi Rosutami, held Head of Engineering positions at industry leaders including Takeda Pharmaceutical, DSM Japan, and Danone Japan, where he was directly responsible for delivering transformational results.",
+        differentiation: {
+            title: "What Makes ETEQ Different?",
+            subtitle: "As a boutique firm, we offer what large consulting companies cannot.",
+            points: [
+                { title: "Senior Expertise", description: "Direct access to senior expertise from day one, not layers of junior consultants." },
+                { title: "Rapid Response", description: "Agile operations and flexible engagement models for quick turnaround." },
+                { title: "Cost Efficiency", description: "Efficient solutions without the overhead costs of large firms." },
+                { title: "Proven Strategies", description: "Practical, implementable strategies shaped by decades of results, not theories." }
+            ]
+        },
+        results: {
+            title: "Our Track Record",
+            subtitle: "These aren't projections—they're actual results delivered in highly regulated environments.",
+            stats: [
+                { value: "76%", label: "CO₂ Reduction", icon: "eco" },
+                { value: "17%", label: "Energy Savings", icon: "bolt" },
+                { value: "15%", label: "Efficiency Gain", icon: "precision_manufacturing" },
+                { value: "20%", label: "OpEx Reduction", icon: "trending_down" },
+                { value: "Zero", label: "Audit Findings", icon: "verified" },
+                { value: "7,400+", label: "Hours Saved", icon: "schedule" }
+            ]
+        },
+        expertise: {
+            title: "Transforming Performance",
+            description: "With deep expertise spanning engineering strategy, Net Zero implementation, energy optimization, CAPEX planning, workplace safety, and regulatory compliance (GMP, FDA, ISO, food safety), ETEQ delivers data-driven solutions that transform operational performance while advancing environmental responsibility.",
+            closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively."
+        }
     }
 };

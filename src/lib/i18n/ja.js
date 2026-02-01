@@ -110,5 +110,37 @@ export const ja = {
         contactInfo: "連絡先情報",
         followUs: "フォローする",
         rights: "All rights reserved."
+    },
+    aboutPage: {
+        title: "ETEQについて",
+        intro: "ETEQは、医薬品、ライフサイエンス、食品・飲料製造業界における35年以上の実証された運営リーダーシップに基づいて設立された、ブティック型エンジニアリングコンサルティング会社です。",
+        founderContext: "創業者のダリウシ・ロスタミは、武田薬品工業、DSMジャパン、ダノンジャパンなどの業界リーダーでエンジニアリング部門長の役職を歴任し、変革的な成果の実現に直接責任を負いました。",
+        differentiation: {
+            title: "ETEQの違いは何ですか？",
+            subtitle: "ブティック企業として、大手コンサルティング会社では提供できないものを提供します。",
+            points: [
+                { title: "シニアの専門知識", description: "初日からシニア専門知識への直接アクセス。ジュニアコンサルタントの層はありません。" },
+                { title: "迅速な対応", description: "迅速な対応を可能にするアジャイルな運営と柔軟なエンゲージメントモデル。" },
+                { title: "費用対効果", description: "大手企業のオーバーヘッドコストを排除した、効率的なソリューション。" },
+                { title: "実証済みの戦略", description: "理論ではなく、数十年にわたる実績に基づいた、実践的で実施可能な戦略。" }
+            ]
+        },
+        results: {
+            title: "私たちの実績",
+            subtitle: "これらは予測ではなく、高度に規制された環境で実際に達成された結果です。",
+            stats: [
+                { value: "76%", label: "CO₂排出削減", icon: "eco" },
+                { value: "17%", label: "エネルギー節約", icon: "bolt" },
+                { value: "15%", label: "生産効率向上", icon: "precision_manufacturing" },
+                { value: "20%", label: "運営コスト削減", icon: "trending_down" },
+                { value: "ゼロ", label: "査察指摘事項", icon: "verified" },
+                { value: "7,400+", label: "削減時間", icon: "schedule" }
+            ]
+        },
+        expertise: {
+            title: "パフォーマンスの変革",
+            description: "エンジニアリング戦略、ネットゼロ実施、エネルギー最適化、CAPEX計画、職場安全、規制遵守（GMP、FDA、ISO、食品安全）にわたる深い専門知識を持つETEQは、環境責任を推進しながら運営パフォーマンスを変革する、データ駆動型のソリューションを提供します。",
+            closing: "ネットゼロロードマップの策定、施設パフォーマンスの最適化、規制遵守の達成、エンジニアリング能力の構築など、ETEQは卓越性を効率的かつ効果的に達成するために必要なシニアレベルの専門知識と個別化されたガイダンスを提供します。"
+        }
     }
 };
