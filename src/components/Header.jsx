@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import { useLingo } from '@/hooks/useLingo';
@@ -19,10 +20,14 @@ export default function Header({ t }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const pathname = usePathname();
+    const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
+
     const navLinks = [
-        { name: t.header.services, href: '#services' },
-        { name: t.header.about, href: '#about' },
-        { name: t.header.industries, href: '#industries' },
+        { name: t.header.about, href: `/${lang}/about` },
+        { name: t.header.bio, href: `/${lang}#about` },
+        { name: t.header.services, href: `/${lang}#services` },
+        { name: t.header.industries, href: `/${lang}#industries` },
     ];
 
     return (
@@ -44,16 +49,34 @@ export default function Header({ t }) {
                     </Link>
 
                     <nav className="hidden md:flex items-center space-x-1">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => handleAnchorClick(e)}
-                                className="px-4 py-2 rounded-full text-[var(--on-surface-variant)] hover:text-[var(--primary)] hover:bg-[var(--primary-container)]/10 transition-all label-large"
-                            >
-                                {link.name}
-                            </a>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isAnchor = link.href.includes('#');
+                            const href = link.href;
+
+                            if (isAnchor && isHome) {
+                                const hash = href.substring(href.indexOf('#'));
+                                return (
+                                    <a
+                                        key={link.name}
+                                        href={hash}
+                                        onClick={(e) => handleAnchorClick(e)}
+                                        className="px-4 py-2 rounded-full text-[var(--on-surface-variant)] hover:text-[var(--primary)] hover:bg-[var(--primary-container)]/10 transition-all label-large"
+                                    >
+                                        {link.name}
+                                    </a>
+                                );
+                            }
+
+                            return (
+                                <Link
+                                    key={link.name}
+                                    href={href}
+                                    className="px-4 py-2 rounded-full text-[var(--on-surface-variant)] hover:text-[var(--primary)] hover:bg-[var(--primary-container)]/10 transition-all label-large"
+                                >
+                                    {link.name}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
                     <div className="flex items-center space-x-2 md:space-x-4">
@@ -104,16 +127,35 @@ export default function Header({ t }) {
 
             <div className={`fixed inset-0 top-16 bg-[var(--surface)] z-[90] md:hidden transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <nav className="flex flex-col p-6 space-y-4">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleAnchorClick(e, () => setMobileMenuOpen(false))}
-                            className="text-2xl font-medium text-[var(--on-surface)] py-2 border-b border-[var(--surface-variant)]"
-                        >
-                            {link.name}
-                        </a>
-                    ))}
+                    {navLinks.map((link) => {
+                        const isAnchor = link.href.includes('#');
+                        const href = link.href;
+
+                        if (isAnchor && isHome) {
+                            const hash = href.substring(href.indexOf('#'));
+                            return (
+                                <a
+                                    key={link.name}
+                                    href={hash}
+                                    onClick={(e) => handleAnchorClick(e, () => setMobileMenuOpen(false))}
+                                    className="text-2xl font-medium text-[var(--on-surface)] py-2 border-b border-[var(--surface-variant)]"
+                                >
+                                    {link.name}
+                                </a>
+                            );
+                        }
+
+                        return (
+                            <Link
+                                key={link.name}
+                                href={href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-2xl font-medium text-[var(--on-surface)] py-2 border-b border-[var(--surface-variant)]"
+                            >
+                                {link.name}
+                            </Link>
+                        );
+                    })}
                     <Link
                         href={`/${lang}/contact`}
                         className="mt-4 flex items-center justify-center w-full py-4 bg-eteq-gradient text-white rounded-2xl font-bold text-lg"

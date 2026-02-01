@@ -1,4 +1,5 @@
 import {useTranslation} from "@/lib/i18n/useTranslation";
+import Link from 'next/link';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
@@ -16,7 +17,7 @@ export default async function AboutPage({params}) {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl animate-slide-up">
                         <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
-                            <a href={`/${lang}`} className="hover:underline">Home</a>
+                            <Link href={`/${lang}`} className="hover:underline">Home</Link>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
                             <span>{page.title}</span>
                         </nav>
@@ -43,15 +44,21 @@ export default async function AboutPage({params}) {
                             <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
                                 {page.founderContext}
                             </p>
-                            <div
-                                className="flex items-center p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)]">
-                                <span
-                                    className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
-                                <div>
-                                    <p className="label-large text-[var(--on-surface)] font-bold">Dariushi Rosutami</p>
-                                    <p className="label-medium text-[var(--on-surface-variant)]">Founder & Lead
-                                        Consultant</p>
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6">
+                                <div className="flex items-center">
+                                    <span className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
+                                    <div>
+                                        <p className="label-large text-[var(--on-surface)] font-bold">Dariushi Rosutami</p>
+                                        <p className="label-medium text-[var(--on-surface-variant)]">Founder & Lead Consultant</p>
+                                    </div>
                                 </div>
+                                <Link
+                                    href={`/${lang}/bio`}
+                                    className="flex items-center text-[var(--primary)] font-bold label-large hover:underline group"
+                                >
+                                    {t.founder.viewFullBio || 'View Full Bio'}
+                                    <span className="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                </Link>
                             </div>
                         </div>
                         <div
@@ -82,24 +89,24 @@ export default async function AboutPage({params}) {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                        {page.results.stats.map((stat, index) => (
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        {t.trustBuilders.stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className="bg-[var(--surface)] p-8 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-fade-in"
-                                style={{animationDelay: `${index * 100}ms`}}
+                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-fade-in"
+                                style={{animationDelay: `${index * 50}ms`}}
                             >
                                 <div
-                                    className="w-14 h-14 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
-                                    <span className="material-symbols-outlined text-3xl text-[var(--primary)]">
+                                    className="w-12 h-12 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+                                    <span className="material-symbols-outlined text-2xl text-[var(--primary)]">
                                         {stat.icon}
                                     </span>
                                 </div>
-                                <div className="display-small text-[var(--primary)] font-bold mb-2 tracking-tight">
+                                <div className="headline-small text-[var(--primary)] font-bold mb-2 tracking-tight">
                                     {stat.value}
                                 </div>
                                 <div
-                                    className="label-medium text-[var(--on-surface-variant)] font-medium uppercase tracking-wider">
+                                    className="label-small text-[var(--on-surface-variant)] font-bold uppercase tracking-wider h-[40px] flex items-center justify-center overflow-hidden">
                                     {stat.label}
                                 </div>
                             </div>
@@ -176,13 +183,13 @@ export default async function AboutPage({params}) {
                                 "{page.expertise.closing}"
                             </p>
                         </div>
-                        <a
+                        <Link
                             href={`/${lang}/contact`}
                             className="inline-flex items-center px-10 py-4 bg-white text-[var(--primary)] rounded-full hover:shadow-[var(--elevation-4)] hover:scale-105 active:scale-95 transition-all font-bold text-lg"
                         >
                             {page.expertise.cta}
                             <span className="material-symbols-outlined ml-2">arrow_forward</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full bg-eteq-gradient opacity-10"></div>
