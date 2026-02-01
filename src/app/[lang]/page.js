@@ -32,7 +32,7 @@ export default async function HomePage({params}) {
                 <TrustBuilders t={t}/>
                 <ServicesPreview t={t}/>
                 <WhyChooseETEQ t={t}/>
-                <FounderSpotlight t={t}/>
+                <FounderSpotlight t={t} lang={lang}/>
                 <IndustriesServed t={t}/>
                 <ExperienceTimeline t={t}/>
                 <Certifications t={t}/>

@@ -1,7 +1,4 @@
-import { useLingo } from '@/hooks/useLingo';
-
-export default function FounderSpotlight({ t }) {
-    const { lang } = useLingo();
+export default function FounderSpotlight({ t, lang }) {
     const credentials = t.founder.credentials;
 
     return (
