@@ -7,8 +7,8 @@ export const en = {
         industries: "Industries"
     },
     hero: {
-        title: "Senior Engineering Expertise, Delivered Directly: 35 Years of Leadership in Sustainability and Operational Excellence",
-        subtitle: "Empowering global industries with strategic engineering and sustainable growth.",
+        title: "Senior Engineering Expertise",
+        subtitle: "Direct access to 35 years of 'Leadership in Sustainability and Operational Excellence' as well as proven engineering without the overhead, delays, or junior consultants of large firms.",
         cta1: "Our Services",
         cta2: "Contact Us"
     },
@@ -25,10 +25,34 @@ export const en = {
     },
     services: {
         title: "Our Services",
+        learnMore: "Learn More",
+        showLess: "Show Less",
         items: [
-            { title: "Engineering Strategy", description: "Comprehensive strategic planning for large-scale engineering operations." },
-            { title: "Net Zero Roadmaps", description: "Actionable paths toward carbon neutrality and sustainable energy usage." },
-            { title: "Energy Optimization", description: "Maximizing efficiency and reducing waste across process industries." }
+            {
+                title: "Engineering Strategy & Organizational Development",
+                summary: "Transform your engineering capabilities with comprehensive strategy development and organizational structuring.",
+                fullDescription: "From building high-performing teams to optimizing cross-functional collaboration, we create frameworks that deliver measurable results across manufacturing, pharmaceutical, and life sciences operations."
+            },
+            {
+                title: "Net Zero & Environmental Roadmap Development",
+                summary: "Achieve ambitious sustainability targets with data-driven CO₂ Net Zero roadmaps tailored to your operations.",
+                fullDescription: "We develop comprehensive environmental strategies from initial assessment through implementation, ensuring compliance while optimizing energy efficiency, reducing carbon footprint, and maximizing ROI on sustainability investments."
+            },
+            {
+                title: "Energy Optimization & Efficiency Solutions",
+                summary: "Reduce operational costs and environmental impact through systematic energy audits and efficiency improvements.",
+                fullDescription: "Our proven methodologies identify opportunities for optimization across facilities, from equipment-level interventions to facility-wide system upgrades, delivering measurable reductions in energy use per square meter."
+            },
+            {
+                title: "CAPEX Planning & Facility Installation Management",
+                summary: "Navigate complex capital projects with confidence through expert CAPEX budget development and facility upgrade planning.",
+                fullDescription: "We manage the entire lifecycle from feasibility studies and budget preparation to contractor selection and installation oversight, ensuring projects deliver on time, on budget, and aligned with your strategic objectives."
+            },
+            {
+                title: "Workplace Safety & Regulatory Compliance",
+                summary: "Protect your workforce and ensure regulatory compliance with comprehensive safety program development and implementation.",
+                fullDescription: "Drawing on deep expertise in international safety standards and protocols, we create customized safety frameworks that reduce risk, improve safety culture, and maintain compliance across global operations."
+            }
         ]
     },
     whyChoose: {
@@ -86,5 +110,39 @@ export const en = {
         contactInfo: "Contact Info",
         followUs: "Follow Us",
         rights: "All rights reserved."
+    },
+    aboutPage: {
+        title: "About ETEQ",
+        intro: "ETEQ is a boutique engineering consulting firm founded on over 35 years of proven operational leadership across pharmaceutical, life sciences, and food & beverage manufacturing industries.",
+        founderTitle: "Expertise Forged in Leadership",
+        founderContext: "Our founder, Dariushi Rosutami, held Head of Engineering positions at industry leaders including Takeda Pharmaceutical, DSM Japan, and Danone Japan, where he was directly responsible for delivering transformational results.",
+        differentiation: {
+            title: "What Makes ETEQ Different?",
+            subtitle: "As a boutique firm, we offer what large consulting companies cannot.",
+            points: [
+                { title: "Senior Expertise", description: "Direct access to senior expertise from day one, not layers of junior consultants.", icon: "award_star" },
+                { title: "Rapid Response", description: "Agile operations and flexible engagement models for quick turnaround.", icon: "bolt" },
+                { title: "Cost Efficiency", description: "Efficient solutions without the overhead costs of large firms.", icon: "savings" },
+                { title: "Proven Strategies", description: "Practical, implementable strategies shaped by decades of results, not theories.", icon: "verified" }
+            ]
+        },
+        results: {
+            title: "Our Track Record",
+            subtitle: "These aren't projections—they're actual results delivered in highly regulated environments.",
+            stats: [
+                { value: "76%", label: "CO₂ Reduction", icon: "eco" },
+                { value: "17%", label: "Energy Savings", icon: "bolt" },
+                { value: "15%", label: "Efficiency Gain", icon: "precision_manufacturing" },
+                { value: "20%", label: "OpEx Reduction", icon: "trending_down" },
+                { value: "Zero", label: "Audit Findings", icon: "verified" },
+                { value: "7,400+", label: "Hours Saved", icon: "schedule" }
+            ]
+        },
+        expertise: {
+            title: "Transforming Performance",
+            description: "With deep expertise spanning engineering strategy, Net Zero implementation, energy optimization, CAPEX planning, workplace safety, and regulatory compliance (GMP, FDA, ISO, food safety), ETEQ delivers data-driven solutions that transform operational performance while advancing environmental responsibility.",
+            closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively.",
+            cta: "Discuss Your Project"
+        }
     }
 };
