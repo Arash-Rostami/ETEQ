@@ -29,7 +29,7 @@ export default async function HomePage({params}) {
             <Header t={t} lang={lang}/>
             <div className="flex flex-col">
                 <Hero t={t}/>
-                <TrustBuilders t={t}/>
+                <TrustBuilders t={t} isMarquee={true}/>
                 <ServicesPreview t={t}/>
                 <WhyChooseETEQ t={t}/>
                 <FounderSpotlight t={t}/>
