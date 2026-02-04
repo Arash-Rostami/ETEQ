@@ -6,7 +6,10 @@ export const ja = {
         services: "サービス",
         about: "当社について",
         bio: "経歴",
-        industries: "業界"
+        industries: "業界",
+        callUs: "お電話",
+        sendEmail: "メールを送信",
+        quickContact: "クイック連絡先"
     },
     hero: {
         title: "シニアエンジニアリングの専門知識",
