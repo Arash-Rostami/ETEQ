@@ -230,5 +230,32 @@ export const en = {
             closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively.",
             cta: "Discuss Your Project"
         }
+    },
+    contactPage: {
+        title: "Contact Us",
+        subtitle: "Direct Access to Engineering Excellence",
+        intro: "Whether you're looking to optimize energy efficiency, develop a Net Zero roadmap, or transform your operational performance, we're here to help. Reach out directly to discuss your specific challenges.",
+        form: {
+            name: "Full Name",
+            title: "Subject / Project Title",
+            contactInfo: "Email or Phone Number",
+            message: "Your Message",
+            submit: "Send Message",
+            sending: "Sending...",
+            success: "Thank you! Your message has been sent successfully.",
+            sendAnother: "Send Another Message",
+            error: "Something went wrong. Please try again later.",
+            validation: {
+                required: "This field is required",
+                invalidContact: "Please enter a valid email or phone number"
+            }
+        },
+        info: {
+            title: "Direct Consultation",
+            description: "Work directly with our senior leadership to solve your most complex engineering challenges.",
+            email: "Email",
+            location: "Location",
+            response: "Standard response time: within 24 hours"
+        }
     }
 };

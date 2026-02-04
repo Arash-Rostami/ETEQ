@@ -1,10 +1,18 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 const HEADER_HEIGHT = { default: 80, scrolled: 64 };
 
 export function useScroll() {
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const scrollToAnchor = useCallback((hash, closeMobileMenu) => {
         const el = document.querySelector(hash);
         if (!el) return;
@@ -25,5 +33,5 @@ export function useScroll() {
         scrollToAnchor(hash, closeMobileMenu);
     }, [scrollToAnchor]);
 
-    return { handleAnchorClick, scrollToAnchor };
+    return { scrolled, handleAnchorClick, scrollToAnchor };
 }

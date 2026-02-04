@@ -2,23 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import { useLingo } from '@/hooks/useLingo';
 import { useScroll } from '@/hooks/useScroll';
+import { useToggle } from '@/hooks/useToggle';
 
 export default function Header({ t }) {
     const { isDark, toggle: toggleTheme } = useTheme();
     const { lang, toggle: toggleLanguage } = useLingo();
-    const { handleAnchorClick } = useScroll();
-    const [scrolled, setScrolled] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const { scrolled, handleAnchorClick } = useScroll();
+    const [mobileMenuOpen, toggleMobileMenu, { setOff: closeMobileMenu }] = useToggle(false);
 
     const pathname = usePathname();
     const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
@@ -117,7 +110,7 @@ export default function Header({ t }) {
 
                         <button
                             className="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-[var(--on-surface)]"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            onClick={toggleMobileMenu}
                         >
                             <span className="material-symbols-outlined">
                                 {mobileMenuOpen ? 'close' : 'menu'}
@@ -139,7 +132,7 @@ export default function Header({ t }) {
                                 <a
                                     key={link.name}
                                     href={hash}
-                                    onClick={(e) => handleAnchorClick(e, () => setMobileMenuOpen(false))}
+                                    onClick={(e) => handleAnchorClick(e, closeMobileMenu)}
                                     className="text-2xl font-medium text-[var(--on-surface)] py-2 border-b border-[var(--surface-variant)]"
                                 >
                                     {link.name}
@@ -151,7 +144,7 @@ export default function Header({ t }) {
                             <Link
                                 key={link.name}
                                 href={href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={closeMobileMenu}
                                 className="text-2xl font-medium text-[var(--on-surface)] py-2 border-b border-[var(--surface-variant)]"
                             >
                                 {link.name}
@@ -161,7 +154,7 @@ export default function Header({ t }) {
                     <Link
                         href={`/${lang}/contact`}
                         className="mt-4 flex items-center justify-center w-full py-4 bg-eteq-gradient text-white rounded-2xl font-bold text-lg"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={closeMobileMenu}
                     >
                         {t.header.contact}
                     </Link>
