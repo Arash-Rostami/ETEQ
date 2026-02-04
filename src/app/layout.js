@@ -2,13 +2,20 @@ import BodyFontProvider from "@/components/BodyFontProvider";
 import "@/styles/globals.css";
 
 export const metadata = {
+    metadataBase: new URL('https://eteq.jp'),
     title:  "ETEQ - Senior Engineering Expertise",
     description: "35 Years of Leadership in Sustainability and Operational Excellence",
     keywords: "engineering consulting, sustainability, net zero, pharmaceutical manufacturing, energy optimization",
     authors: [{ name: "Arash Rostami" }],
     icons: {
         icon: "/favicon.ico",
-    }
+    },
+    alternates: {
+        languages: {
+            'en': '/en',
+            'ja': '/ja',
+        },
+    },
 };
 
 export default async function RootLayout({children, params}) {

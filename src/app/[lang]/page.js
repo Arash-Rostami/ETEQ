@@ -15,8 +15,28 @@ export async function generateMetadata({params}) {
     const {lang} = await params;
     const t = await useTranslation(lang);
     return {
-        title: `ETEQ - ${t.hero.title.substring(0, 50)}...`,
+        title: `ETEQ - ${t.hero.title}`,
         description: t.hero.subtitle,
+        alternates: {
+            canonical: `/${lang}`,
+            languages: {
+                'en': '/en',
+                'ja': '/ja',
+            },
+        },
+        openGraph: {
+            title: `ETEQ - ${t.hero.title}`,
+            description: t.hero.subtitle,
+            url: `/${lang}`,
+            siteName: 'ETEQ Engineering',
+            locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `ETEQ - ${t.hero.title}`,
+            description: t.hero.subtitle,
+        },
     };
 }
 

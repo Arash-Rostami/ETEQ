@@ -10,6 +10,26 @@ export async function generateMetadata({ params }) {
     return {
         title: `${t.bioPage.title} - Dariushi Rosutami | ETEQ`,
         description: t.bioPage.subtitle,
+        alternates: {
+            canonical: `/${lang}/bio`,
+            languages: {
+                'en': '/en/bio',
+                'ja': '/ja/bio',
+            },
+        },
+        openGraph: {
+            title: `${t.bioPage.title} - Dariushi Rosutami | ETEQ`,
+            description: t.bioPage.subtitle,
+            url: `/${lang}/bio`,
+            siteName: 'ETEQ Engineering',
+            locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${t.bioPage.title} - Dariushi Rosutami | ETEQ`,
+            description: t.bioPage.subtitle,
+        },
     };
 }
 
@@ -56,7 +76,7 @@ export default async function BioPage({ params }) {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <Image
                                         src="/bio.jpg"
-                                        alt="Profile"
+                                        alt={page.profileAlt}
                                         fill
                                         className="p-4 object-cover opacity-60 rounded-lg"
                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -74,10 +94,10 @@ export default async function BioPage({ params }) {
                             {/* Credentials Card */}
                             <div
                                 className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
-                                <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
+                                <h2 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">verified</span>
                                     Credentials
-                                </h3>
+                                </h2>
                                 <div className="space-y-4">
                                     {t.founder.credentials.map((cred, idx) => (
                                         <div key={idx} className="flex items-center text-[var(--on-surface)]">
@@ -90,10 +110,10 @@ export default async function BioPage({ params }) {
 
                             {/* Languages Card */}
                             <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
-                                <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
+                                <h2 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">language</span>
                                     Language Support
-                                </h3>
+                                </h2>
                                 <div className="space-y-4">
                                     {page.languages.map((lang, idx) => (
                                         <div key={idx}>
@@ -117,7 +137,7 @@ export default async function BioPage({ params }) {
 
                             {/* Specialties Grid */}
                             <div className="pt-8 border-t border-[var(--outline)]/10">
-                                <h3 className="headline-small text-[var(--on-surface)] mb-8">Expertise & Specialties</h3>
+                                <h2 className="headline-small text-[var(--on-surface)] mb-8">Expertise & Specialties</h2>
                                 <div className="grid sm:grid-cols-2 gap-4">
                                     {page.specialties.map((spec, idx) => (
                                         <div key={idx} className="flex items-start p-4 rounded-xl bg-[var(--surface-container)] hover:bg-[var(--primary-container)]/10 transition-colors group">
@@ -132,7 +152,7 @@ export default async function BioPage({ params }) {
                             <div className="mt-16 p-10 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-4)] relative overflow-hidden group">
                                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                                     <div className="text-center md:text-left">
-                                        <h3 className="headline-medium mb-2">Work Directly with Dariushi</h3>
+                                        <h2 className="headline-medium mb-2">Work Directly with Dariushi</h2>
                                         <p className="body-large opacity-90">Leverage 35 years of engineering excellence for your next project.</p>
                                     </div>
                                     <a

@@ -26,10 +26,10 @@ export default function Footer({ t }) {
 
                         {/* Col 1: Logo & Tagline */}
                         <div className="space-y-6">
-                            <div
+                            <h2
                                 className="text-3xl font-bold bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] bg-clip-text text-transparent">
                                 ETEQ
-                            </div>
+                            </h2>
                             <p className="text-gray-400 leading-relaxed max-w-xs">
                                 {t.footer.tagline}
                             </p>
@@ -41,10 +41,11 @@ export default function Footer({ t }) {
                                         e.stopPropagation();
                                         toggleShare();
                                     }}
-                                    className="group w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#FF7F6E] hover:to-[#7B5C9D] transition-all duration-300 border border-white/10 hover:border-transparent hover:scale-110 shadow-lg hover:shadow-[#FF7F6E]/20"
+                                    className="group w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#FF7F6E] hover:to-[#7B5C9D] transition-all duration-300 border border-white/10 hover:border-transparent hover:scale-110 shadow-lg hover:shadow-[#FF7F6E]/20"
+                                    aria-label="Share this page"
                                 >
                                     <span
-                                        className="material-symbols-outlined text-sm group-hover:text-white transition-colors">share</span>
+                                        className="material-symbols-outlined text-xl group-hover:text-white transition-colors">share</span>
                                 </button>
 
                                 {shareOpen && (
@@ -89,10 +90,10 @@ export default function Footer({ t }) {
 
                         {/* Col 2: Quick Links */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6 flex items-center">
+                            <h2 className="text-lg font-bold mb-6 flex items-center">
                                 <span className="material-symbols-outlined mr-2 text-[#FF7F6E] text-xl">link</span>
                                 {t.footer.quickLinks}
-                            </h4>
+                            </h2>
                             <ul className="space-y-3">
                                 {quickLinks.map((link, index) => (
                                     <li key={index}>
@@ -116,11 +117,11 @@ export default function Footer({ t }) {
 
                         {/* Col 3: Contact Info */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6 flex items-center">
+                            <h2 className="text-lg font-bold mb-6 flex items-center">
                                 <span
                                     className="material-symbols-outlined mr-2 text-[#FF7F6E] text-xl">contact_mail</span>
                                 {t.footer.contactInfo}
-                            </h4>
+                            </h2>
                             <ul className="space-y-4">
                                 <li className="flex items-center group">
                                     <div
@@ -154,10 +155,10 @@ export default function Footer({ t }) {
 
                         {/* Col 4: Language & Follow */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6 flex items-center">
+                            <h2 className="text-lg font-bold mb-6 flex items-center">
                                 <span className="material-symbols-outlined mr-2 text-[#FF7F6E] text-xl">language</span>
                                 {t.footer.followUs}
-                            </h4>
+                            </h2>
                             <p className="text-gray-400 text-sm mb-6 italic border-l-2 border-[#FF7F6E]/30 pl-4">
                                 {t.footer.missionStatement}
                             </p>

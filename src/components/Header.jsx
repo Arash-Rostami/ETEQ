@@ -88,13 +88,13 @@ export default function Header({t}) {
                         <div className="relative" ref={contactRef}>
                             <button
                                 onClick={toggleContact}
-                                className={`flex items-center justify-center w-10 h-10 rounded-full border transition-all 
+                                className={`flex items-center justify-center w-12 h-12 rounded-full border transition-all
                                     ${contactOpen
                                     ? 'bg-[var(--primary)] text-[var(--on-primary)] border-[var(--primary)] shadow-[var(--elevation-2)]'
                                     : 'border-[var(--outline)] hover:bg-[var(--surface-variant)] text-[var(--on-surface)]'}`}
                                 aria-label="Quick contact options"
                             >
-                                <span className="material-symbols-outlined text-xl">
+                                <span className="material-symbols-outlined text-2xl">
                                     contact_support
                                 </span>
                             </button>
@@ -147,17 +147,17 @@ export default function Header({t}) {
 
                         <button
                             onClick={toggleTheme}
-                            className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all text-[var(--on-surface)]"
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all text-[var(--on-surface)]"
                             aria-label="Toggle dark mode"
                         >
-                            <span className="material-symbols-outlined text-xl">
+                            <span className="material-symbols-outlined text-2xl">
                                 {isDark ? 'light_mode' : 'dark_mode'}
                             </span>
                         </button>
 
                         <button
                             onClick={toggleLanguage}
-                            className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all label-large text-[var(--on-surface)] font-bold"
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all label-large text-[var(--on-surface)] font-bold"
                             aria-label={lang === 'en' ? 'Switch to Japanese' : 'Switch to English'}
                         >
                             {lang === 'en' ? 'JP' : 'EN'}
@@ -171,10 +171,11 @@ export default function Header({t}) {
                         </Link>
 
                         <button
-                            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-[var(--on-surface)]"
+                            className="md:hidden w-12 h-12 flex items-center justify-center rounded-full text-[var(--on-surface)]"
+                            aria-label="Toggle mobile menu"
                             onClick={toggleMobileMenu}
                         >
-                            <span className="material-symbols-outlined">
+                            <span className="material-symbols-outlined text-2xl">
                                 {mobileMenuOpen ? 'close' : 'menu'}
                             </span>
                         </button>

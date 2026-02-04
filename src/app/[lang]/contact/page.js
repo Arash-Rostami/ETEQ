@@ -10,6 +10,26 @@ export async function generateMetadata({params}) {
     return {
         title: `ETEQ - ${t.contactPage.title}`,
         description: t.contactPage.intro,
+        alternates: {
+            canonical: `/${lang}/contact`,
+            languages: {
+                'en': '/en/contact',
+                'ja': '/ja/contact',
+            },
+        },
+        openGraph: {
+            title: `ETEQ - ${t.contactPage.title}`,
+            description: t.contactPage.intro,
+            url: `/${lang}/contact`,
+            siteName: 'ETEQ Engineering',
+            locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `ETEQ - ${t.contactPage.title}`,
+            description: t.contactPage.intro,
+        },
     };
 }
 
