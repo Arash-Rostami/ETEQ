@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 import { useLingo } from '@/hooks/useLingo';
 import { useScroll } from '@/hooks/useScroll';
 import { useToggle } from '@/hooks/useToggle';
+import { useHeaderContact } from '@/hooks/useHeaderContact';
 
 
 export default function Header({ t }) {
@@ -14,6 +14,7 @@ export default function Header({ t }) {
     const { lang, toggle: toggleLanguage } = useLingo();
     const { scrolled, handleAnchorClick } = useScroll();
     const [mobileMenuOpen, toggleMobileMenu, { setOff: closeMobileMenu }] = useToggle(false);
+    const { isOpen: contactOpen, toggle: toggleContact, close: closeContact, contactRef } = useHeaderContact();
 
     const pathname = usePathname();
     const isHome = pathname === `/${lang}` || pathname === `/${lang}/`;
@@ -83,13 +84,64 @@ export default function Header({ t }) {
                     </nav>
 
                     <div className="flex items-center space-x-2 md:space-x-4">
-                        <a
-                            href={`mailto:${t.header.email}`}
-                            className="hidden lg:flex items-center px-4 py-2 text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors"
-                        >
-                            <span className="material-symbols-outlined mr-2 text-xl">mail</span>
-                            <span className="label-large">{t.header.email}</span>
-                        </a>
+                        {/* Contact Quick Options */}
+                        <div className="relative" ref={contactRef}>
+                            <button
+                                onClick={toggleContact}
+                                className={`flex items-center justify-center w-10 h-10 rounded-full border transition-all
+                                    ${contactOpen
+                                    ? 'bg-[var(--primary)] text-[var(--on-primary)] border-[var(--primary)] shadow-[var(--elevation-2)]'
+                                    : 'border-[var(--outline)] hover:bg-[var(--surface-variant)] text-[var(--on-surface)]'}`}
+                                aria-label="Quick contact options"
+                            >
+                                <span className="material-symbols-outlined text-xl">
+                                    contact_support
+                                </span>
+                            </button>
+
+                            {contactOpen && (
+                                <div
+                                    className="absolute top-full right-0 mt-3 w-56 bg-[#1e2b3a] rounded-2xl border border-white/10 shadow-2xl py-2 animate-scale-in z-[110] overflow-hidden"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <div className="px-4 py-2 border-b border-white/5 mb-1">
+                                        <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                                            {t.header.quickContact}
+                                        </span>
+                                    </div>
+                                    <button
+                                        onClick={() => {
+                                            window.location.href = `mailto:${t.header.email}`;
+                                            closeContact();
+                                        }}
+                                        className="w-full px-4 py-3 text-left text-sm text-gray-200 hover:bg-white/5 transition-all flex items-center group"
+                                    >
+                                        <div className="w-8 h-8 rounded-full bg-[#FF7F6E]/20 text-[#FF7F6E] flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                            <span className="material-symbols-outlined text-sm">mail</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="font-bold text-white">{t.header.sendEmail}</span>
+                                            <span className="text-[10px] text-gray-400">{t.header.email}</span>
+                                        </div>
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            window.location.href = `tel:${t.header.phone.replace(/\s/g, '')}`;
+                                            closeContact();
+                                        }}
+                                        className="w-full px-4 py-3 text-left text-sm text-gray-200 hover:bg-white/5 transition-all flex items-center group"
+                                    >
+                                        <div className="w-8 h-8 rounded-full bg-[#7B5C9D]/20 text-[#7B5C9D] flex items-center justify-center mr-3 group-hover:scale-110 transition-transform">
+                                            <span className="material-symbols-outlined text-sm">call</span>
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="font-bold text-white">{t.header.callUs}</span>
+                                            <span className="text-[10px] text-gray-400">{t.header.phone}</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            )}
+                        </div>
 
                         <button
                             onClick={toggleTheme}

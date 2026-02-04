@@ -6,7 +6,10 @@ export const en = {
         services: "Services",
         about: "About",
         bio: "Bio",
-        industries: "Industries"
+        industries: "Industries",
+        callUs: "Call Us",
+        sendEmail: "Send Email",
+        quickContact: "Quick Contact"
     },
     hero: {
         title: "Senior Engineering Expertise",
