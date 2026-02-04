@@ -11,12 +11,12 @@ export default function TrustBuilders({ t }) {
                     <h2 className="headline-large text-[var(--on-surface)] mb-4">{t.trustBuilders.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full mb-8"></div>
                     <p className="body-large text-[var(--on-surface-variant)]">
-                        Demonstrated impact across sustainability, efficiency, and operational excellence for global manufacturing leaders.
+                        {t.trustBuilders.subtitle}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {stats.map((stat, index) => (
+                {stats.map((stat, index) => (
                         <div
                             key={index}
                             className="group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center animate-fade-in"

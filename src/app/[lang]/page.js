@@ -38,7 +38,7 @@ export default async function HomePage({params}) {
                 <Certifications t={t}/>
                 <FinalCTA t={t}/>
             </div>
-            <Footer t={t} lang={lang}/>
+            <Footer t={t}/>
         </main>
     );
 }

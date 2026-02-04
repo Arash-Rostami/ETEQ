@@ -28,7 +28,7 @@ export default function ServicesPreview({ t }) {
                     <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.services.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient rounded-full mb-6"></div>
                     <p className="body-large text-[var(--on-surface-variant)]">
-                        Strategic engineering solutions and sustainability roadmaps designed to optimize global operations and drive measurable results.
+                        {t.services.subtitle}
                     </p>
                 </div>
             </div>

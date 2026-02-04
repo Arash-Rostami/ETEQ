@@ -24,7 +24,7 @@ export default function Certifications({ t }) {
                             </h3>
                             {cert.year && (
                                 <div className="text-xs text-[var(--on-surface-variant)] font-medium uppercase tracking-[0.2em]">
-                                    Certified {cert.year}
+                                    {t.certifications.certifiedLabel} {cert.year}
                                 </div>
                             )}
                             <div className="mt-4 h-1 w-0 bg-eteq-gradient group-hover:w-full transition-all duration-500 rounded-full"></div>

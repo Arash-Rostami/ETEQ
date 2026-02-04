@@ -51,10 +51,10 @@ export default function FounderSpotlight({ t }) {
                                 </div>
 
                                 <a
-                                    href={`/${lang}/about`}
+                                    href={`/${lang}/bio`}
                                     className="w-fit flex items-center px-8 py-3 bg-[var(--primary)] text-[var(--on-primary)] rounded-full hover:shadow-[var(--elevation-2)] hover:scale-105 active:scale-95 transition-all font-bold label-large"
                                 >
-                                    Learn More About ETEQ
+                                    {t.founder.viewFullBio || 'View Full Bio'}
                                     <span className="material-symbols-outlined ml-2">arrow_forward</span>
                                 </a>
                             </div>

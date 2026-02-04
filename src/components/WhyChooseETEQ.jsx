@@ -33,13 +33,16 @@ export default function WhyChooseETEQ({ t }) {
                     <div className="relative hidden lg:block">
                         <div className="relative z-10 rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-4)] aspect-square max-w-md mx-auto group">
                             <div className="absolute inset-0 bg-eteq-gradient opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                            <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
-                                <div className="w-24 h-24 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8">
-                                    <span className="material-symbols-outlined text-6xl text-white">workspace_premium</span>
+                            <div
+                                className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
+                                <div
+                                    className="w-24 h-24 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8">
+                                    <span
+                                        className="material-symbols-outlined text-6xl text-white">workspace_premium</span>
                                 </div>
-                                <h3 className="headline-large text-white mb-4">Excellence by Design</h3>
+                                <h3 className="headline-large text-white mb-4">{t.whyChoose.visualTitle}</h3>
                                 <p className="body-large text-white/80">
-                                    Driven by data, refined by 35 years of global engineering leadership.
+                                    {t.whyChoose.visualDescription}
                                 </p>
                             </div>
 
