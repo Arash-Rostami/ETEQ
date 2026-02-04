@@ -133,6 +133,15 @@ export default function Footer({ t }) {
                                 </li>
                                 <li className="flex items-center group">
                                     <div
+                                        className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center mr-3 group-hover:bg-[#00B8D4]/20 transition-colors">
+                                        <span className="material-symbols-outlined text-[#00B8D4] text-sm">call</span>
+                                    </div>
+                                    <a href={`tel:${t.header.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">
+                                        {t.header.phone}
+                                    </a>
+                                </li>
+                                <li className="flex items-center group">
+                                    <div
                                         className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center mr-3 group-hover:bg-[#7B5C9D]/20 transition-colors">
                                         <span
                                             className="material-symbols-outlined text-[#7B5C9D] text-sm">location_on</span>

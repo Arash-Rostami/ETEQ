@@ -1,6 +1,7 @@
 export const en = {
     header: {
         email: "info@eteq.jp",
+        phone: "+81 90 9639 1856",
         contact: "Contact",
         services: "Services",
         about: "About",
@@ -254,6 +255,7 @@ export const en = {
             title: "Direct Consultation",
             description: "Work directly with our senior leadership to solve your most complex engineering challenges.",
             email: "Email",
+            phone: "Phone",
             location: "Location",
             response: "Standard response time: within 24 hours"
         }

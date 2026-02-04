@@ -75,13 +75,22 @@ export default function Header({ t }) {
                     </nav>
 
                     <div className="flex items-center space-x-2 md:space-x-4">
-                        <a
-                            href={`mailto:${t.header.email}`}
-                            className="hidden lg:flex items-center px-4 py-2 text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors"
-                        >
-                            <span className="material-symbols-outlined mr-2 text-xl">mail</span>
-                            <span className="label-large">{t.header.email}</span>
-                        </a>
+                        <div className="hidden lg:flex flex-col items-end mr-2">
+                            <a
+                                href={`mailto:${t.header.email}`}
+                                className="flex items-center text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors py-0.5"
+                            >
+                                <span className="material-symbols-outlined mr-2 text-lg">mail</span>
+                                <span className="label-large">{t.header.email}</span>
+                            </a>
+                            <a
+                                href={`tel:${t.header.phone.replace(/\s/g, '')}`}
+                                className="flex items-center text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-colors py-0.5"
+                            >
+                                <span className="material-symbols-outlined mr-2 text-lg">call</span>
+                                <span className="label-large">{t.header.phone}</span>
+                            </a>
+                        </div>
 
                         <button
                             onClick={toggleTheme}

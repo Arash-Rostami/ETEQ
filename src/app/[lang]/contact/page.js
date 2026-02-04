@@ -77,6 +77,18 @@ export default async function ContactPage({ params }) {
                                 </div>
 
                                 <div className="flex items-start space-x-4">
+                                    <div className="w-12 h-12 rounded-2xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center flex-shrink-0">
+                                        <span className="material-symbols-outlined">call</span>
+                                    </div>
+                                    <div>
+                                        <p className="label-large text-[var(--on-surface-variant)] mb-1">{page.info.phone}</p>
+                                        <a href={`tel:${t.header.phone.replace(/\s/g, '')}`} className="headline-small text-[var(--on-surface)] hover:text-[var(--primary)] transition-colors">
+                                            {t.header.phone}
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start space-x-4">
                                     <div className="w-12 h-12 rounded-2xl bg-[var(--secondary-container)] text-[var(--secondary)] flex items-center justify-center flex-shrink-0">
                                         <span className="material-symbols-outlined">location_on</span>
                                     </div>
