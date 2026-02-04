@@ -1,20 +1,26 @@
+'use client';
+
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 export default function Certifications({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const certs = t.certifications.list;
     const icons = ['assignment', 'psychology', 'search_check', 'lock'];
 
     return (
-        <section className="py-24 bg-[var(--surface-container)]">
+        <section ref={ref} className="py-24 bg-[var(--surface-container)]">
             <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+                <div className={`text-center max-w-3xl mx-auto mb-16 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                     <h2 className="headline-large text-[var(--on-surface)] mb-4">{t.certifications.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in delay-200">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {certs.map((cert, index) => (
                         <div
                             key={index}
-                            className="group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20"
+                            className={`group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
+                            style={{ transitionDelay: `${200 + index * 100}ms` }}
                         >
                             <div className="w-12 h-12 rounded-xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <span className="material-symbols-outlined text-2xl">{icons[index] || 'verified'}</span>

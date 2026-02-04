@@ -1,10 +1,15 @@
+'use client';
+
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 export default function ExperienceTimeline({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const events = t.timeline.events;
 
     return (
-        <section className="py-24 bg-[var(--background)] relative overflow-hidden">
+        <section ref={ref} className="py-24 bg-[var(--background)] relative overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto mb-20 animate-slide-up">
+                <div className={`text-center max-w-3xl mx-auto mb-20 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                     <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.timeline.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full mb-6"></div>
                     <p className="body-large text-[var(--on-surface-variant)]">
@@ -17,7 +22,11 @@ export default function ExperienceTimeline({ t }) {
 
                     <div className="space-y-12">
                         {events.map((event, index) => (
-                            <div key={index} className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
+                            <div
+                                key={index}
+                                className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group reveal-hidden ${index % 2 === 0 ? 'reveal-right' : 'reveal-left'} ${isVisible ? 'reveal-visible' : ''}`}
+                                style={{ transitionDelay: `${index * 150}ms` }}
+                            >
                                 <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-[var(--surface)] border-4 border-[var(--primary)] rounded-full -translate-x-1/2 z-10 group-hover:scale-125 transition-transform shadow-[var(--elevation-1)]">
                                     <div className="w-full h-full rounded-full bg-eteq-gradient opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>

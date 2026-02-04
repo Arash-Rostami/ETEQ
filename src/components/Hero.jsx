@@ -1,6 +1,12 @@
+'use client';
+
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 export default function Hero({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+
     return (
-        <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[var(--background)]">
+        <section ref={ref} className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[var(--background)]">
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[var(--color-coral)]/20 rounded-full blur-[120px] animate-pulse"></div>
                 <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-deep-blue)]/20 rounded-full blur-[120px]"></div>
@@ -18,7 +24,7 @@ export default function Hero({ t }) {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="flex flex-col space-y-8 animate-slide-up">
+                    <div className={`flex flex-col space-y-8 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                         <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[var(--primary-container)] text-[var(--on-primary-container)] label-large w-fit border border-[var(--primary)]/10">
                             <span className="w-2 h-2 rounded-full bg-[var(--primary)] mr-2 animate-ping"></span>
                             {t.trustBuilders.stats[3].value} {t.trustBuilders.stats[3].label}
@@ -30,11 +36,11 @@ export default function Hero({ t }) {
                             </span>
                         </h1>
 
-                        <p className="body-large text-[var(--on-surface-variant)] max-w-xl leading-relaxed">
+                        <p className={`body-large text-[var(--on-surface-variant)] max-w-xl leading-relaxed reveal-hidden reveal-up delay-200 ${isVisible ? 'reveal-visible' : ''}`}>
                             {t.hero.subtitle}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div className={`flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 reveal-hidden reveal-up delay-300 ${isVisible ? 'reveal-visible' : ''}`}>
                             <a
                                 href="#services"
                                 className="w-full sm:w-auto px-10 py-4 bg-eteq-gradient text-white rounded-2xl font-bold text-lg shadow-[var(--elevation-3)] hover:shadow-[var(--elevation-4)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center"
@@ -51,7 +57,7 @@ export default function Hero({ t }) {
                         </div>
                     </div>
 
-                    <div className="hidden lg:block relative animate-fade-in delay-300">
+                    <div className={`hidden lg:block relative reveal-hidden reveal-right delay-500 ${isVisible ? 'reveal-visible' : ''}`}>
                         <div className="relative w-full aspect-square max-w-lg mx-auto">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-eteq-gradient rounded-[var(--shape-extra-large)] rotate-6 opacity-20 animate-pulse"></div>
                             <div className="absolute bottom-10 left-0 w-48 h-48 border-4 border-[var(--color-bright-cyan)] rounded-[var(--shape-extra-large)] -rotate-12 opacity-30"></div>

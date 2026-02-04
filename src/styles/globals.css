@@ -239,6 +239,37 @@ a, button {
     animation: scaleIn var(--duration-medium3) var(--easing-emphasized) forwards;
 }
 
+/* Scroll Reveal Animations */
+.reveal-hidden {
+    opacity: 0;
+    transition-property: opacity, transform, filter;
+    transition-duration: 1000ms;
+    transition-timing-function: var(--easing-emphasized);
+    pointer-events: none;
+    filter: blur(4px);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-down { transform: translateY(-40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+/* Staggered Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-1000 { transition-delay: 1000ms; }
+
 /* Hover Effects */
 .hover-elevation-1:hover {
     box-shadow: var(--elevation-1);

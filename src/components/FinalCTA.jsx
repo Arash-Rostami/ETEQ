@@ -1,8 +1,14 @@
+'use client';
+
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 export default function FinalCTA({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+
     return (
-        <section id="contact" className="py-24 bg-[var(--background)]">
+        <section ref={ref} id="contact" className="py-24 bg-[var(--background)]">
             <div className="container mx-auto px-4">
-                <div className="relative overflow-hidden rounded-[var(--shape-extra-large)] bg-eteq-gradient-alt shadow-[var(--elevation-4)] p-12 md:p-24 text-center animate-scale-in">
+                <div className={`relative overflow-hidden rounded-[var(--shape-extra-large)] bg-eteq-gradient-alt shadow-[var(--elevation-4)] p-12 md:p-24 text-center reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                     {/* Background Decorative Circles */}
                     <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
                     <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-black/10 rounded-full blur-2xl"></div>
