@@ -128,6 +128,13 @@ export const ja = {
         rights: "All rights reserved.",
         location: "東京都、日本",
         missionStatement: "戦略的卓越性と持続可能なイノベーションにより産業を強化。",
+        share: {
+            title: "シェア",
+            copyLink: "リンクをコピー",
+            sendEmail: "メールで送信",
+            success: "シェアしました！",
+            copied: "リンクをコピーしました！"
+        },
         privacyPolicy: "プライバシーポリシー",
         privacyPolicyContent: [
             "ETEQエンジニアリングコンサルティングは、お客様のプライバシーを尊重し、個人情報の保護に全力を尽くします。",

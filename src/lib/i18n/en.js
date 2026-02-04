@@ -128,6 +128,13 @@ export const en = {
         rights: "All rights reserved.",
         location: "Tokyo, Japan",
         missionStatement: "Empowering industry through strategic excellence and sustainable innovation.",
+        share: {
+            title: "Share",
+            copyLink: "Copy Link",
+            sendEmail: "Send Email",
+            success: "Shared successfully!",
+            copied: "Link copied to clipboard!"
+        },
         privacyPolicy: "Privacy Policy",
         privacyPolicyContent: [
             "ETEQ Engineering Consultancy values your privacy and is committed to protecting your personal information.",

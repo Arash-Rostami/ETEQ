@@ -319,6 +319,23 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--on-surface-variant);
 }
+
+
+.animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(2px);
+    }
+}
+
 @keyframes marquee {
     0% {
         transform: translateX(0);
@@ -384,3 +401,52 @@ header * {
         margin-right: 60px;
     }
 }
+
+/* globals.css */
+.gradient-text {
+    background-image: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-to));
+}
+
+html.dark .gradient-text {
+    --gradient-from: white;
+    --gradient-to: rgba(255, 255, 255, 0.5);
+    opacity: 0.9;
+}
+
+html:not(.dark) .gradient-text {
+    --gradient-from: var(--color-deep-blue);
+    --gradient-to: var(--color-purple);
+    opacity: 1;
+}
+
+
+/* Scroll Reveal Animations */
+.reveal-hidden {
+    opacity: 0;
+    transition-property: opacity, transform, filter;
+    transition-duration: 1000ms;
+    transition-timing-function: var(--easing-emphasized);
+    pointer-events: none;
+    filter: blur(4px);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+.reveal-up { transform: translateY(40px); }
+.reveal-down { transform: translateY(-40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+
+/* Staggered Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-1000 { transition-delay: 1000ms; }

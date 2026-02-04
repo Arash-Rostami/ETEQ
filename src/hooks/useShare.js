@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 
-export function useShare() {
+export function useShare(t) {
     const [message, setMessage] = useState('');
     const [isOpen, setIsOpen] = useState(false);
 
@@ -28,12 +28,13 @@ export function useShare() {
         try {
             if (method === 'native' && navigator.share) {
                 await navigator.share(shareData);
-                setMessage('Shared successfully!');
+                setMessage(t?.footer?.share?.success || 'Shared successfully!');
             } else if (method === 'copy') {
                 await navigator.clipboard.writeText(`${shareData.text} ${shareUrl}`);
-                setMessage('Link copied to clipboard!');
+                setMessage(t?.footer?.share?.copied || 'Link copied to clipboard!');
             } else if (method === 'email') {
                 window.location.href = `mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodeURIComponent(shareData.text + '\n\n' + shareUrl)}`;
+                return;
             }
         } catch (err) {
             console.log('Share failed', err);
@@ -42,7 +43,7 @@ export function useShare() {
         setTimeout(() => {
             close();
         }, 2000);
-    }, [shareUrl, close]);
+    }, [shareUrl, close, t]);
 
     return {
         isOpen,

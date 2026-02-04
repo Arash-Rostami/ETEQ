@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function ServicesPreview({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const services = t.services.items;
     const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -22,9 +24,9 @@ export default function ServicesPreview({ t }) {
     const marqueeServices = [...services, ...services];
 
     return (
-        <section id="services" className="py-24 bg-[var(--background)] overflow-hidden">
+        <section ref={ref} id="services" className="py-24 bg-[var(--background)] overflow-hidden">
             <div className="container mx-auto px-4 mb-16">
-                <div className="max-w-3xl animate-slide-up">
+                <div className={`max-w-3xl reveal-hidden reveal-left ${isVisible ? 'reveal-visible' : ''}`}>
                     <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.services.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient rounded-full mb-6"></div>
                     <p className="body-large text-[var(--on-surface-variant)]">
@@ -33,7 +35,7 @@ export default function ServicesPreview({ t }) {
                 </div>
             </div>
 
-            <div className="relative marquee-mask">
+            <div className={`relative marquee-mask reveal-hidden reveal-up delay-300 ${isVisible ? 'reveal-visible' : ''}`}>
                 <div className="animate-marquee py-8 items-start">
                     {marqueeServices.map((service, index) => {
                         const originalIndex = index % services.length;

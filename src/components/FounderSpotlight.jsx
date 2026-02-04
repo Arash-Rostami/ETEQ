@@ -1,16 +1,18 @@
 'use client'
 
 import { useLingo } from '@/hooks/useLingo';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function FounderSpotlight({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const { lang } = useLingo();
     const credentials = t.founder.credentials;
 
     return (
-        <section id="about" className="py-24 bg-[var(--background)] relative overflow-hidden">
+        <section ref={ref} id="about" className="py-24 bg-[var(--background)] relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
-                    <div className="relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-3)] overflow-hidden animate-fade-in">
+                    <div className={`relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-3)] overflow-hidden reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                         {/* Gradient Border Accent */}
                         <div className="absolute inset-0 p-px bg-eteq-gradient -z-10 rounded-[var(--shape-extra-large)] opacity-50"></div>
 
@@ -43,7 +45,11 @@ export default function FounderSpotlight({ t }) {
 
                                 <div className="grid sm:grid-cols-2 gap-4 mb-12">
                                     {credentials.map((cred, index) => (
-                                        <div key={index} className="flex items-center space-x-3 bg-[var(--surface-container)] p-4 rounded-xl border border-[var(--outline)]/10 hover:border-[var(--primary)]/30 transition-colors group">
+                                        <div
+                                            key={index}
+                                            className={`flex items-center space-x-3 bg-[var(--surface-container)] p-4 rounded-xl border border-[var(--outline)]/10 hover:border-[var(--primary)]/30 transition-colors group reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
+                                            style={{ transitionDelay: `${400 + index * 100}ms` }}
+                                        >
                                             <span className="material-symbols-outlined text-[var(--primary)] group-hover:scale-110 transition-transform">verified</span>
                                             <span className="label-large text-[var(--on-surface)]">{cred}</span>
                                         </div>

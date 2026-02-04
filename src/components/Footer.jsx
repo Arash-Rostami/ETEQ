@@ -6,8 +6,7 @@ import { useLingo } from '@/hooks/useLingo';
 import Modal from '@/components/Modal';
 
 export default function Footer({ t }) {
-    const { isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share } = useShare();
-    const { lang, toggle: toggleLanguage } = useLingo();
+    const { isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share } = useShare(t);    const { lang, toggle: toggleLanguage } = useLingo();
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
 
@@ -55,8 +54,7 @@ export default function Footer({ t }) {
                                     >
                                         {shareMessage ? (
                                             <div className="px-4 py-3 text-sm text-green-400 flex items-center">
-                                                <span
-                                                    className="material-symbols-outlined text-sm mr-2">check_circle</span>
+                                                <span className="material-symbols-outlined text-sm mr-2">check_circle</span>
                                                 {shareMessage}
                                             </div>
                                         ) : (
@@ -65,25 +63,22 @@ export default function Footer({ t }) {
                                                     onClick={() => share('native')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span
-                                                        className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">share_windows</span>
-                                                    {lang === 'ja' ? 'シェア' : 'Share'}
+                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">share_windows</span>
+                                                    {t.footer.share.title}
                                                 </button>
                                                 <button
                                                     onClick={() => share('copy')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span
-                                                        className="material-symbols-outlined text-sm mr-3 text-[#7B5C9D]">content_copy</span>
-                                                    {lang === 'ja' ? 'リンクをコピー' : 'Copy Link'}
+                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#7B5C9D]">content_copy</span>
+                                                    {t.footer.share.copyLink}
                                                 </button>
                                                 <button
                                                     onClick={() => share('email')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span
-                                                        className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">email</span>
-                                                    {lang === 'ja' ? 'メールで送信' : 'Send Email'}
+                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">email</span>
+                                                    {t.footer.share.sendEmail}
                                                 </button>
                                             </>
                                         )}

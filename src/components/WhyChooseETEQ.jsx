@@ -1,4 +1,9 @@
+'use client';
+
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+
 export default function WhyChooseETEQ({ t }) {
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const points = t.whyChoose.points;
     const icons = [
         'person_check', 'history', 'bolt', 'sync_alt',
@@ -6,17 +11,21 @@ export default function WhyChooseETEQ({ t }) {
     ];
 
     return (
-        <section className="py-24 bg-[var(--surface-container)] overflow-hidden">
+        <section ref={ref} className="py-24 bg-[var(--surface-container)] overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Column: Content */}
-                    <div className="animate-slide-up">
+                    <div className={`reveal-hidden reveal-left ${isVisible ? 'reveal-visible' : ''}`}>
                         <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.whyChoose.title}</h2>
                         <div className="h-1.5 w-24 bg-eteq-gradient rounded-full mb-12"></div>
 
                         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
                             {points.map((point, index) => (
-                                <div key={index} className="flex items-start space-x-4 p-4 rounded-2xl hover:bg-[var(--surface)] transition-all duration-300 group">
+                                <div
+                                    key={index}
+                                    className={`flex items-start space-x-4 p-4 rounded-2xl hover:bg-[var(--surface)] transition-all duration-300 group reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
+                                    style={{ transitionDelay: `${index * 100}ms` }}
+                                >
                                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center group-hover:bg-eteq-gradient group-hover:text-white transition-all">
                                         <span className="material-symbols-outlined text-xl">{icons[index] || 'check'}</span>
                                     </div>
@@ -30,7 +39,7 @@ export default function WhyChooseETEQ({ t }) {
                     </div>
 
                     {/* Right Column: Visual */}
-                    <div className="relative hidden lg:block">
+                    <div className={`relative hidden lg:block reveal-hidden reveal-right delay-500 ${isVisible ? 'reveal-visible' : ''}`}>
                         <div className="relative z-10 rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-4)] aspect-square max-w-md mx-auto group">
                             <div className="absolute inset-0 bg-eteq-gradient opacity-20 group-hover:opacity-30 transition-opacity"></div>
                             <div
