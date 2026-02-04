@@ -4,6 +4,35 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
 
+export async function generateMetadata({params}) {
+    const {lang} = await params;
+    const t = await useTranslation(lang);
+    return {
+        title: `ETEQ - ${t.aboutPage.title}`,
+        description: t.aboutPage.intro,
+        alternates: {
+            canonical: `/${lang}/about`,
+            languages: {
+                'en': '/en/about',
+                'ja': '/ja/about',
+            },
+        },
+        openGraph: {
+            title: `ETEQ - ${t.aboutPage.title}`,
+            description: t.aboutPage.intro,
+            url: `/${lang}/about`,
+            siteName: 'ETEQ Engineering',
+            locale: lang === 'ja' ? 'ja_JP' : 'en_US',
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `ETEQ - ${t.aboutPage.title}`,
+            description: t.aboutPage.intro,
+        },
+    };
+}
+
 export default async function AboutPage({params}) {
     const {lang} = await params;
     const t = await useTranslation(lang);
@@ -66,7 +95,7 @@ export default async function AboutPage({params}) {
                             <div
                                 className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-20 pointer-events-none"></div>
 
-                            <ImageCarousel/>
+                            <ImageCarousel t={t}/>
 
                             <div
                                 className="absolute bottom-6 left-6 right-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 z-30">

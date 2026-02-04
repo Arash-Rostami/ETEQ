@@ -30,7 +30,7 @@ export default function WhyChooseETEQ({ t }) {
                                         <span className="material-symbols-outlined text-xl">{icons[index] || 'check'}</span>
                                     </div>
                                     <div>
-                                        <h4 className="label-large text-[var(--on-surface)] font-bold mb-1">{point.title}</h4>
+                                        <h3 className="label-large text-[var(--on-surface)] font-bold mb-1">{point.title}</h3>
                                         <p className="text-sm text-[var(--on-surface-variant)] leading-snug">{point.description}</p>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@ export default function WhyChooseETEQ({ t }) {
                                     <span
                                         className="material-symbols-outlined text-6xl text-white">workspace_premium</span>
                                 </div>
-                                <h3 className="headline-large text-white mb-4">{t.whyChoose.visualTitle}</h3>
+                                <h2 className="headline-large text-white mb-4">{t.whyChoose.visualTitle}</h2>
                                 <p className="body-large text-white/80">
                                     {t.whyChoose.visualDescription}
                                 </p>

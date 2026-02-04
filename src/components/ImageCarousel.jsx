@@ -1,17 +1,17 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-
-const IMAGES = [
-    { src: '/consultation.png', alt: 'Consultation' },
-    { src: '/aiconsultation.png', alt: 'AI Consultation' },
-    { src: '/aiconsultationside.png', alt: 'AI Consultation Side' },
-]
+import Image from 'next/image'
 
 const DURATION = 5000
 const TRANSITION_MS = 1400
 
-export default function ImageCarousel() {
+export default function ImageCarousel({ t }) {
+    const IMAGES = [
+        { src: '/consultation.png', alt: t?.aboutPage?.carousel?.consultation || 'Consultation' },
+        { src: '/aiconsultation.png', alt: t?.aboutPage?.carousel?.aiConsultation || 'AI Consultation' },
+        { src: '/aiconsultationside.png', alt: t?.aboutPage?.carousel?.aiConsultationSide || 'AI Consultation Side' },
+    ]
     const [active, setActive] = useState(0)
     const [prev, setPrev] = useState(null)
     const [tick, setTick] = useState(0)
@@ -67,19 +67,20 @@ export default function ImageCarousel() {
                         }}
                     >
                         <div
-                            className={isActive ? 'kb' : ''}
+                            className={`relative w-full h-full ${isActive ? 'kb' : ''}`}
                             key={`${tick}-${i}`}
                             style={{
-                                width: '100%',
-                                height: '100%',
                                 transform: hovered && isActive ? 'scale(1.22)' : undefined,
                                 transition: hovered ? 'transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : undefined,
                             }}
                         >
-                            <img
+                            <Image
                                 src={img.src}
                                 alt={img.alt}
-                                className="w-full h-full object-cover"
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                priority={i === 0}
+                                className="object-cover"
                                 style={{
                                     filter: hovered && isActive ? 'brightness(1.08) saturate(1.15)' : 'brightness(1) saturate(1)',
                                     transition: 'filter 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',

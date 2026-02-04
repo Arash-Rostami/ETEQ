@@ -198,7 +198,8 @@ export const en = {
             { name: "English", level: "" },
             { name: "French", level: "" },
             { name: "German", level: "" }
-        ]
+        ],
+        profileAlt: "Dariushi Rosutami - Senior Engineering Consultant"
     },
     aboutPage: {
         title: "About ETEQ",
@@ -232,6 +233,11 @@ export const en = {
             description: "With deep expertise spanning engineering strategy, Net Zero implementation, energy optimization, CAPEX planning, workplace safety, and regulatory compliance (GMP, FDA, ISO, food safety), ETEQ delivers data-driven solutions that transform operational performance while advancing environmental responsibility.",
             closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively.",
             cta: "Discuss Your Project"
+        },
+        carousel: {
+            consultation: "Engineering Consultation Session",
+            aiConsultation: "AI-Driven Engineering Analysis",
+            aiConsultationSide: "Strategic Planning Workshop"
         }
     },
     contactPage: {

@@ -38,6 +38,7 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
                     <button
                         onClick={onClose}
                         className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                        aria-label={lang === 'ja' ? '閉じる' : 'Close'}
                     >
                         <span className="material-symbols-outlined text-gray-400 hover:text-white">close</span>
                     </button>

@@ -24,14 +24,14 @@ export default function FounderSpotlight({ t }) {
                                     <div
                                         className="w-48 h-48 rounded-full bg-[var(--surface)] shadow-[var(--elevation-2)] mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-white/50">
                                         <video
-                                            src="/eteq.mp4"
+                                            src={isVisible ? "/eteq.mp4" : ""}
                                             autoPlay
                                             loop
                                             muted
                                             playsInline
                                             preload="none"
-                                            className="w-full h-full object-cover lazy-video"
-                                            data-src="/eteq.mp4"
+                                            className="w-full h-full object-cover"
+                                            aria-label={t.founder.name}
                                         />
                                     </div>
                                     <div className="headline-small text-[var(--on-surface)] mb-1">{t.founder.name}</div>

@@ -129,6 +129,8 @@ html {
 
 [data-lang="ja"] {
     font-family: var(--font-noto);
+    line-height: 1.7;
+    letter-spacing: 0.02em;
 }
 
 .display-large {
@@ -139,8 +141,9 @@ html {
 }
 
 [data-lang="ja"] .display-large {
-    font-size: 48px;
-    line-height: 56px;
+    font-size: clamp(40px, 8vw, 48px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
 .display-medium {
@@ -151,8 +154,8 @@ html {
 }
 
 [data-lang="ja"] .display-medium {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: clamp(32px, 6vw, 40px);
+    line-height: 1.3;
 }
 
 .headline-large {
@@ -164,7 +167,7 @@ html {
 
 [data-lang="ja"] .headline-large {
     font-size: 28px;
-    line-height: 36px;
+    line-height: 1.4;
 }
 
 .headline-small {
@@ -176,7 +179,7 @@ html {
 
 [data-lang="ja"] .headline-small {
     font-size: 22px;
-    line-height: 28px;
+    line-height: 1.5;
 }
 
 .body-large {
@@ -184,6 +187,12 @@ html {
     line-height: 24px;
     letter-spacing: 0.5px;
     font-weight: 400;
+}
+
+[data-lang="ja"] .body-large {
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
 }
 
 .label-large {
