@@ -29,6 +29,7 @@ export default function Hero({t}) {
                     className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-deep-blue)]/20 rounded-full blur-[120px]"></div>
                 <div
                     className="absolute top-[20%] left-[20%] w-[40%] h-[40%] bg-[var(--color-purple)]/10 rounded-full blur-[100px]"></div>
+
             </div>
 
             <svg className="absolute inset-0 w-full h-full opacity-[0.03] z-0" viewBox="0 0 100 100"
@@ -90,7 +91,7 @@ export default function Hero({t}) {
                                 className="absolute inset-4 bg-white/10 dark:bg-black/10 backdrop-blur-xl border border-white/20 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-4)] flex items-center justify-center overflow-hidden group">
                                 <div className="p-8 text-center">
                                     <div
-                                        className="text-6xl font-black bg-clip-text text-transparent mb-4 gradient-text">
+                                        className="text-6xl font-black bg-clip-text text-transparent mb-4 gradient-text text-shadow-drop-center">
                                         ETEQ
                                     </div>
                                     <div
@@ -101,11 +102,12 @@ export default function Hero({t}) {
                                     {[...Array(5)].map((_, i) => (
                                         <div
                                             key={i}
-                                            className="absolute bg-white/50 h-px"
+                                            className="absolute h-0.5"
                                             style={{
                                                 top: `${20 * i}%`,
                                                 left: 0,
                                                 width: '100%',
+                                                backgroundColor: 'var(--line-color)',
                                                 transform: `translateX(${i % 2 === 0 ? '-100%' : '100%'})`,
                                                 animation: `slideLeftRight ${5 + i}s linear infinite alternate`
                                             }}
@@ -147,15 +149,6 @@ export default function Hero({t}) {
                     </div>
                 </button>
             </div>
-
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @keyframes slideLeftRight {
-                    from { transform: translateX(-100%); }
-                    to { transform: translateX(100%); }
-                }
-            `
-            }}/>
         </section>
     );
 }

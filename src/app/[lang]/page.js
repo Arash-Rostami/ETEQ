@@ -36,7 +36,7 @@ export default async function HomePage({params}) {
                 <IndustriesServed t={t}/>
                 <ExperienceTimeline t={t}/>
                 <Certifications t={t}/>
-                <FinalCTA t={t}/>
+                <FinalCTA t={t} lang={lang}/>
             </div>
             <Footer t={t}/>
         </main>

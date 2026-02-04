@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useExpansion } from '@/hooks/useExpansion';
 
 export default function ServicesPreview({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
     const services = t.services.items;
-    const [expandedIndex, setExpandedIndex] = useState(null);
+    const { expandedIndex, toggleExpand, isExpanded } = useExpansion();
 
     const gradients = [
         'from-[var(--color-coral)] to-[var(--color-purple)]',
@@ -16,11 +16,6 @@ export default function ServicesPreview({ t }) {
         'from-[var(--color-coral)] to-[var(--color-deep-blue)]'
     ];
     const icons = ['engineering', 'eco', 'bolt', 'factory', 'health_and_safety'];
-
-    const toggleExpand = (originalIndex) => {
-        setExpandedIndex(expandedIndex === originalIndex ? null : originalIndex);
-    };
-
     const marqueeServices = [...services, ...services];
 
     return (
@@ -39,12 +34,12 @@ export default function ServicesPreview({ t }) {
                 <div className="animate-marquee py-8 items-start">
                     {marqueeServices.map((service, index) => {
                         const originalIndex = index % services.length;
-                        const isExpanded = expandedIndex === originalIndex;
+                        const expanded = isExpanded(originalIndex);
 
                         return (
                             <div
                                 key={index}
-                                className={`flex-shrink-0 mx-4 w-[280px] sm:w-[350px] md:w-[420px] transition-all duration-500 ease-emphasized group relative bg-[var(--surface-container)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] flex flex-col ${isExpanded ? 'h-auto' : 'h-[460px]'}`}
+                                className={`flex-shrink-0 mx-4 w-[280px] sm:w-[350px] md:w-[420px] transition-all duration-500 ease-emphasized group relative bg-[var(--surface-container)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] flex flex-col ${expanded ? 'h-auto' : 'h-[460px]'}`}
                             >
                                 {/* Top Gradient Accent Bar */}
                                 <div className={`h-2 w-[95%] mx-auto bg-gradient-to-r ${gradients[originalIndex]} rounded-t-[var(--shape-extra-large)]`}></div>
@@ -63,11 +58,11 @@ export default function ServicesPreview({ t }) {
                                     </h3>
 
                                     {/* Description Container */}
-                                    <div className={`overflow-hidden transition-all duration-500 ${isExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                                    <div className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                                         <p className="body-large text-[var(--on-surface-variant)] leading-relaxed mb-4">
                                             {service.summary}
                                         </p>
-                                        {isExpanded && (
+                                        {expanded && (
                                             <p className="body-large text-[var(--on-surface-variant)] leading-relaxed animate-fade-in pb-4">
                                                 {service.fullDescription}
                                             </p>
@@ -80,9 +75,9 @@ export default function ServicesPreview({ t }) {
                                             onClick={() => toggleExpand(originalIndex)}
                                             className="flex items-center text-[var(--primary)] font-bold label-large group/btn hover:opacity-80 transition-opacity"
                                         >
-                                            {isExpanded ? (t.services.showLess || 'Show Less') : (t.services.learnMore || 'Learn More')}
-                                            <span className={`material-symbols-outlined ml-2 text-xl transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'group-hover/btn:translate-x-1'}`}>
-                                                {isExpanded ? 'expand_less' : 'expand_more'}
+                                            {expanded ? (t.services.showLess || 'Show Less') : (t.services.learnMore || 'Learn More')}
+                                            <span className={`material-symbols-outlined ml-2 text-xl transition-transform duration-300 ${expanded ? 'rotate-180' : 'group-hover/btn:translate-x-1'}`}>
+                                                {expanded ? 'expand_less' : 'expand_more'}
                                             </span>
                                         </button>
                                     </div>

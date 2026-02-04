@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import { useTranslation } from "@/lib/i18n/useTranslation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
 
 export async function generateMetadata({ params }) {
     const { lang } = await params;
@@ -27,8 +29,6 @@ export default async function BioPage({ params }) {
                         <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
                             <a href={`/${lang}`} className="hover:underline">Home</a>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
-                            <a href={`/${lang}/about`} className="hover:underline">About</a>
-                            <span className="material-symbols-outlined text-sm">chevron_right</span>
                             <span>{page.title}</span>
                         </nav>
                         <h1 className="display-large text-[var(--on-surface)] mb-4">
@@ -49,20 +49,31 @@ export default async function BioPage({ params }) {
                     <div className="grid lg:grid-cols-12 gap-16">
                         {/* Sidebar: Image & Quick Info */}
                         <div className="lg:col-span-4 space-y-8 animate-slide-up">
-                            <div className="relative aspect-[4/5] rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-3)] group bg-[var(--surface-variant)]">
-                                <div className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-10"></div>
+                            <div
+                                className="relative aspect-[4/5] rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-3)] group bg-[var(--surface-variant)]">
+                                <div
+                                    className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-10"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-[120px] text-[var(--outline)] opacity-30">person</span>
+                                    <Image
+                                        src="/bio.jpg"
+                                        alt="Profile"
+                                        fill
+                                        className="p-4 object-cover opacity-60 rounded-lg"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                 </div>
                                 {/* Label overlay */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent z-20">
+                                <div
+                                    className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent z-20">
                                     <p className="text-white font-bold label-large">Dariushi Rosutami</p>
-                                    <p className="text-white/80 text-xs uppercase tracking-widest">Founder & Lead Consultant</p>
+                                    <p className="text-white/80 text-xs uppercase tracking-widest">Founder & Lead
+                                        Consultant</p>
                                 </div>
                             </div>
 
                             {/* Credentials Card */}
-                            <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
+                            <div
+                                className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
                                 <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">verified</span>
                                     Credentials

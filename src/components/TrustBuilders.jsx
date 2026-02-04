@@ -3,9 +3,16 @@
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function TrustBuilders({ t }) {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.2 });
     const stats = t.trustBuilders.stats;
     const marqueeStats = [...stats, ...stats];
+    const gradients = [
+        'from-[var(--color-coral)] to-[var(--color-purple)]',
+        'from-[var(--color-purple)] to-[var(--color-deep-blue)]',
+        'from-[var(--color-bright-cyan)] to-[var(--color-deep-blue)]',
+        'from-[var(--color-vibrant-green)] to-[var(--color-dark-green)]',
+        'from-[var(--color-coral)] to-[var(--color-deep-blue)]'
+    ];
 
     return (
         <section ref={ref} className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
@@ -26,7 +33,8 @@ export default function TrustBuilders({ t }) {
                             key={index}
                             className="flex-shrink-0 mx-4 w-[240px] md:w-[300px] group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:bg-eteq-gradient group-hover:text-white transition-all duration-500 shadow-sm">
+                            <div
+                                className="w-14 h-14 rounded-2xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:bg-eteq-gradient group-hover:text-white transition-all duration-500 shadow-sm">
                                 <span className="material-symbols-outlined text-3xl">
                                     {stat.icon || 'analytics'}
                                 </span>
@@ -37,12 +45,14 @@ export default function TrustBuilders({ t }) {
                             <div className="label-large text-[var(--on-surface-variant)] font-medium">
                                 {stat.label}
                             </div>
+                            <div
+                                className={`w-[95%] mx-auto bg-gradient-to-r ${gradients[index]} rounded-t-[var(--shape-extra-large)]`}></div>
                         </div>
+
                     ))}
                 </div>
             </div>
 
-            {/* Background Decorative Element */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--color-purple)]/5 rounded-full blur-[80px]"></div>
         </section>
     );

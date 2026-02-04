@@ -1,9 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-export default function FinalCTA({ t }) {
+export default function FinalCTA({ t, lang }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+    const router = useRouter();
 
     return (
         <section ref={ref} id="contact" className="py-24 bg-[var(--background)]">
@@ -21,11 +23,16 @@ export default function FinalCTA({ t }) {
                             {t.cta.subtitle}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                            <button className="w-full sm:w-auto px-10 py-4 bg-white text-[var(--primary)] rounded-full font-bold text-lg shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-3)] hover:scale-105 active:scale-95 transition-all">
+                        <div
+                            className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                            <button
+                                onClick={() => router.push(`/${lang}/contact`)}
+                                className="w-full sm:w-auto px-10 py-4 bg-white text-[var(--primary)] rounded-full font-bold text-lg shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-3)] hover:scale-105 active:scale-95 transition-all"
+                            >
                                 {t.cta.cta1}
                             </button>
-                            <button className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                            <button
+                                className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
                                 {t.cta.cta2}
                             </button>
                         </div>

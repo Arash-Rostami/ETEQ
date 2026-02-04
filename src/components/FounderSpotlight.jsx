@@ -9,7 +9,7 @@ export default function FounderSpotlight({ t }) {
     const credentials = t.founder.credentials;
 
     return (
-        <section ref={ref} id="about" className="py-24 bg-[var(--background)] relative overflow-hidden">
+        <section ref={ref} id="bio" className="py-24 bg-[var(--background)] relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     <div className={`relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-3)] overflow-hidden reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
@@ -21,20 +21,32 @@ export default function FounderSpotlight({ t }) {
                             <div className="relative bg-[var(--surface-variant)] min-h-[400px] flex items-center justify-center group overflow-hidden">
                                 <div className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
                                 <div className="relative z-10 text-center p-8">
-                                    <div className="w-48 h-48 rounded-full bg-[var(--surface)] shadow-[var(--elevation-2)] mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-white/50">
-                                        <span className="material-symbols-outlined text-8xl text-[var(--outline)]">person</span>
+                                    <div
+                                        className="w-48 h-48 rounded-full bg-[var(--surface)] shadow-[var(--elevation-2)] mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-white/50">
+                                        <video
+                                            src="/eteq.mp4"
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            preload="none"
+                                            className="w-full h-full object-cover lazy-video"
+                                            data-src="/eteq.mp4"
+                                        />
                                     </div>
                                     <div className="headline-small text-[var(--on-surface)] mb-1">{t.founder.name}</div>
-                                    <div className="label-large text-[var(--primary)] font-bold tracking-widest uppercase">{t.founder.role}</div>
+                                    <div
+                                        className="label-large text-[var(--primary)] font-bold tracking-widest uppercase">{t.founder.role}</div>
                                 </div>
 
                                 {/* Background Abstract Element */}
-                                <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+                                <div
+                                    className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
                             </div>
 
                             {/* Right: Content */}
                             <div className="p-10 lg:p-16 flex flex-col justify-center">
-                                <h2 className="headline-large text-[var(--on-surface)] mb-8 flex items-center">
+                            <h2 className="headline-large text-[var(--on-surface)] mb-8 flex items-center">
                                     <span className="material-symbols-outlined mr-4 text-4xl text-[var(--primary)]">format_quote</span>
                                     {t.founder.title}
                                 </h2>

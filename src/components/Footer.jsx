@@ -15,7 +15,7 @@ export default function Footer({ t }) {
         { href: "#about", label: t.header.about, icon: "info" },
         { href: `/${lang}/bio`, label: t.header.bio, icon: "person" },
         { href: "#industries", label: t.header.industries, icon: "factory" },
-        { href: "#contact", label: t.header.contact, icon: "mail" }
+        { href: `/${lang}/contact`, label: t.header.contact, icon: "mail" }
     ];
 
     return (
@@ -129,6 +129,16 @@ export default function Footer({ t }) {
                                     </div>
                                     <a href={`mailto:${t.header.email}`} className="hover:text-white transition-colors">
                                         {t.header.email}
+                                    </a>
+                                </li>
+                                <li className="flex items-center group">
+                                    <div
+                                        className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center mr-3 group-hover:bg-[#00B8D4]/20 transition-colors">
+                                        <span className="material-symbols-outlined text-[#00B8D4] text-sm">call</span>
+                                    </div>
+                                    <a href={`tel:${t.header.phone.replace(/\s/g, '')}`}
+                                       className="hover:text-white transition-colors">
+                                        {t.header.phone}
                                     </a>
                                 </li>
                                 <li className="flex items-center group">

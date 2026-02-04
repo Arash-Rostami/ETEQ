@@ -1,6 +1,7 @@
 export const en = {
     header: {
         email: "info@eteq.jp",
+        phone: "+81 90 9639 1856",
         contact: "Contact",
         services: "Services",
         about: "About",
@@ -229,6 +230,38 @@ export const en = {
             description: "With deep expertise spanning engineering strategy, Net Zero implementation, energy optimization, CAPEX planning, workplace safety, and regulatory compliance (GMP, FDA, ISO, food safety), ETEQ delivers data-driven solutions that transform operational performance while advancing environmental responsibility.",
             closing: "Whether developing Net Zero roadmaps, optimizing facility performance, achieving regulatory compliance, or building engineering capabilities, ETEQ provides the senior-level expertise and personalized guidance needed to achieve excellence—efficiently and effectively.",
             cta: "Discuss Your Project"
+        }
+    },
+    contactPage: {
+        title: "Contact Us",
+        subtitle: "Direct Access to Engineering Excellence",
+        intro: "Whether you're looking to optimize energy efficiency, develop a Net Zero roadmap, or transform your operational performance, we're here to help. Reach out directly to discuss your specific challenges.",
+        form: {
+            name: "Full Name",
+            title: "Subject / Project Title",
+            contactInfo: "Email or Phone Number",
+            message: "Your Message",
+            submit: "Send Message",
+            sending: "Sending...",
+            success: "Thank you! Your message has been sent successfully.",
+            sendAnother: "Send Another Message",
+            error: "Something went wrong. Please try again later.",
+            validation: {
+                required: "This field is required",
+                invalidContact: "Please enter a valid email or phone number"
+            }
+        },
+        trustBadge: {
+            years: "35+ Years",
+            description: "Of senior engineering leadership delivered directly to you."
+        },
+        info: {
+            title: "Direct Consultation",
+            description: "Work directly with our senior leadership to solve your most complex engineering challenges.",
+            email: "Email",
+            location: "Location",
+            phone: "Phone",
+            response: "Standard response time: within 24 hours"
         }
     }
 };
