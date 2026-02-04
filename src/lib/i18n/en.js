@@ -6,7 +6,9 @@ export const en = {
         services: "Services",
         about: "About",
         bio: "Bio",
-        industries: "Industries"
+        industries: "Industries",
+        callUs: "Call Us",
+        sendEmail: "Send Email"
     },
     hero: {
         title: "Senior Engineering Expertise",
@@ -192,10 +194,10 @@ export const en = {
             "Robotic Process Automation (RPA)"
         ],
         languages: [
-            { name: "Japanese", level: "Native (Kanji Proficiency Level 2)" },
-            { name: "English", level: "Business" },
-            { name: "French", level: "Conversational" },
-            { name: "German", level: "Basic" }
+            { name: "Japanese", level: "" },
+            { name: "English", level: "" },
+            { name: "French", level: "" },
+            { name: "German", level: "" }
         ]
     },
     aboutPage: {

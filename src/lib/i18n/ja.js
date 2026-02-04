@@ -6,7 +6,9 @@ export const ja = {
         services: "サービス",
         about: "当社について",
         bio: "経歴",
-        industries: "業界"
+        industries: "業界",
+        callUs: "お電話",
+        sendEmail: "メールを送信"
     },
     hero: {
         title: "シニアエンジニアリングの専門知識",
@@ -192,10 +194,10 @@ export const ja = {
             "ロボティック・プロセス・オートメーション (RPA)"
         ],
         languages: [
-            { name: "日本語", level: "ネイティブ（漢字能力検定2級）" },
-            { name: "英語", level: "ビジネス" },
-            { name: "フランス語", level: "日常会話" },
-            { name: "ドイツ語", level: "初級" }
+            { name: "日本語", level: "" },
+            { name: "英語", level: "" },
+            { name: "フランス語", level: "" },
+            { name: "ドイツ語", level: "" }
         ]
     },
     aboutPage: {

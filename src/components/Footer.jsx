@@ -200,9 +200,10 @@ export default function Footer({ t }) {
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[10px] text-gray-500 uppercase tracking-[0.3em]">Engineering Excellence</span>
-                                    <p className="text-sm text-gray-400">
+                                    <p className="text-sm text-gray-400 cursor-help"
+                                       title="designed and developed by A. Rostami">
                                         © {new Date().getFullYear()} <span
-                                        className="text-gray-300 group-hover:text-white transition-colors">ETEQ</span>. {t.footer.rights}
+                                        className="font-semibold bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:via-white group-hover:to-blue-400 transition-all duration-300">ETEQ</span> - {t.footer.rights}
                                     </p>
                                 </div>
                             </div>

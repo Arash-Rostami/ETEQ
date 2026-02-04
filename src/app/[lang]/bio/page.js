@@ -92,7 +92,7 @@ export default async function BioPage({ params }) {
                             <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
                                 <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">language</span>
-                                    Languages
+                                    Language Support
                                 </h3>
                                 <div className="space-y-4">
                                     {page.languages.map((lang, idx) => (
