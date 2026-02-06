@@ -1,26 +1,27 @@
 'use client';
 
-import { useState } from 'react';
-import { useShare } from '@/hooks/useShare';
-import { useLingo } from '@/hooks/useLingo';
+import {useState} from 'react';
+import {useShare} from '@/hooks/useShare';
+import {useLingo} from '@/hooks/useLingo';
 import Modal from '@/components/Modal';
 
-export default function Footer({ t }) {
-    const { isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share } = useShare(t);    const { lang, toggle: toggleLanguage } = useLingo();
+export default function Footer({t}) {
+    const {isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share} = useShare(t);
+    const {lang, toggle: toggleLanguage} = useLingo();
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
 
     const quickLinks = [
-        { href: "#services", label: t.header.services, icon: "engineering" },
-        { href: "#about", label: t.header.about, icon: "info" },
-        { href: `/${lang}/bio`, label: t.header.bio, icon: "person" },
-        { href: "#industries", label: t.header.industries, icon: "factory" },
-        { href: `/${lang}/contact`, label: t.header.contact, icon: "mail" }
+        {href: "#services", label: t.header.services, icon: "engineering"},
+        {href: "#about", label: t.header.about, icon: "info"},
+        {href: `/${lang}/bio`, label: t.header.bio, icon: "person"},
+        {href: "#industries", label: t.header.industries, icon: "factory"},
+        {href: `/${lang}/contact`, label: t.header.contact, icon: "mail"}
     ];
 
     return (
         <>
-            <footer className="bg-[#2C3E50] text-white pt-20 pb-10">
+            <footer className="bg-eteq-gradient-footer text-white pt-20 pb-10">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
@@ -49,12 +50,18 @@ export default function Footer({ t }) {
 
                                 {shareOpen && (
                                     <div
-                                        className="absolute bottom-full left-0 mb-2 w-48 bg-[#1e2b3a] rounded-xl border border-white/10 shadow-2xl py-2 animate-fade-in"
+                                        className="absolute bottom-full left-0 mb-2 w-48 rounded-[var(--shape-large)] border border-white/10 py-2 animate-fade-in"
+                                        style={{
+                                            backgroundColor: 'var(--custom-color)',
+                                            boxShadow: 'var(--elevation-5)'
+                                        }}
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         {shareMessage ? (
-                                            <div className="px-4 py-3 text-sm text-green-400 flex items-center">
-                                                <span className="material-symbols-outlined text-sm mr-2">check_circle</span>
+                                            <div className="px-4 py-3 text-sm flex items-center"
+                                                 style={{color: 'var(--color-vibrant-green)'}}>
+                                                <span
+                                                    className="material-symbols-outlined text-sm mr-2">check_circle</span>
                                                 {shareMessage}
                                             </div>
                                         ) : (
@@ -63,21 +70,24 @@ export default function Footer({ t }) {
                                                     onClick={() => share('native')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">share_windows</span>
+                                                    <span className="material-symbols-outlined text-sm mr-3"
+                                                          style={{color: 'var(--color-coral)'}}>share_windows</span>
                                                     {t.footer.share.title}
                                                 </button>
                                                 <button
                                                     onClick={() => share('copy')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#7B5C9D]">content_copy</span>
+                                                    <span className="material-symbols-outlined text-sm mr-3"
+                                                          style={{color: 'var(--color-purple)'}}>content_copy</span>
                                                     {t.footer.share.copyLink}
                                                 </button>
                                                 <button
                                                     onClick={() => share('email')}
                                                     className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3 text-[#FF7F6E]">email</span>
+                                                    <span className="material-symbols-outlined text-sm mr-3"
+                                                          style={{color: 'var(--color-coral)'}}>email</span>
                                                     {t.footer.share.sendEmail}
                                                 </button>
                                             </>
@@ -198,21 +208,37 @@ export default function Footer({ t }) {
                                     className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF7F6E] to-[#7B5C9D] flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-105 transition-transform">
                                     E
                                 </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[10px] text-gray-500 uppercase tracking-[0.3em]">Engineering Excellence</span>
-                                    <p className="text-sm text-gray-400 cursor-help"
-                                       title="designed and developed by A. Rostami">
-                                        © {new Date().getFullYear()} <span
-                                        className="font-semibold bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:via-white group-hover:to-blue-400 transition-all duration-300">ETEQ</span> - {t.footer.rights}
+                                <div className="flex flex-col gap-1">
+                                    <span className="text-[10px] text-gray-500 uppercase tracking-[0.3em] font-light">Engineering Excellence</span>
+                                    <p className="text-sm text-gray-400">
+                                        © {new Date().getFullYear()}
+                                        <span
+                                            className="inline-flex items-baseline gap-1.5 mx-1.5 px-2 py-0.5 rounded bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700/50 group-hover:border-blue-500/50 transition-all duration-500">
+                                            <span
+                                                className="font-bold bg-gradient-to-br from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-pulse">ETEQ</span>
+                                            <span className="text-[8px] text-blue-400/60 font-mono">v1.0</span>
+                                        </span>
+                                        {t.footer.rights}
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="hidden lg:flex space-x-2">
-                                {[...Array(3)].map((_, i) => (
-                                    <div key={i}
-                                         className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#FF7F6E] transition-colors duration-300"></div>
-                                ))}
+                            <div className="hidden lg:flex flex-col items-center space-y-2 relative top-4">
+                                <div className="flex space-x-2">
+                                    {[...Array(3)].map((_, i) => (
+                                        <div key={i}
+                                             className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-[#FF7F6E] transition-colors duration-300"></div>
+                                    ))}
+                                </div>
+                                <p className="text-[10px] text-gray-500 font-mono tracking-wide group cursor-help"
+                                   title="Crafted with precision">
+                                    <span className="opacity-60">{'<'}</span>
+                                    <span
+                                        className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent group-hover:from-purple-300 group-hover:via-pink-300 group-hover:to-blue-300 transition-all duration-700 font-semibold">
+                                        A. Rostami
+                                    </span>
+                                    <span className="opacity-60">{' />'}</span>
+                                </p>
                             </div>
 
                             <div className="flex space-x-4">
@@ -221,14 +247,16 @@ export default function Footer({ t }) {
                                     className="group relative px-6 py-2.5 text-sm text-gray-400 overflow-hidden rounded-full border border-white/10 hover:border-[#FF7F6E]/30 transition-colors duration-300 hover:text-white"
                                 >
                                     <span className="relative z-10">{t.footer.privacyPolicy}</span>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#FF7F6E]/0 via-[#FF7F6E]/10 to-[#FF7F6E]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-[#FF7F6E]/0 via-[#FF7F6E]/10 to-[#FF7F6E]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                 </button>
                                 <button
                                     onClick={() => setShowTerms(true)}
                                     className="group relative px-6 py-2.5 text-sm text-gray-400 overflow-hidden rounded-full border border-white/10 hover:border-[#7B5C9D]/30 transition-colors duration-300 hover:text-white"
                                 >
                                     <span className="relative z-10">{t.footer.termsOfService}</span>
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#7B5C9D]/0 via-[#7B5C9D]/10 to-[#7B5C9D]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-[#7B5C9D]/0 via-[#7B5C9D]/10 to-[#7B5C9D]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                                 </button>
                             </div>
                         </div>

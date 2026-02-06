@@ -22,6 +22,7 @@ export default function Certifications({ t }) {
                             className={`group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
                             style={{ transitionDelay: `${200 + index * 100}ms` }}
                         >
+
                             <div className="w-12 h-12 rounded-xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <span className="material-symbols-outlined text-2xl">{icons[index] || 'verified'}</span>
                             </div>

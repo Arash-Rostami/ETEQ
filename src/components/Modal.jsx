@@ -28,11 +28,11 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
                 onClick={onClose}
             ></div>
 
-            <div className="relative bg-[#1e2b3a] w-full max-w-2xl max-h-[80vh] rounded-2xl border border-white/10 shadow-2xl animate-slide-up overflow-hidden flex flex-col">
+            <div className="relative bg-[var(--custom-color)] w-full max-w-2xl max-h-[80vh] rounded-[var(--shape-extra-large)] border border-white/10 shadow-[var(--elevation-5)] animate-slide-up overflow-hidden flex flex-col">
                 {/* Header */}
-                <div className="sticky top-0 bg-[#1e2b3a] border-b border-white/10 px-6 py-4 flex items-center justify-between shrink-0">
+                <div className="sticky top-0 bg-[var(--custom-color)] border-b border-white/10 px-6 py-4 flex items-center justify-between shrink-0">
                     <h3 className="text-xl font-bold text-white flex items-center">
-                        <span className="material-symbols-outlined mr-2 text-[#FF7F6E]">policy</span>
+                        <span className="material-symbols-outlined mr-2 text-[var(--color-coral)]">policy</span>
                         {title}
                     </h3>
                     <button
@@ -61,10 +61,10 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
                 </div>
 
                 {/* Footer */}
-                <div className="sticky bottom-0 bg-[#1e2b3a] border-t border-white/10 px-6 py-4 flex justify-end shrink-0">
+                <div className="sticky bottom-0 bg-[var(--custom-color)] border-t border-white/10 px-6 py-4 flex justify-end shrink-0">
                     <button
                         onClick={onClose}
-                        className="px-6 py-2 rounded-full bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] text-white font-medium hover:shadow-lg hover:shadow-[#FF7F6E]/20 transition-all"
+                        className="px-6 py-2 rounded-full bg-eteq-gradient text-white font-medium hover:shadow-lg hover:shadow-[var(--color-coral)]/20 transition-all"
                     >
                         {lang === 'ja' ? '閉じる' : 'Close'}
                     </button>

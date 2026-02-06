@@ -101,7 +101,7 @@ export default function Header({t}) {
 
                             {contactOpen && (
                                 <div
-                                    className="absolute top-full right-0 mt-3 w-56 bg-[#1e2b3a] rounded-2xl border border-white/10 shadow-2xl py-2 animate-scale-in z-[110] overflow-hidden"
+                                    className="absolute top-full right-0 mt-3 w-56 bg-[var(--custom-color)] rounded-2xl border border-white/10 shadow-2xl py-2 animate-scale-in z-[110] overflow-hidden"
                                     onClick={(e) => e.stopPropagation()}
                                 >
                                     <div className="px-4 py-2 border-b border-white/5 mb-1">

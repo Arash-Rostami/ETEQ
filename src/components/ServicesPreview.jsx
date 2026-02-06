@@ -1,20 +1,15 @@
 'use client';
 
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { useExpansion } from '@/hooks/useExpansion';
+import {useIntersectionObserver} from '@/hooks/useIntersectionObserver';
+import {useExpansion} from '@/hooks/useExpansion';
+import {colors} from '@/contexts/colors'
 
-export default function ServicesPreview({ t }) {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+export default function ServicesPreview({t}) {
+    const [ref, isVisible] = useIntersectionObserver({threshold: 0.1});
     const services = t.services.items;
-    const { expandedIndex, toggleExpand, isExpanded } = useExpansion();
+    const {expandedIndex, toggleExpand, isExpanded} = useExpansion();
+    const gradients = colors.gradients;
 
-    const gradients = [
-        'from-[var(--color-coral)] to-[var(--color-purple)]',
-        'from-[var(--color-purple)] to-[var(--color-deep-blue)]',
-        'from-[var(--color-bright-cyan)] to-[var(--color-deep-blue)]',
-        'from-[var(--color-vibrant-green)] to-[var(--color-dark-green)]',
-        'from-[var(--color-coral)] to-[var(--color-deep-blue)]'
-    ];
     const icons = ['engineering', 'eco', 'bolt', 'factory', 'health_and_safety'];
     const marqueeServices = [...services, ...services];
 
@@ -30,7 +25,8 @@ export default function ServicesPreview({ t }) {
                 </div>
             </div>
 
-            <div className={`relative marquee-mask reveal-hidden reveal-up delay-300 ${isVisible ? 'reveal-visible' : ''}`}>
+            <div
+                className={`relative marquee-mask reveal-hidden reveal-up delay-300 ${isVisible ? 'reveal-visible' : ''}`}>
                 <div className="animate-marquee py-8 items-start">
                     {marqueeServices.map((service, index) => {
                         const originalIndex = index % services.length;
@@ -39,18 +35,28 @@ export default function ServicesPreview({ t }) {
                         return (
                             <div
                                 key={index}
-                                className={`flex-shrink-0 mx-4 w-[280px] sm:w-[350px] md:w-[420px] transition-all duration-500 ease-emphasized group relative bg-[var(--surface-container)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] flex flex-col ${expanded ? 'h-auto' : 'h-[460px]'}`}
+                                className={`flex-shrink-0 mx-4 w-[280px] sm:w-[350px] md:w-[420px] transition-all duration-500 ease-emphasized group/card relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-4)] flex flex-col overflow-hidden ${expanded ? 'h-auto' : 'h-[480px]'}`}
                             >
-                                {/* Top Gradient Accent Bar */}
-                                <div className={`h-2 w-[95%] mx-auto bg-gradient-to-r ${gradients[originalIndex]} rounded-t-[var(--shape-extra-large)]`}></div>
+                                {/* Refined Gradient Accent - now with subtle shimmer */}
+                                <div className={`h-[3px] w-full bg-gradient-to-r ${gradients[originalIndex]} shimmer-accent opacity-90 group-hover/card:opacity-100`}></div>
 
-                                <div className="p-8 md:p-10 flex flex-col h-full">
+                                {/* Top accent line - matches TrustBuilders style */}
+                                <div className="absolute top-[3px] left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[var(--outline)] opacity-0 group-hover/card:w-16 group-hover/card:opacity-40 transition-all duration-500"></div>
+
+                                <div className="p-8 md:p-10 flex flex-col h-full relative">
                                     {/* Icon Container */}
-                                    <div className="w-16 h-16 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                                        <span className={`material-symbols-outlined text-4xl bg-gradient-to-br ${gradients[originalIndex]} bg-clip-text text-transparent`}>
+                                    <div
+                                        className="relative w-16 h-16 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mb-8 overflow-hidden group-hover/card:scale-110 transition-transform duration-500">
+                                        {/* Subtle inner shimmer on hover */}
+                                        <div
+                                            className={`absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${gradients[originalIndex]} shimmer-accent`}
+                                            style={{animationDuration: '2s'}}></div>
+                                        <span
+                                            className={`material-symbols-outlined text-4xl bg-gradient-to-br bg-clip-text relative z-10`}>
                                             {icons[originalIndex]}
                                         </span>
                                     </div>
+
 
                                     {/* Title */}
                                     <h3 className="headline-small text-[var(--on-surface)] mb-4 group-hover:text-[var(--primary)] transition-colors min-h-[64px] flex items-center">
@@ -58,7 +64,8 @@ export default function ServicesPreview({ t }) {
                                     </h3>
 
                                     {/* Description Container */}
-                                    <div className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                                    <div
+                                        className={`overflow-hidden transition-all duration-500 ${expanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                                         <p className="body-large text-[var(--on-surface-variant)] leading-relaxed mb-4">
                                             {service.summary}
                                         </p>
@@ -69,6 +76,7 @@ export default function ServicesPreview({ t }) {
                                         )}
                                     </div>
 
+
                                     {/* Action Button */}
                                     <div className="mt-auto pt-6">
                                         <button
@@ -76,7 +84,8 @@ export default function ServicesPreview({ t }) {
                                             className="flex items-center text-[var(--primary)] font-bold label-large group/btn hover:opacity-80 transition-opacity"
                                         >
                                             {expanded ? (t.services.showLess || 'Show Less') : (t.services.learnMore || 'Learn More')}
-                                            <span className={`material-symbols-outlined ml-2 text-xl transition-transform duration-300 ${expanded ? 'rotate-180' : 'group-hover/btn:translate-x-1'}`}>
+                                            <span
+                                                className={`material-symbols-outlined ml-2 text-xl transition-transform duration-300 ${expanded ? 'rotate-180' : 'group-hover/btn:translate-x-1'}`}>
                                                 {expanded ? 'expand_less' : 'expand_more'}
                                             </span>
                                         </button>
@@ -84,7 +93,8 @@ export default function ServicesPreview({ t }) {
                                 </div>
 
                                 {/* Background Decorative Icon */}
-                                <span className="absolute -bottom-8 -right-8 material-symbols-outlined text-[140px] opacity-[0.03] group-hover:opacity-[0.05] transition-opacity pointer-events-none">
+                                <span
+                                    className="absolute -bottom-8 -right-8 material-symbols-outlined text-[140px] opacity-[0.03] group-hover:opacity-[0.05] transition-opacity pointer-events-none">
                                     {icons[originalIndex]}
                                 </span>
                             </div>
