@@ -4,6 +4,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
 
+export async function generateMetadata({params}) {
+    const {lang} = await params;
+    const t = await useTranslation(lang);
+    return {
+        title: `ETEQ | ${t.aboutPage.title}`,
+        description: t.aboutPage.intro,
+    };
+}
+
 export default async function AboutPage({params}) {
     const {lang} = await params;
     const t = await useTranslation(lang);
@@ -15,7 +24,7 @@ export default async function AboutPage({params}) {
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl animate-slide-up">
+                    <div className="max-w-4xl animate-reveal-up">
                         <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
                             <Link href={`/${lang}`} className="hover:underline">Home</Link>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
@@ -39,7 +48,7 @@ export default async function AboutPage({params}) {
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="animate-slide-up">
+                        <div className="animate-reveal-up">
                             <h2 className="headline-large text-[var(--on-surface)] mb-6">{page.founderTitle}</h2>
                             <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
                                 {page.founderContext}
@@ -62,7 +71,7 @@ export default async function AboutPage({params}) {
                             </div>
                         </div>
                         <div
-                            className="relative rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-3)] aspect-video group animate-fade-in">
+                            className="relative rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-3)] aspect-video group animate-reveal-right delay-300">
                             <div
                                 className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-20 pointer-events-none"></div>
 
@@ -82,7 +91,7 @@ export default async function AboutPage({params}) {
 
             <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-slide-up">
+                    <div className="text-center max-w-3xl mx-auto mb-16 animate-reveal-up">
                         <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.results.title}</h2>
                         <p className="body-large text-[var(--on-surface-variant)] italic">
                             {page.results.subtitle}
@@ -93,8 +102,8 @@ export default async function AboutPage({params}) {
                         {t.trustBuilders.stats.map((stat, index) => (
                             <div
                                 key={index}
-                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-fade-in"
-                                style={{animationDelay: `${index * 50}ms`}}
+                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-reveal-up"
+                                style={{animationDelay: `${index * 100}ms`}}
                             >
                                 <div
                                     className="w-12 h-12 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -120,7 +129,7 @@ export default async function AboutPage({params}) {
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
-                        <div className="mb-16 animate-slide-up">
+                        <div className="mb-16 animate-reveal-up">
                             <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.differentiation.title}</h2>
                             <p className="body-large text-[var(--on-surface-variant)] text-lg">
                                 {page.differentiation.subtitle}
@@ -131,7 +140,7 @@ export default async function AboutPage({params}) {
                             {page.differentiation.points.map((point, index) => (
                                 <div
                                     key={index}
-                                    className="relative p-10 rounded-[var(--shape-extra-large)] bg-[var(--surface)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] hover:-translate-y-2 transition-all duration-500 group animate-fade-in overflow-hidden"
+                                    className="relative p-10 rounded-[var(--shape-extra-large)] bg-[var(--surface)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] hover:-translate-y-2 transition-all duration-500 group animate-reveal-up overflow-hidden"
                                     style={{animationDelay: `${index * 150}ms`}}
                                 >
                                     {/* Hover Gradient Overlay */}
@@ -169,7 +178,7 @@ export default async function AboutPage({params}) {
 
             <section className="py-24 bg-[var(--primary)] text-[var(--on-primary)] relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center animate-slide-up">
+                    <div className="max-w-4xl mx-auto text-center animate-reveal-up">
                         <span className="material-symbols-outlined text-6xl mb-8 opacity-50">engineering</span>
                         <h2 className="display-medium mb-8">
                             {page.expertise.title}
