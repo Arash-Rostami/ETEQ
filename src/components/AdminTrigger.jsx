@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 import AdminModal from '@/components/AdminModal';
+import {useTranslation} from "@/lib/i18n/useTranslation";
 
-export default function AdminTrigger({ lang, t }) {
+export default  function AdminTrigger({lang}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const t = useTranslation(lang);
 
     return (
         <>
@@ -13,9 +15,10 @@ export default function AdminTrigger({ lang, t }) {
                     onClick={() => setIsModalOpen(true)}
                     className="flex items-center space-x-2 text-[var(--on-surface-variant)] opacity-30 hover:opacity-100 transition-all duration-500 hover:text-[var(--primary)] group"
                 >
-                    <span className="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">lock_person</span>
+                    <span
+                        className="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">lock_person</span>
                     <span className="label-small uppercase tracking-widest">
-                        {t?.logout === 'Logout' ? 'Admin' : '管理者'}
+                        {lang === 'en' ? 'Admin' : '管理者'}
                     </span>
                 </button>
             </div>
@@ -24,6 +27,7 @@ export default function AdminTrigger({ lang, t }) {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 lang={lang}
+                t={t}
             />
         </>
     );

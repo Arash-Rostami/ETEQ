@@ -1,25 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { verifyAdminKey } from '@/services/actions';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/navigation';
+import {useAdminAuth} from '@/hooks/useAdminAuth';
 
-import { useTranslation } from '@/lib/i18n/useTranslation';
-
-export default function AdminModal({ isOpen, onClose, lang }) {
+export default function AdminModal({isOpen, onClose, lang, t}) {
     const [key, setKey] = useState('');
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [t, setT] = useState(null);
+    const [isProcessing, setIsProcessing] = useState(false);
     const router = useRouter();
+    const {verifyKey} = useAdminAuth();
 
-    useEffect(() => {
-        const loadT = async () => {
-            const translations = await useTranslation(lang);
-            setT(translations.admin);
-        };
-        loadT();
-    }, [lang]);
 
     useEffect(() => {
         const handleEsc = (e) => {
@@ -41,20 +32,18 @@ export default function AdminModal({ isOpen, onClose, lang }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        setIsProcessing(true);
         setError(false);
 
-        const isValid = await verifyAdminKey(key);
+        const isValid = await verifyKey(key);
 
         if (isValid) {
-            const expiry = new Date().getTime() + 3600000; // 1 hour
-            localStorage.setItem('admin_key', JSON.stringify({ key, expiry }));
             router.push(`/${lang}/admin/contact`);
             onClose();
         } else {
             setError(true);
         }
-        setLoading(false);
+        setIsProcessing(false);
     };
 
     if (!isOpen) return null;
@@ -66,7 +55,8 @@ export default function AdminModal({ isOpen, onClose, lang }) {
                 onClick={onClose}
             ></div>
 
-            <div className="relative bg-[var(--surface)] w-full max-w-md rounded-[var(--shape-extra-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-5)] animate-scale-in overflow-hidden flex flex-col">
+            <div
+                className="relative bg-[var(--surface)] w-full max-w-md rounded-[var(--shape-extra-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-5)] animate-scale-in overflow-hidden flex flex-col">
                 {/* Header */}
                 <div className="bg-[var(--primary-container)] px-6 py-4 flex items-center justify-between shrink-0">
                     <h3 className="text-xl font-bold text-[var(--on-primary-container)] flex items-center">
@@ -98,7 +88,8 @@ export default function AdminModal({ isOpen, onClose, lang }) {
                                 autoFocus
                                 className={`w-full px-4 py-3 rounded-[var(--shape-medium)] bg-[var(--surface-container)] border ${error ? 'border-[var(--error)]' : 'border-[var(--outline)]/20'} focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] outline-none transition-all body-large text-[var(--on-surface)]`}
                             />
-                            <span className="absolute right-3 top-3 material-symbols-outlined text-[var(--on-surface-variant)]">
+                            <span
+                                className="absolute right-3 top-3 material-symbols-outlined text-[var(--on-surface-variant)]">
                                 key
                             </span>
                         </div>
@@ -120,13 +111,16 @@ export default function AdminModal({ isOpen, onClose, lang }) {
                         </button>
                         <button
                             type="submit"
-                            disabled={loading || !key}
+                            disabled={isProcessing || !key}
                             className="px-8 py-2 rounded-full bg-[var(--primary)] text-[var(--on-primary)] font-medium hover:shadow-[var(--elevation-2)] transition-all disabled:opacity-50 flex items-center"
                         >
-                            {loading ? (
-                                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            {isProcessing ? (
+                                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                            strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor"
+                                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
                             ) : (
                                 t?.login || 'Login'
