@@ -18,15 +18,22 @@ export default function AdminTrigger({ lang }) {
 
     return (
         <>
-            <div className="mt-12 pt-8 border-t border-[var(--outline)]/10 flex justify-center">
+            <div className="mt-16 flex justify-center">
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="flex items-center space-x-2 text-[var(--on-surface-variant)] opacity-30 hover:opacity-100 transition-all duration-500 hover:text-[var(--primary)] group"
+                    className="group relative flex items-center space-x-3 px-6 py-3 rounded-full border border-[var(--outline)]/10 hover:border-[var(--primary)]/30 text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-all duration-500 overflow-hidden"
                 >
-                    <span className="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">lock_person</span>
-                    <span className="label-small uppercase tracking-widest">
+                    {/* Hover Gradient Background */}
+                    <div className="absolute inset-0 bg-eteq-gradient opacity-0 group-hover:opacity-[0.03] transition-opacity"></div>
+
+                    <span className="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform duration-500">
+                        admin_panel_settings
+                    </span>
+                    <span className="label-large uppercase tracking-[0.2em] font-bold">
                         {t?.title ? (lang === 'ja' ? '管理者' : 'Admin') : ''}
                     </span>
+
+                    <div className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </button>
             </div>
 

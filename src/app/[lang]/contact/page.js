@@ -122,10 +122,11 @@ export default async function ContactPage({params}) {
                                     to you.</p>
                             </div>
 
-                            {/* Admin Access Trigger */}
-                            <AdminTrigger lang={lang} />
                         </div>
                     </div>
+
+                    {/* Admin Access Trigger */}
+                    <AdminTrigger lang={lang} />
                 </div>
             </section>
             {/* Additional Professional Section - Proven Results Preview */}
