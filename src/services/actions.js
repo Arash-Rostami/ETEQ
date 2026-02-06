@@ -30,3 +30,37 @@ export async function submitContactForm(formData) {
         return {success: false, error: 'Failed to save message'};
     }
 }
+
+export async function verifyAdminKey(key) {
+    return key === process.env.ADMIN_SECRET_KEY;
+}
+
+export async function getContacts(key) {
+    if (!await verifyAdminKey(key)) {
+        return {success: false, error: 'Unauthorized'};
+    }
+
+    try {
+        await connectDB();
+        const contacts = await Contact.find({}).sort({createdAt: -1});
+        return {success: true, data: JSON.parse(JSON.stringify(contacts))};
+    } catch (error) {
+        console.error('Database Error:', error);
+        return {success: false, error: 'Failed to fetch contacts'};
+    }
+}
+
+export async function deleteContact(key, id) {
+    if (!await verifyAdminKey(key)) {
+        return {success: false, error: 'Unauthorized'};
+    }
+
+    try {
+        await connectDB();
+        await Contact.findByIdAndDelete(id);
+        return {success: true};
+    } catch (error) {
+        console.error('Database Error:', error);
+        return {success: false, error: 'Failed to delete contact'};
+    }
+}
