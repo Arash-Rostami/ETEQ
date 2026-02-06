@@ -24,19 +24,19 @@ export default async function AboutPage({params}) {
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl animate-reveal-up">
-                        <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
+                    <div className="max-w-4xl">
+                        <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8 animate-reveal-up">
                             <Link href={`/${lang}`} className="hover:underline">Home</Link>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
                             <span>{page.title}</span>
                         </nav>
-                        <h1 className="display-large text-[var(--on-surface)] mb-8">
+                        <h1 className="display-large text-[var(--on-surface)] mb-8 animate-reveal-up delay-100">
                             {page.title}
                         </h1>
-                        <p className="body-large text-[var(--on-surface-variant)] text-xl leading-relaxed mb-12">
+                        <p className="body-large text-[var(--on-surface-variant)] text-xl leading-relaxed mb-12 animate-reveal-up delay-200">
                             {page.intro}
                         </p>
-                        <div className="h-1 bg-eteq-gradient w-32 rounded-full"></div>
+                        <div className="h-1 bg-eteq-gradient w-32 rounded-full animate-reveal-up delay-300"></div>
                     </div>
                 </div>
                 <div
@@ -48,12 +48,12 @@ export default async function AboutPage({params}) {
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="animate-reveal-up">
-                            <h2 className="headline-large text-[var(--on-surface)] mb-6">{page.founderTitle}</h2>
-                            <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
+                        <div>
+                            <h2 className="headline-large text-[var(--on-surface)] mb-6 animate-reveal-up">{page.founderTitle}</h2>
+                            <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed animate-reveal-up delay-100">
                                 {page.founderContext}
                             </p>
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6 animate-reveal-up delay-200">
                                 <div className="flex items-center">
                                     <span className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
                                     <div>
@@ -91,9 +91,9 @@ export default async function AboutPage({params}) {
 
             <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-reveal-up">
-                        <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.results.title}</h2>
-                        <p className="body-large text-[var(--on-surface-variant)] italic">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="display-medium text-[var(--on-surface)] mb-4 animate-reveal-up">{page.results.title}</h2>
+                        <p className="body-large text-[var(--on-surface-variant)] italic animate-reveal-up delay-100">
                             {page.results.subtitle}
                         </p>
                     </div>
@@ -129,9 +129,9 @@ export default async function AboutPage({params}) {
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">
                     <div className="max-w-6xl mx-auto">
-                        <div className="mb-16 animate-reveal-up">
-                            <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.differentiation.title}</h2>
-                            <p className="body-large text-[var(--on-surface-variant)] text-lg">
+                        <div className="mb-16">
+                            <h2 className="display-medium text-[var(--on-surface)] mb-4 animate-reveal-up">{page.differentiation.title}</h2>
+                            <p className="body-large text-[var(--on-surface-variant)] text-lg animate-reveal-up delay-100">
                                 {page.differentiation.subtitle}
                             </p>
                         </div>
@@ -178,27 +178,31 @@ export default async function AboutPage({params}) {
 
             <section className="py-24 bg-[var(--primary)] text-[var(--on-primary)] relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center animate-reveal-up">
-                        <span className="material-symbols-outlined text-6xl mb-8 opacity-50">engineering</span>
-                        <h2 className="display-medium mb-8">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <div className="animate-reveal-up">
+                            <span className="material-symbols-outlined text-6xl mb-8 opacity-50">engineering</span>
+                        </div>
+                        <h2 className="display-medium mb-8 animate-reveal-up delay-100">
                             {page.expertise.title}
                         </h2>
-                        <p className="body-large text-xl leading-relaxed mb-12 opacity-90">
+                        <p className="body-large text-xl leading-relaxed mb-12 opacity-90 animate-reveal-up delay-200">
                             {page.expertise.description}
                         </p>
                         <div
-                            className="p-10 rounded-[var(--shape-extra-large)] bg-white/10 backdrop-blur-md border border-white/20 mb-12">
+                            className="p-10 rounded-[var(--shape-extra-large)] bg-white/10 backdrop-blur-md border border-white/20 mb-12 animate-reveal-up delay-300">
                             <p className="body-large text-lg italic leading-relaxed">
                                 "{page.expertise.closing}"
                             </p>
                         </div>
-                        <Link
-                            href={`/${lang}/contact`}
-                            className="inline-flex items-center px-10 py-4 bg-white text-[var(--primary)] rounded-full hover:shadow-[var(--elevation-4)] hover:scale-105 active:scale-95 transition-all font-bold text-lg"
-                        >
-                            {page.expertise.cta}
-                            <span className="material-symbols-outlined ml-2">arrow_forward</span>
-                        </Link>
+                        <div className="animate-reveal-up delay-400">
+                            <Link
+                                href={`/${lang}/contact`}
+                                className="inline-flex items-center px-10 py-4 bg-white text-[var(--primary)] rounded-full hover:shadow-[var(--elevation-4)] hover:scale-105 active:scale-95 transition-all font-bold text-lg"
+                            >
+                                {page.expertise.cta}
+                                <span className="material-symbols-outlined ml-2">arrow_forward</span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full bg-eteq-gradient opacity-10"></div>

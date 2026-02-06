@@ -25,19 +25,19 @@ export default async function BioPage({ params }) {
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl animate-reveal-up">
-                        <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
+                    <div className="max-w-4xl">
+                        <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8 animate-reveal-up">
                             <a href={`/${lang}`} className="hover:underline">Home</a>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
                             <span>{page.title}</span>
                         </nav>
-                        <h1 className="display-large text-[var(--on-surface)] mb-4">
+                        <h1 className="display-large text-[var(--on-surface)] mb-4 animate-reveal-up delay-100">
                             Dariushi Rosutami
                         </h1>
-                        <p className="headline-small text-[var(--primary)] font-medium mb-8">
+                        <p className="headline-small text-[var(--primary)] font-medium mb-8 animate-reveal-up delay-200">
                             {page.subtitle}
                         </p>
-                        <div className="h-1 bg-eteq-gradient w-32 rounded-full"></div>
+                        <div className="h-1 bg-eteq-gradient w-32 rounded-full animate-reveal-up delay-300"></div>
                     </div>
                 </div>
                 {/* Decorative background */}
