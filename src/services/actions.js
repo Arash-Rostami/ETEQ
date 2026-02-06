@@ -2,6 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
+import { sendContactEmail } from '@/services/email';
 
 export async function submitContactForm(formData) {
     const name = formData.get('name');
@@ -10,16 +11,8 @@ export async function submitContactForm(formData) {
     const message = formData.get('message');
     const lang = formData.get('lang') || 'en';
 
-    console.log('--- New Contact Form Submission ---');
-    console.log(`Name: ${name}`);
-    console.log(`Title/Subject: ${title}`);
-    console.log(`Contact Info: ${contactInfo}`);
-    console.log(`Message: ${message}`);
-    console.log(`Language: ${lang}`);
-    console.log('------------------------------------');
-
     try {
-        const messagesDir = path.join(process.cwd(), 'messages');
+        const messagesDir = path.join(process.cwd(), 'public', 'messages');
         await fs.mkdir(messagesDir, { recursive: true });
 
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -39,11 +32,14 @@ export async function submitContactForm(formData) {
 ${message}
         `.trim();
 
-        await fs.writeFile(filepath, content, 'utf8');
+        await Promise.all([
+            fs.writeFile(filepath, content, 'utf8'),
+            sendContactEmail({ name, title, contactInfo, message })
+        ]);
 
         return { success: true };
     } catch (error) {
-        console.error('Error saving message:', error);
-        return { success: false, error: 'Failed to save message' };
+        console.error('Error processing submission:', error);
+        return { success: false, error: 'Failed to process submission' };
     }
 }
