@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { verifyAdminKey } from '@/services/actions';
 import { useTranslation } from '@/lib/i18n/useTranslation';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import Modal from './Modal';
 
 export default function AdminModal({ isOpen, onClose, lang }) {
@@ -12,6 +12,7 @@ export default function AdminModal({ isOpen, onClose, lang }) {
     const [loading, setLoading] = useState(false);
     const [t, setT] = useState(null);
     const router = useRouter();
+    const { login } = useAdminAuth();
 
     useEffect(() => {
         const loadT = async () => {
@@ -33,11 +34,9 @@ export default function AdminModal({ isOpen, onClose, lang }) {
         setLoading(true);
         setError(false);
 
-        const isValid = await verifyAdminKey(key);
+        const success = await login(key);
 
-        if (isValid) {
-            const expiry = new Date().getTime() + 3600000; // 1 hour
-            localStorage.setItem('admin_key', JSON.stringify({ key, expiry }));
+        if (success) {
             router.push(`/${lang}/admin/contact`);
             onClose();
         } else {

@@ -3,9 +3,10 @@
 import { useState, useEffect } from 'react';
 import AdminModal from './AdminModal';
 import { useTranslation } from '@/lib/i18n/useTranslation';
+import { useToggle } from '@/hooks/useToggle';
 
 export default function AdminTrigger({ lang }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, toggleModal, { setOff: closeModal }] = useToggle(false);
     const [t, setT] = useState(null);
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function AdminTrigger({ lang }) {
         <>
             <div className="mt-16 flex justify-center">
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={toggleModal}
                     className="group relative flex items-center space-x-3 px-6 py-3 rounded-full border border-[var(--outline)]/10 hover:border-[var(--primary)]/30 text-[var(--on-surface-variant)] hover:text-[var(--primary)] transition-all duration-500 overflow-hidden"
                 >
                     {/* Hover Gradient Background */}
@@ -39,7 +40,7 @@ export default function AdminTrigger({ lang }) {
 
             <AdminModal
                 isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                onClose={closeModal}
                 lang={lang}
             />
         </>
