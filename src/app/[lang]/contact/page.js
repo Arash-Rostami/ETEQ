@@ -153,8 +153,10 @@ export default async function ContactPage({params}) {
                     </div>
                 </div>
             </section>
+
             {/* Admin Access Trigger */}
-            <AdminTrigger lang={lang} />
+            <AdminTrigger lang={lang} t={t} />
+
             <Footer t={t} lang={lang}/>
         </main>
     );
