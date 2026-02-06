@@ -8,7 +8,7 @@ export async function generateMetadata({params}) {
     const {lang} = await params;
     const t = await useTranslation(lang);
     return {
-        title: `ETEQ - ${t.contactPage.title}`,
+        title: `ETEQ | ${t.contactPage.title}`,
         description: t.contactPage.intro,
     };
 }
@@ -25,7 +25,7 @@ export default async function ContactPage({params}) {
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl animate-slide-up">
+                    <div className="max-w-4xl animate-reveal-up">
                         <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
                             <Link href={`/${lang}`} className="hover:underline">Home</Link>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
@@ -52,12 +52,12 @@ export default async function ContactPage({params}) {
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-3 gap-16">
                         {/* Form Column */}
-                        <div className="lg:col-span-2 animate-slide-up">
+                        <div className="lg:col-span-2 animate-reveal-up delay-200">
                             <ContactForm t={t} lang={lang}/>
                         </div>
 
                         {/* Info Column */}
-                        <div className="space-y-12 animate-slide-up delay-200">
+                        <div className="space-y-12 animate-reveal-up delay-300">
                             <div>
                                 <h2 className="headline-large text-[var(--on-surface)] mb-6">{page.info.title}</h2>
                                 <p className="body-large text-[var(--on-surface-variant)] leading-relaxed">
@@ -66,7 +66,7 @@ export default async function ContactPage({params}) {
                             </div>
 
                             <div className="space-y-8">
-                                <div className="flex items-start space-x-4">
+                                <div className="flex items-start space-x-4 animate-reveal-up delay-400">
                                     <div
                                         className="w-12 h-12 rounded-2xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center flex-shrink-0">
                                         <span className="material-symbols-outlined">mail</span>
@@ -80,7 +80,7 @@ export default async function ContactPage({params}) {
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-4">
+                                <div className="flex items-start space-x-4 animate-reveal-up delay-500">
                                     <div
                                         className="w-12 h-12 rounded-2xl bg-[var(--tertiary-container)] text-[var(--primary)] flex items-center justify-center flex-shrink-0">
                                         <span className="material-symbols-outlined">call</span>
@@ -94,7 +94,7 @@ export default async function ContactPage({params}) {
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-4">
+                                <div className="flex items-start space-x-4 animate-reveal-up delay-700">
                                     <div
                                         className="w-12 h-12 rounded-2xl bg-[var(--secondary-container)] text-[var(--secondary)] flex items-center justify-center flex-shrink-0">
                                         <span className="material-symbols-outlined">location_on</span>
@@ -114,7 +114,7 @@ export default async function ContactPage({params}) {
 
                             {/* Trust Badge / Stat Highlight */}
                             <div
-                                className="p-8 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-3)]">
+                                className="p-8 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-3)] animate-reveal-up delay-1000">
                                 <span className="material-symbols-outlined text-4xl mb-4">verified</span>
                                 <p className="headline-small font-bold mb-2">35+ Years</p>
                                 <p className="body-large opacity-90">Of senior engineering leadership delivered directly
@@ -136,7 +136,7 @@ export default async function ContactPage({params}) {
                         {t.trustBuilders.stats.slice(0, 6).map((stat, index) => (
                             <div
                                 key={index}
-                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] text-center animate-fade-in"
+                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] text-center animate-reveal-up"
                                 style={{animationDelay: `${index * 100}ms`}}
                             >
                                 <div className="text-[var(--primary)] mb-2">

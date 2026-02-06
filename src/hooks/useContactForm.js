@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { submitContactForm } from '@/services/actions';
+import {useState} from 'react';
+import {submitContactForm} from '@/services/actions';
 
 export function useContactForm(lang) {
     const [status, setStatus] = useState('idle');
@@ -30,18 +30,18 @@ export function useContactForm(lang) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData(event.target);
+        const form = event.currentTarget;
+        const formData = new FormData(form);
         formData.append('lang', lang);
 
         if (!validate(formData)) return;
-
-        setStatus('███░░ loading ...');
+        setStatus('loading');
 
         try {
             const result = await submitContactForm(formData);
             if (result.success) {
                 setStatus('success');
-                event.target.reset();
+                form.reset();
             } else {
                 setStatus('error');
             }

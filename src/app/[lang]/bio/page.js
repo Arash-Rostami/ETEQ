@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
     const { lang } = await params;
     const t = await useTranslation(lang);
     return {
-        title: `${t.bioPage.title} - Dariushi Rosutami | ETEQ`,
+        title: `ETEQ | ${t.bioPage.title} - Dariushi Rosutami`,
         description: t.bioPage.subtitle,
     };
 }
@@ -25,7 +25,7 @@ export default async function BioPage({ params }) {
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl animate-slide-up">
+                    <div className="max-w-4xl animate-reveal-up">
                         <nav className="flex items-center space-x-2 text-[var(--primary)] label-large mb-8">
                             <a href={`/${lang}`} className="hover:underline">Home</a>
                             <span className="material-symbols-outlined text-sm">chevron_right</span>
@@ -48,7 +48,7 @@ export default async function BioPage({ params }) {
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-12 gap-16">
                         {/* Sidebar: Image & Quick Info */}
-                        <div className="lg:col-span-4 space-y-8 animate-slide-up">
+                        <div className="lg:col-span-4 space-y-8 animate-reveal-up">
                             <div
                                 className="relative aspect-[4/5] rounded-[var(--shape-extra-large)] overflow-hidden shadow-[var(--elevation-3)] group bg-[var(--surface-variant)]">
                                 <div
@@ -73,7 +73,7 @@ export default async function BioPage({ params }) {
 
                             {/* Credentials Card */}
                             <div
-                                className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
+                                className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] animate-reveal-up delay-200">
                                 <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">verified</span>
                                     Credentials
@@ -89,7 +89,7 @@ export default async function BioPage({ params }) {
                             </div>
 
                             {/* Languages Card */}
-                            <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)]">
+                            <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] animate-reveal-up delay-300">
                                 <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">language</span>
                                     Language Support
@@ -106,7 +106,7 @@ export default async function BioPage({ params }) {
                         </div>
 
                         {/* Main Content: Bio */}
-                        <div className="lg:col-span-8 space-y-12 animate-slide-up" style={{ animationDelay: '200ms' }}>
+                        <div className="lg:col-span-8 space-y-12 animate-reveal-up delay-400">
                             <div className="prose prose-lg max-w-none">
                                 {page.content.map((paragraph, idx) => (
                                     <p key={idx} className="body-large text-[var(--on-surface-variant)] leading-relaxed mb-8 last:mb-0">
@@ -120,7 +120,10 @@ export default async function BioPage({ params }) {
                                 <h3 className="headline-small text-[var(--on-surface)] mb-8">Expertise & Specialties</h3>
                                 <div className="grid sm:grid-cols-2 gap-4">
                                     {page.specialties.map((spec, idx) => (
-                                        <div key={idx} className="flex items-start p-4 rounded-xl bg-[var(--surface-container)] hover:bg-[var(--primary-container)]/10 transition-colors group">
+                                        <div key={idx}
+                                             className="flex items-start p-4 rounded-xl bg-[var(--surface-container)] hover:bg-[var(--primary-container)]/10 transition-colors group animate-reveal-up"
+                                             style={{ animationDelay: `${(idx * 100) + 500}ms` }}
+                                        >
                                             <span className="material-symbols-outlined text-[var(--primary)] mr-3 group-hover:scale-110 transition-transform">check_circle</span>
                                             <span className="body-large text-[var(--on-surface)] font-medium">{spec}</span>
                                         </div>
@@ -129,7 +132,7 @@ export default async function BioPage({ params }) {
                             </div>
 
                             {/* Call to Action */}
-                            <div className="mt-16 p-10 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-4)] relative overflow-hidden group">
+                            <div className="mt-16 p-10 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-4)] relative overflow-hidden group animate-reveal-up delay-700">
                                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                                     <div className="text-center md:text-left">
                                         <h3 className="headline-medium mb-2">Work Directly with Dariushi</h3>

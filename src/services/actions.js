@@ -1,7 +1,8 @@
 'use server';
 
-import fs from 'fs/promises';
-import path from 'path';
+import connectDB from '@/lib/db/mongoose';
+import Contact from '@/models/Contact';
+import {sendContactEmail} from '@/services/email';
 
 export async function submitContactForm(formData) {
     const name = formData.get('name');
@@ -10,40 +11,22 @@ export async function submitContactForm(formData) {
     const message = formData.get('message');
     const lang = formData.get('lang') || 'en';
 
-    console.log('--- New Contact Form Submission ---');
-    console.log(`Name: ${name}`);
-    console.log(`Title/Subject: ${title}`);
-    console.log(`Contact Info: ${contactInfo}`);
-    console.log(`Message: ${message}`);
-    console.log(`Language: ${lang}`);
-    console.log('------------------------------------');
-
     try {
-        const messagesDir = path.join(process.cwd(), 'messages');
-        await fs.mkdir(messagesDir, { recursive: true });
+        await connectDB();
 
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const filename = `message-${timestamp}.md`;
-        const filepath = path.join(messagesDir, filename);
+        await Contact.create({
+            name,
+            title,
+            contactInfo,
+            message,
+            lang
+        });
 
-        const content = `
-# New Contact Message
+        // await sendContactEmail({name, title, contactInfo, message});
 
-**Date:** ${new Date().toLocaleString()}
-**Name:** ${name}
-**Subject/Title:** ${title}
-**Contact Info:** ${contactInfo}
-**Language:** ${lang}
-
-## Message
-${message}
-        `.trim();
-
-        await fs.writeFile(filepath, content, 'utf8');
-
-        return { success: true };
+        return {success: true};
     } catch (error) {
-        console.error('Error saving message:', error);
-        return { success: false, error: 'Failed to save message' };
+        console.error('Database Error:', error);
+        return {success: false, error: 'Failed to save message'};
     }
 }

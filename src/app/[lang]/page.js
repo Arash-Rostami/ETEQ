@@ -15,7 +15,7 @@ export async function generateMetadata({params}) {
     const {lang} = await params;
     const t = await useTranslation(lang);
     return {
-        title: `ETEQ - ${t.hero.title.substring(0, 50)}...`,
+        title: `ETEQ | ${t.hero.title}`,
         description: t.hero.subtitle,
     };
 }
