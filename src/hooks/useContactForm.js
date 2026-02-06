@@ -1,7 +1,6 @@
 'use client';
 
-import {useState} from 'react';
-import {submitContactForm} from '@/services/actions';
+import { useState } from 'react';
 
 export function useContactForm(lang) {
     const [status, setStatus] = useState('idle');
@@ -32,13 +31,29 @@ export function useContactForm(lang) {
         event.preventDefault();
         const form = event.currentTarget;
         const formData = new FormData(form);
-        formData.append('lang', lang);
 
         if (!validate(formData)) return;
         setStatus('loading');
 
+        const payload = {
+            name: formData.get('name'),
+            title: formData.get('title'),
+            contactInfo: formData.get('contactInfo'),
+            message: formData.get('message'),
+            lang: lang
+        };
+
         try {
-            const result = await submitContactForm(formData);
+            const response = await fetch('/api/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+
             if (result.success) {
                 setStatus('success');
                 form.reset();
