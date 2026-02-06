@@ -250,30 +250,109 @@ html:not(.dark) .gradient-text {
 
 .delay-100 {
     transition-delay: 100ms;
+    animation-delay: 100ms;
 }
 
 .delay-200 {
     transition-delay: 200ms;
+    animation-delay: 200ms;
 }
 
 .delay-300 {
     transition-delay: 300ms;
+    animation-delay: 300ms;
 }
 
 .delay-400 {
     transition-delay: 400ms;
+    animation-delay: 400ms;
 }
 
 .delay-500 {
     transition-delay: 500ms;
+    animation-delay: 500ms;
 }
 
 .delay-700 {
     transition-delay: 700ms;
+    animation-delay: 700ms;
 }
 
 .delay-1000 {
     transition-delay: 1000ms;
+    animation-delay: 1000ms;
+}
+
+@keyframes reveal-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes reveal-down {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes reveal-left {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes reveal-right {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+.animate-reveal-up {
+    opacity: 0;
+    animation: reveal-up 1000ms var(--easing-emphasized) forwards;
+}
+
+.animate-reveal-down {
+    opacity: 0;
+    animation: reveal-down 1000ms var(--easing-emphasized) forwards;
+}
+
+.animate-reveal-left {
+    opacity: 0;
+    animation: reveal-left 1000ms var(--easing-emphasized) forwards;
+}
+
+.animate-reveal-right {
+    opacity: 0;
+    animation: reveal-right 1000ms var(--easing-emphasized) forwards;
 }
 
 @keyframes fadeIn {
@@ -503,15 +582,6 @@ header * {
     }
     100% {
         background-position: -200% 0;
-    }
-}
-
-@keyframes slideLeftRight {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(100%);
     }
 }
 
