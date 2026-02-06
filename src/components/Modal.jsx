@@ -45,7 +45,7 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
 
                 {/* Content */}
                 <div className="p-6 overflow-y-auto space-y-4">
-                    {content.map((paragraph, index) => (
+                    {Array.isArray(content) ? content.map((paragraph, index) => (
                         <p
                             key={index}
                             className={`
@@ -57,18 +57,22 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
                         >
                             {paragraph}
                         </p>
-                    ))}
+                    )) : (
+                        content
+                    )}
                 </div>
 
                 {/* Footer */}
-                <div className="sticky bottom-0 bg-[var(--custom-color)] border-t border-white/10 px-6 py-4 flex justify-end shrink-0">
-                    <button
-                        onClick={onClose}
-                        className="px-6 py-2 rounded-full bg-eteq-gradient text-white font-medium hover:shadow-lg hover:shadow-[var(--color-coral)]/20 transition-all"
-                    >
-                        {lang === 'ja' ? '閉じる' : 'Close'}
-                    </button>
-                </div>
+                {Array.isArray(content) && (
+                    <div className="sticky bottom-0 bg-[var(--custom-color)] border-t border-white/10 px-6 py-4 flex justify-end shrink-0">
+                        <button
+                            onClick={onClose}
+                            className="px-6 py-2 rounded-full bg-eteq-gradient text-white font-medium hover:shadow-lg hover:shadow-[var(--color-coral)]/20 transition-all"
+                        >
+                            {lang === 'ja' ? '閉じる' : 'Close'}
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

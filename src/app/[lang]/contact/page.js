@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import AdminTrigger from "@/components/AdminTrigger";
 
 export async function generateMetadata({params}) {
     const {lang} = await params;
@@ -120,6 +121,9 @@ export default async function ContactPage({params}) {
                                 <p className="body-large opacity-90">Of senior engineering leadership delivered directly
                                     to you.</p>
                             </div>
+
+                            {/* Admin Access Trigger */}
+                            <AdminTrigger lang={lang} />
                         </div>
                     </div>
                 </div>
