@@ -265,5 +265,26 @@ export const ja = {
             phone: "お電話",
             response: "通常24時間以内に返信いたします"
         }
+    },
+    admin: {
+        title: "管理者アクセス",
+        subtitle: "続行するには管理者シークレットキーを入力してください。",
+        keyPlaceholder: "シークレットキー",
+        login: "ログイン",
+        logout: "ログアウト",
+        cancel: "キャンセル",
+        invalidKey: "無効なキーです",
+        messagesTitle: "メッセージ管理",
+        inbox: "受信トレイ",
+        totalMessages: "件のメッセージ",
+        noMessages: "メッセージはまだありません。",
+        refresh: "更新",
+        deleteConfirm: "このメッセージを削除してもよろしいですか？",
+        deleteFailed: "削除に失敗しました",
+        accessDenied: "アクセス拒否",
+        accessDeniedDesc: "このページを表示する権限がありません。",
+        backToContact: "お問い合わせページへ",
+        reply: "返信",
+        delete: "削除"
     }
 };

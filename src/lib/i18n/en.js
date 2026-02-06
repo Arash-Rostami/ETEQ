@@ -265,5 +265,26 @@ export const en = {
             phone: "Phone",
             response: "Standard response time: within 24 hours"
         }
+    },
+    admin: {
+        title: "Admin Access",
+        subtitle: "Please enter the admin secret key to continue.",
+        keyPlaceholder: "Secret Key",
+        login: "Login",
+        logout: "Logout",
+        cancel: "Cancel",
+        invalidKey: "Invalid key",
+        messagesTitle: "Contact Messages",
+        inbox: "In-box",
+        totalMessages: "messages total",
+        noMessages: "No messages yet.",
+        refresh: "Refresh",
+        deleteConfirm: "Are you sure you want to delete this message?",
+        deleteFailed: "Failed to delete",
+        accessDenied: "Access Denied",
+        accessDeniedDesc: "You do not have permission to view this page.",
+        backToContact: "Back to Contact",
+        reply: "Reply",
+        delete: "Delete"
     }
 };
