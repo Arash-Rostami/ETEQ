@@ -286,5 +286,19 @@ export const en = {
         backToContact: "Back to Contact",
         reply: "Reply",
         delete: "Delete"
+    },
+    alts: {
+        logo: "ETEQ Engineering Logo",
+        heroPlaceholder: "ETEQ Engineering Strategy Visualization",
+        consultation: "Engineering consultation and strategic planning session",
+        aiConsultation: "Data-driven engineering analysis and AI-assisted optimization",
+        aiConsultationSide: "Strategic engineering roadmap and technical implementation",
+        founderVideo: "Dariushi Rosutami, ETEQ Founder and Lead Consultant",
+        profile: "Dariushi Rosutami - Senior Engineering Consultant at ETEQ",
+        industryPharma: "Pharmaceutical manufacturing facility optimization",
+        industryLifeSciences: "Life sciences research and production engineering",
+        industryFoodBev: "Food and beverage processing efficiency solutions",
+        industryGlass: "Glass and container manufacturing operational excellence",
+        industryProcess: "Process industry engineering and sustainability"
     }
 };

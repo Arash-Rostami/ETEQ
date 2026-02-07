@@ -11,6 +11,14 @@ export async function generateMetadata({params}) {
     return {
         title: `ETEQ | ${t.contactPage.title}`,
         description: t.contactPage.intro,
+        alternates: {
+            canonical: `/${lang}/contact`,
+            languages: {
+                'en': '/en/contact',
+                'ja': '/ja/contact',
+                'x-default': '/en/contact',
+            },
+        },
     };
 }
 

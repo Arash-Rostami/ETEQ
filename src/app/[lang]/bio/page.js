@@ -10,6 +10,14 @@ export async function generateMetadata({ params }) {
     return {
         title: `ETEQ | ${t.bioPage.title} - Dariushi Rosutami`,
         description: t.bioPage.subtitle,
+        alternates: {
+            canonical: `/${lang}/bio`,
+            languages: {
+                'en': '/en/bio',
+                'ja': '/ja/bio',
+                'x-default': '/en/bio',
+            },
+        },
     };
 }
 
@@ -56,7 +64,7 @@ export default async function BioPage({ params }) {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <Image
                                         src="/bio.jpg"
-                                        alt="Profile"
+                                        alt={t.alts.profile}
                                         fill
                                         className="p-4 object-cover opacity-60 rounded-lg"
                                         sizes="(max-width: 768px) 100vw, 50vw"

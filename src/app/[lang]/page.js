@@ -17,6 +17,14 @@ export async function generateMetadata({params}) {
     return {
         title: `ETEQ | ${t.hero.title}`,
         description: t.hero.subtitle,
+        alternates: {
+            canonical: `/${lang}`,
+            languages: {
+                'en': '/en',
+                'ja': '/ja',
+                'x-default': '/en',
+            },
+        },
     };
 }
 
