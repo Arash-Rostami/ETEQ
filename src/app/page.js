@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { defaultLanguage } from '@/lib/i18n/config';
+import Loader from '@/components/Loader';
 
 export default function RootPage() {
     const router = useRouter();
@@ -12,9 +13,5 @@ export default function RootPage() {
         router.replace(`/${savedLang}`);
     }, [router]);
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-white">
-            <div className="w-12 h-12 border-4 border-[#7B5C9D] border-t-transparent rounded-full animate-spin"></div>
-        </div>
-    );
+    return <Loader />;
 }
