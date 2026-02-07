@@ -64,7 +64,7 @@ export default function Loader() {
 
                     {/* Brand */}
                     <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-[var(--on-surface)] to-[var(--on-surface)]/80 bg-clip-text text-transparent">
+                        <h1 className="text-4xl font-bold tracking-tight mb-4 bg-gradient-to-r from-[var(--on-surface)] to-[var(--on-surface)]/80 bg-clip-text text-transparent tracking-wide">
                             ETEQ
                         </h1>
 

@@ -44,9 +44,9 @@ export default function Header({t}) {
                                 className="absolute inset-0 rounded-xl bg-white/0 group-hover:bg-white/10 transition-colors"/>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-title-medium font-bold text-[var(--on-surface)]">ETEQ</span>
+                            <span className="text-title-medium font-bold text-[var(--on-surface)] tracking-wide">ETEQ</span>
                             <span
-                                className="text-[10px] uppercase tracking-[0.2em] text-[var(--on-surface-variant)] font-medium leading-none">Engineering</span>
+                                className="text-[10px] uppercase tracking-[0.2em] text-[var(--on-surface-variant)] font-medium leading-none">Engineering Excellence</span>
                         </div>
                     </Link>
 
