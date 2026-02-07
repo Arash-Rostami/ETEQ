@@ -146,7 +146,7 @@ export default function Header({t}) {
                         </div>
 
                         <button
-                            onClick={toggleTheme}
+                            onClick={(e) => toggleTheme(e)}
                             className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all text-[var(--on-surface)]"
                             aria-label="Toggle dark mode"
                         >
