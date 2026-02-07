@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export default function Modal({ isOpen, onClose, title, content, lang }) {
+export default function Modal({ isOpen, onClose, title, content, lang, t }) {
     useEffect(() => {
         const handleEsc = (e) => {
             if (e.key === 'Escape') onClose();
@@ -69,7 +69,7 @@ export default function Modal({ isOpen, onClose, title, content, lang }) {
                             onClick={onClose}
                             className="px-6 py-2 rounded-full bg-eteq-gradient text-white font-medium hover:shadow-lg hover:shadow-[var(--color-coral)]/20 transition-all"
                         >
-                            {lang === 'ja' ? '閉じる' : 'Close'}
+                                {t?.common?.close || (lang === 'ja' ? '閉じる' : 'Close')}
                         </button>
                     </div>
                 )}

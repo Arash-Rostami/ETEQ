@@ -7,7 +7,7 @@ import Modal from '@/components/Modal';
 
 export default function Footer({t}) {
     const {isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share} = useShare(t);
-    const {lang, toggle: toggleLanguage} = useLingo();
+    const {lang, changeLang, languages} = useLingo();
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
 
@@ -172,28 +172,28 @@ export default function Footer({t}) {
                                 {t.footer.missionStatement}
                             </p>
 
-                            {/* Animated Language Toggle */}
-                            <button
-                                onClick={toggleLanguage}
-                                className="group relative inline-flex items-center p-1 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300"
-                            >
-                                <div className={`
-                                    absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] rounded-full bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] shadow-lg transition-all duration-500 ease-out
-                                    ${lang === 'ja' ? 'translate-x-full' : 'translate-x-0'}
-                                `}></div>
-                                <span className={`
-                                    relative z-10 px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 w-16 text-center
-                                    ${lang === 'en' ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}
-                                `}>
-                                    EN
-                                </span>
-                                <span className={`
-                                    relative z-10 px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 w-16 text-center
-                                    ${lang === 'ja' ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}
-                                `}>
-                                    JP
-                                </span>
-                            </button>
+                            {/* Animated Language Toggle (4 Options) */}
+                            <div className="group relative inline-flex items-center p-1 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300">
+                                <div
+                                    className="absolute left-1 top-1 bottom-1 rounded-full bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] shadow-lg transition-all duration-500 ease-out"
+                                    style={{
+                                        width: 'calc(25% - 2px)',
+                                        transform: `translateX(${languages.findIndex(l => l.code === lang) * 100}%)`
+                                    }}
+                                ></div>
+                                {languages.map((l) => (
+                                    <button
+                                        key={l.code}
+                                        onClick={() => changeLang(l.code)}
+                                        className={`
+                                            relative z-10 px-3 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 w-12 text-center
+                                            ${lang === l.code ? 'text-white' : 'text-gray-500 hover:text-gray-300'}
+                                        `}
+                                    >
+                                        {l.label}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
@@ -271,6 +271,7 @@ export default function Footer({t}) {
                 title={t.footer.privacyPolicyTitle}
                 content={t.footer.privacyPolicyContent}
                 lang={lang}
+                t={t}
             />
 
             <Modal
@@ -279,6 +280,7 @@ export default function Footer({t}) {
                 title={t.footer.termsOfServiceTitle}
                 content={t.footer.termsOfServiceContent}
                 lang={lang}
+                t={t}
             />
         </>
     );

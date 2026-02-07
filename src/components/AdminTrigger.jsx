@@ -28,7 +28,7 @@ export default function AdminTrigger({lang, t}) {
                     <span
                         className="material-symbols-outlined text-sm group-hover:rotate-12 transition-transform">lock_person</span>
                     <span className="label-small uppercase tracking-widest">
-                        {lang === 'en' ? 'Admin' : '管理者'}
+                        {t?.admin?.adminLabel || (lang === 'en' ? 'Admin' : '管理者')}
                     </span>
                 </button>
             </div>

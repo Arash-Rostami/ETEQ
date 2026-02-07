@@ -8,7 +8,9 @@ export const fr = {
         bio: "Bio",
         industries: "Secteurs",
         callUs: "Appelez-nous",
-        sendEmail: "Envoyer un e-mail"
+        sendEmail: "Envoyer un e-mail",
+        quickContact: "Contact Rapide",
+        switchLanguage: "Changer de langue"
     },
     hero: {
         title: "Expertise en Ingénierie de Haut Niveau",
@@ -285,6 +287,7 @@ export const fr = {
         }
     },
     admin: {
+        adminLabel: "Admin",
         title: "Accès Admin",
         subtitle: "Veuillez entrer la clé secrète pour continuer.",
         keyPlaceholder: "Clé Secrète",
@@ -304,6 +307,9 @@ export const fr = {
         backToContact: "Retour au Contact",
         reply: "Répondre",
         delete: "Supprimer"
+    },
+    common: {
+        close: "Fermer"
     },
     alts: {
         logo: "Logo ETEQ Engineering",

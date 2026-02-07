@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
+import Image from 'next/image';
 import {useTheme} from '@/hooks/useTheme';
 import {useLingo} from '@/hooks/useLingo';
 import {useScroll} from '@/hooks/useScroll';
@@ -11,9 +12,10 @@ import {useContactPopUp} from '@/hooks/useContactPopUp';
 
 export default function Header({t}) {
     const {isDark, toggle: toggleTheme} = useTheme();
-    const {lang, toggle: toggleLanguage} = useLingo();
+    const {lang, changeLang, languages} = useLingo();
     const {scrolled, handleAnchorClick} = useScroll();
     const [mobileMenuOpen, toggleMobileMenu, {setOff: closeMobileMenu}] = useToggle(false);
+    const [langOpen, toggleLang, {setOff: closeLang}] = useToggle(false);
     const {isOpen: contactOpen, toggle: toggleContact, close: closeContact, contactRef} = useContactPopUp();
 
     const pathname = usePathname();
@@ -106,7 +108,7 @@ export default function Header({t}) {
                                 >
                                     <div className="px-4 py-2 border-b border-white/5 mb-1">
                                         <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
-                                            {lang === 'en' ? 'Quick Contact' : 'クイック連絡先'}
+                                            {t.header.quickContact}
                                         </span>
                                     </div>
                                     <button
@@ -155,13 +157,59 @@ export default function Header({t}) {
                             </span>
                         </button>
 
-                        <button
-                            onClick={toggleLanguage}
-                            className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all label-large text-[var(--on-surface)] font-bold"
-                            aria-label={lang === 'en' ? 'Switch to Japanese' : 'Switch to English'}
-                        >
-                            {lang === 'en' ? 'JP' : 'EN'}
-                        </button>
+                        {/* Language Dropdown */}
+                        <div className="relative">
+                            <button
+                                onClick={toggleLang}
+                                className={`flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border transition-all
+                                    ${langOpen
+                                    ? 'bg-[var(--primary-container)] text-[var(--on-primary-container)] border-[var(--primary)] shadow-[var(--elevation-1)]'
+                                    : 'border-[var(--outline)] hover:bg-[var(--surface-variant)] text-[var(--on-surface)]'}`}
+                                aria-label={t.header.switchLanguage}
+                            >
+                                <div className="relative w-6 h-4 overflow-hidden rounded-sm shadow-sm border border-black/5">
+                                    <Image
+                                        src={languages.find(l => l.code === lang)?.flag}
+                                        alt={lang}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </button>
+
+                            {langOpen && (
+                                <>
+                                    <div className="fixed inset-0 z-10" onClick={closeLang}></div>
+                                    <div
+                                        className="absolute top-full right-0 mt-3 w-40 bg-[var(--surface-container-high)] rounded-2xl border border-[var(--outline-variant)] shadow-2xl py-2 animate-scale-in z-20 overflow-hidden"
+                                    >
+                                        {languages.map((l) => (
+                                            <button
+                                                key={l.code}
+                                                onClick={() => {
+                                                    changeLang(l.code);
+                                                    closeLang();
+                                                }}
+                                                className={`w-full px-4 py-3 text-left text-sm transition-all flex items-center group
+                                                    ${lang === l.code
+                                                    ? 'bg-[var(--primary-container)] text-[var(--on-primary-container)]'
+                                                    : 'text-[var(--on-surface)] hover:bg-[var(--surface-variant)]'}`}
+                                            >
+                                                <div className="relative w-6 h-4 mr-3 overflow-hidden rounded-sm shadow-sm border border-black/5 group-hover:scale-110 transition-transform">
+                                                    <Image
+                                                        src={l.flag}
+                                                        alt={l.name}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                </div>
+                                                <span className="font-bold">{l.name}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
 
                         <Link
                             href={`/${lang}/contact`}

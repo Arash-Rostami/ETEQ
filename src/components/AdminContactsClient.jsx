@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {useAdminAuth} from '@/hooks/useAdminAuth';
 import {useAdminContacts} from '@/hooks/useAdminContacts';
+import {getFontClass, languages} from '@/lib/i18n/config';
 
 export default function AdminContactsClient({t, lang}) {
     const router = useRouter();
@@ -70,7 +71,7 @@ export default function AdminContactsClient({t, lang}) {
     }
 
     return (
-        <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
+        <main className={getFontClass(lang)}>
             <Header t={t} lang={lang}/>
 
             <section className="relative pt-32 pb-16 overflow-hidden bg-[var(--surface-container)]">
@@ -166,14 +167,14 @@ export default function AdminContactsClient({t, lang}) {
                                                 </div>
                                                 <div className="text-right">
                                                     <p className="label-large text-[var(--on-surface-variant)] font-medium">
-                                                        {new Date(contact.createdAt).toLocaleDateString(lang === 'ja' ? 'ja-JP' : 'en-US', {
+                                                        {new Date(contact.createdAt).toLocaleDateString(lang, {
                                                             year: 'numeric',
                                                             month: 'long',
                                                             day: 'numeric'
                                                         })}
                                                     </p>
                                                     <p className="label-small text-[var(--on-surface-variant)] opacity-60">
-                                                        {new Date(contact.createdAt).toLocaleTimeString(lang === 'ja' ? 'ja-JP' : 'en-US', {
+                                                        {new Date(contact.createdAt).toLocaleTimeString(lang, {
                                                             hour: '2-digit',
                                                             minute: '2-digit'
                                                         })}

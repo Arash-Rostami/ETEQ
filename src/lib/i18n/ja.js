@@ -8,7 +8,9 @@ export const ja = {
         bio: "経歴",
         industries: "業界",
         callUs: "お電話",
-        sendEmail: "メールを送信"
+        sendEmail: "メールを送信",
+        quickContact: "クイック連絡先",
+        switchLanguage: "言語切替"
     },
     hero: {
         title: "シニアエンジニアリングの専門知識",
@@ -267,6 +269,7 @@ export const ja = {
         }
     },
     admin: {
+        adminLabel: "管理者",
         title: "管理者アクセス",
         subtitle: "続行するには管理者シークレットキーを入力してください。",
         keyPlaceholder: "シークレットキー",
@@ -286,6 +289,9 @@ export const ja = {
         backToContact: "お問い合わせページへ",
         reply: "返信",
         delete: "削除"
+    },
+    common: {
+        close: "閉じる"
     },
     alts: {
         logo: "ETEQエンジニアリング ロゴ",

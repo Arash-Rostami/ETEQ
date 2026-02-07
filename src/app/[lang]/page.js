@@ -11,6 +11,7 @@ import Certifications from '@/components/Certifications';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import {createMetadata} from "@/lib/seo/metadata";
+import {getFontClass} from "@/lib/i18n/config";
 
 export async function generateMetadata({params}) {
     return createMetadata({
@@ -26,7 +27,7 @@ export default async function HomePage({params}) {
     const t = await useTranslation(lang);
 
     return (
-        <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
+        <main className={getFontClass(lang)}>
             <Header t={t} lang={lang}/>
             <div className="flex flex-col">
                 <Hero t={t}/>
