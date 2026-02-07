@@ -1,18 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import {useIntersectionObserver} from '@/hooks/useIntersectionObserver';
 import {colors} from '@/contexts/colors'
+import {useMomentaryActive} from '@/hooks/useMomentaryActive';
 
 
 export default function TrustBuilders({t}) {
     const [ref, isVisible] = useIntersectionObserver({threshold: 0.2});
-    const [activeStat, setActiveStat] = useState(null);
-
-    const triggerStat = (originalIndex) => {
-        setActiveStat(originalIndex);
-        setTimeout(() => setActiveStat(null), 1000);
-    };
+    const [activeStat, triggerStat] = useMomentaryActive(1000);
 
     const shimmerPairs = colors.shimmerPairs;
     const trustData = t?.trustBuilders || {};

@@ -1,16 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useMomentaryActive } from '@/hooks/useMomentaryActive';
 
 export default function WhyChooseETEQ({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-    const [activePoint, setActivePoint] = useState(null);
-
-    const triggerPoint = (index) => {
-        setActivePoint(index);
-        setTimeout(() => setActivePoint(null), 1000);
-    };
+    const [activePoint, triggerPoint] = useMomentaryActive(1000);
     const points = t.whyChoose.points;
     const icons = [
         'person_check', 'history', 'bolt', 'sync_alt',

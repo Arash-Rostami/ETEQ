@@ -1,16 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useMomentaryActive } from '@/hooks/useMomentaryActive';
 
 export default function IndustriesServed({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-    const [activeIndustry, setActiveIndustry] = useState(null);
-
-    const triggerIndustry = (index) => {
-        setActiveIndustry(index);
-        setTimeout(() => setActiveIndustry(null), 1000);
-    };
+    const [activeIndustry, triggerIndustry] = useMomentaryActive(1000);
     const industryIcons = [
         'medication', 'biotech', 'restaurant', 'science', 'factory'
     ];
@@ -26,12 +21,12 @@ export default function IndustriesServed({ t }) {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6">
                     {t.industries.list.map((industry, index) => (
                         <div
                             key={index}
                             onClick={() => triggerIndustry(index)}
-                            className={`group flex items-center bg-[var(--surface)] hover:bg-eteq-gradient px-8 py-4 rounded-full shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/20 hover:border-transparent cursor-pointer reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''} ${activeIndustry === index ? 'bg-eteq-gradient shadow-[var(--elevation-3)] border-transparent' : ''}`}
+                            className={`group flex items-center justify-center bg-[var(--surface)] hover:bg-eteq-gradient px-6 py-5 rounded-full shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/20 hover:border-transparent cursor-pointer reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''} ${activeIndustry === index ? 'bg-eteq-gradient shadow-[var(--elevation-3)] border-transparent' : ''}`}
                             style={{ transitionDelay: `${200 + index * 100}ms` }}
                         >
                             <span

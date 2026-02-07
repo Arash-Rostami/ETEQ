@@ -1,16 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useMomentaryActive } from '@/hooks/useMomentaryActive';
 
 export default function Certifications({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-    const [activeIdx, setActiveIdx] = useState(null);
-
-    const triggerFeedback = (index) => {
-        setActiveIdx(index);
-        setTimeout(() => setActiveIdx(null), 1000);
-    };
+    const [activeIdx, triggerFeedback] = useMomentaryActive(1000);
     const certs = t.certifications.list;
     const icons = ['assignment', 'psychology', 'search_check', 'lock'];
 
