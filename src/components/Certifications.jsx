@@ -1,9 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function Certifications({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+    const [activeIdx, setActiveIdx] = useState(null);
+
+    const triggerFeedback = (index) => {
+        setActiveIdx(index);
+        setTimeout(() => setActiveIdx(null), 1000);
+    };
     const certs = t.certifications.list;
     const icons = ['assignment', 'psychology', 'search_check', 'lock'];
 
@@ -19,14 +26,15 @@ export default function Certifications({ t }) {
                     {certs.map((cert, index) => (
                         <div
                             key={index}
-                            className={`group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
+                            onClick={() => triggerFeedback(index)}
+                            className={`group bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 hover:border-[var(--primary)]/20 reveal-hidden reveal-up cursor-pointer ${isVisible ? 'reveal-visible' : ''} ${activeIdx === index ? 'shadow-[var(--elevation-3)] border-[var(--primary)]/20' : ''}`}
                             style={{ transitionDelay: `${200 + index * 100}ms` }}
                         >
 
-                            <div className="w-12 h-12 rounded-xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div className={`w-12 h-12 rounded-xl bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${activeIdx === index ? 'scale-110' : ''}`}>
                                 <span className="material-symbols-outlined text-2xl">{icons[index] || 'verified'}</span>
                             </div>
-                            <h3 className="label-large text-[var(--on-surface)] font-bold mb-2 group-hover:text-[var(--primary)] transition-colors uppercase tracking-tight">
+                            <h3 className={`label-large text-[var(--on-surface)] font-bold mb-2 group-hover:text-[var(--primary)] transition-colors uppercase tracking-tight ${activeIdx === index ? 'text-[var(--primary)]' : ''}`}>
                                 {cert.name}
                             </h3>
                             {cert.year && (
@@ -34,7 +42,7 @@ export default function Certifications({ t }) {
                                     {t.certifications.certifiedLabel} {cert.year}
                                 </div>
                             )}
-                            <div className="mt-4 h-1 w-0 bg-eteq-gradient group-hover:w-full transition-all duration-500 rounded-full"></div>
+                            <div className={`mt-4 h-1 w-0 bg-eteq-gradient group-hover:w-full transition-all duration-500 rounded-full ${activeIdx === index ? 'w-full' : ''}`}></div>
                         </div>
                     ))}
                 </div>
