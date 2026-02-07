@@ -40,7 +40,8 @@ export default function Header({t}) {
                         <div
                             className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl bg-eteq-gradient flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
                             <span className="text-white font-bold text-xl">E</span>
-                            <div className="absolute inset-0 rounded-xl bg-white/0 group-hover:bg-white/10 transition-colors" />
+                            <div
+                                className="absolute inset-0 rounded-xl bg-white/0 group-hover:bg-white/10 transition-colors"/>
                         </div>
                         <div className="flex flex-col">
                             <span className="text-title-medium font-bold text-[var(--on-surface)]">ETEQ</span>
@@ -49,7 +50,8 @@ export default function Header({t}) {
                         </div>
                     </Link>
 
-                    <nav className="hidden md:flex items-center gap-1 bg-[var(--surface-container-low)]/50 p-1.5 rounded-full border border-[var(--outline-variant)]/20 backdrop-blur-sm">
+                    <nav
+                        className="hidden md:flex items-center gap-1 bg-[var(--surface-container-low)]/50 p-1.5 rounded-full border border-[var(--outline-variant)]/20 backdrop-blur-sm">
                         {navLinks.map((link) => {
                             const isAnchor = link.href.includes('#');
                             const isActive = pathname === link.href;
@@ -68,7 +70,8 @@ export default function Header({t}) {
                                         onClick={(e) => handleAnchorClick(e)}
                                         className={linkClasses}
                                     >
-                                        <span className={`material-symbols-outlined mr-2 text-[18px] ${isActive ? 'fill-1' : ''}`}>{link.icon}</span>
+                                        <span
+                                            className={`material-symbols-outlined mr-2 text-[18px] ${isActive ? 'fill-1' : ''}`}>{link.icon}</span>
                                         {link.name}
                                     </a>
                                 );
@@ -80,7 +83,8 @@ export default function Header({t}) {
                                     href={link.href}
                                     className={linkClasses}
                                 >
-                                    <span className={`material-symbols-outlined mr-2 text-[18px] ${isActive ? 'fill-1' : ''}`}>{link.icon}</span>
+                                    <span
+                                        className={`material-symbols-outlined mr-2 text-[18px] ${isActive ? 'fill-1' : ''}`}>{link.icon}</span>
                                     {link.name}
                                 </Link>
                             );
@@ -92,57 +96,72 @@ export default function Header({t}) {
                             <button
                                 onClick={toggleContact}
                                 className={`group relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden transition-all duration-200
-                                    ${contactOpen
+            ${contactOpen
                                     ? 'bg-[var(--primary)] text-[var(--on-primary)]'
                                     : 'text-[var(--on-surface-variant)] hover:bg-[var(--on-surface)]/8 hover:text-[var(--on-surface)]'}`}
                                 aria-label="Quick contact options"
                             >
-                                <span className={`material-symbols-outlined text-2xl ${contactOpen ? 'fill-1' : ''}`}>contact_support</span>
+                                <span
+                                    className={`material-symbols-outlined text-2xl ${contactOpen ? 'fill-1' : ''}`}>contact_support</span>
                             </button>
 
                             {contactOpen && (
-                                <div
-                                    className="absolute top-full right-0 mt-2 w-72 bg-[var(--surface-container-high)] rounded-[28px] shadow-[var(--elevation-3)] p-2 animate-scale-in z-[110] origin-top-right overflow-hidden border border-[var(--outline-variant)]/20"
-                                    onClick={(e) => e.stopPropagation()}
-                                >
-                                    <div className="px-4 py-3 pb-2">
-                                        <span className="text-label-small uppercase tracking-wider text-[var(--primary)] font-bold opacity-80">
-                                            {t.header.quickContact}
-                                        </span>
+                                <>
+                                    <div className="fixed inset-0 bg-black/20 z-[105] md:hidden"
+                                         onClick={closeContact}/>
+                                    <div
+                                        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100vw-2rem)] max-w-[288px]
+                           md:absolute md:inset-auto md:top-full md:right-0 md:translate-x-0 md:translate-y-0 md:w-72 md:mt-2
+                           bg-[var(--surface-container-high)] rounded-[28px] shadow-[var(--elevation-3)] p-2
+                           animate-scale-in z-[110] origin-center md:origin-top-right overflow-hidden border border-[var(--outline-variant)]/20"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <div className="px-4 py-3 pb-2">
+                    <span
+                        className="text-label-small uppercase tracking-wider text-[var(--primary)] font-bold opacity-80">
+                        {t.header.quickContact}
+                    </span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <button
+                                                onClick={() => {
+                                                    window.location.href = `mailto:${t.header.email}`;
+                                                    closeContact();
+                                                }}
+                                                className="w-full px-4 py-3 flex items-center gap-4 rounded-[20px] hover:bg-[var(--on-surface)]/8 transition-colors group text-left"
+                                            >
+                                                <div
+                                                    className="w-10 h-10 rounded-full bg-[var(--tertiary-container)] text-[var(--on-tertiary-container)] flex items-center justify-center group-hover:scale-105 transition-transform">
+                                                    <span className="material-symbols-outlined text-[20px]">mail</span>
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span
+                                                        className="text-body-large font-medium text-[var(--on-surface)]">{t.header.sendEmail}</span>
+                                                    <span
+                                                        className="text-body-small text-[var(--on-surface-variant)]">{t.header.email}</span>
+                                                </div>
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    window.location.href = `tel:${t.header.phone.replace(/\s/g, '')}`;
+                                                    closeContact();
+                                                }}
+                                                className="w-full px-4 py-3 flex items-center gap-4 rounded-[20px] hover:bg-[var(--on-surface)]/8 transition-colors group text-left"
+                                            >
+                                                <div
+                                                    className="w-10 h-10 rounded-full bg-[var(--secondary-container)] text-[var(--on-secondary-container)] flex items-center justify-center group-hover:scale-105 transition-transform">
+                                                    <span className="material-symbols-outlined text-[20px]">call</span>
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span
+                                                        className="text-body-large font-medium text-[var(--on-surface)]">{t.header.callUs}</span>
+                                                    <span
+                                                        className="text-body-small text-[var(--on-surface-variant)]">{t.header.phone}</span>
+                                                </div>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="flex flex-col gap-1">
-                                        <button
-                                            onClick={() => {
-                                                window.location.href = `mailto:${t.header.email}`;
-                                                closeContact();
-                                            }}
-                                            className="w-full px-4 py-3 flex items-center gap-4 rounded-[20px] hover:bg-[var(--on-surface)]/8 transition-colors group text-left"
-                                        >
-                                            <div className="w-10 h-10 rounded-full bg-[var(--tertiary-container)] text-[var(--on-tertiary-container)] flex items-center justify-center group-hover:scale-105 transition-transform">
-                                                <span className="material-symbols-outlined text-[20px]">mail</span>
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="text-body-large font-medium text-[var(--on-surface)]">{t.header.sendEmail}</span>
-                                                <span className="text-body-small text-[var(--on-surface-variant)]">{t.header.email}</span>
-                                            </div>
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                window.location.href = `tel:${t.header.phone.replace(/\s/g, '')}`;
-                                                closeContact();
-                                            }}
-                                            className="w-full px-4 py-3 flex items-center gap-4 rounded-[20px] hover:bg-[var(--on-surface)]/8 transition-colors group text-left"
-                                        >
-                                            <div className="w-10 h-10 rounded-full bg-[var(--secondary-container)] text-[var(--on-secondary-container)] flex items-center justify-center group-hover:scale-105 transition-transform">
-                                                <span className="material-symbols-outlined text-[20px]">call</span>
-                                            </div>
-                                            <div className="flex flex-col">
-                                                <span className="text-body-large font-medium text-[var(--on-surface)]">{t.header.callUs}</span>
-                                                <span className="text-body-small text-[var(--on-surface-variant)]">{t.header.phone}</span>
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div>
+                                </>
                             )}
                         </div>
 
@@ -165,7 +184,8 @@ export default function Header({t}) {
                                     : 'text-[var(--on-surface-variant)] hover:bg-[var(--on-surface)]/8 hover:text-[var(--on-surface)]'}`}
                                 aria-label={t.header.switchLanguage}
                             >
-                                <div className="relative w-6 h-6 rounded-full overflow-hidden shadow-sm border border-[var(--outline-variant)]">
+                                <div
+                                    className="relative w-6 h-6 rounded-full overflow-hidden shadow-sm border border-[var(--outline-variant)]">
                                     <Image
                                         src={languages.find(l => l.code === lang)?.flag}
                                         alt={lang}
@@ -193,7 +213,8 @@ export default function Header({t}) {
                                                     ? 'bg-[var(--secondary-container)] text-[var(--on-secondary-container)]'
                                                     : 'text-[var(--on-surface)] hover:bg-[var(--on-surface)]/8'}`}
                                             >
-                                                <div className="relative w-6 h-4 overflow-hidden rounded-[4px] shadow-sm border border-[var(--outline)]/20">
+                                                <div
+                                                    className="relative w-6 h-4 overflow-hidden rounded-[4px] shadow-sm border border-[var(--outline)]/20">
                                                     <Image
                                                         src={l.flag}
                                                         alt={l.name}
@@ -202,7 +223,8 @@ export default function Header({t}) {
                                                     />
                                                 </div>
                                                 <span className="text-label-large font-medium">{l.name}</span>
-                                                {lang === l.code && <span className="material-symbols-outlined text-[18px] ml-auto">check</span>}
+                                                {lang === l.code && <span
+                                                    className="material-symbols-outlined text-[18px] ml-auto">check</span>}
                                             </button>
                                         ))}
                                     </div>
@@ -249,7 +271,8 @@ export default function Header({t}) {
                                     onClick={(e) => handleAnchorClick(e, closeMobileMenu)}
                                     className={mobileLinkClasses}
                                 >
-                                    <span className="material-symbols-outlined mr-4 text-[24px] text-[var(--primary)]">{link.icon}</span>
+                                    <span
+                                        className="material-symbols-outlined mr-4 text-[24px] text-[var(--primary)]">{link.icon}</span>
                                     {link.name}
                                 </a>
                             );
@@ -262,7 +285,8 @@ export default function Header({t}) {
                                 onClick={closeMobileMenu}
                                 className={mobileLinkClasses}
                             >
-                                <span className="material-symbols-outlined mr-4 text-[24px] text-[var(--primary)]">{link.icon}</span>
+                                <span
+                                    className="material-symbols-outlined mr-4 text-[24px] text-[var(--primary)]">{link.icon}</span>
                                 {link.name}
                             </Link>
                         );
