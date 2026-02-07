@@ -4,14 +4,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import AdminTrigger from "@/components/AdminTrigger";
+import {createMetadata} from "@/lib/seo/metadata";
 
 export async function generateMetadata({params}) {
-    const {lang} = await params;
-    const t = await useTranslation(lang);
-    return {
-        title: `ETEQ | ${t.contactPage.title}`,
-        description: t.contactPage.intro,
-    };
+    return createMetadata({
+        params,
+        key: 'contactPage',
+        slug: 'contact'
+    });
 }
 
 export default async function ContactPage({params}) {
@@ -155,7 +155,7 @@ export default async function ContactPage({params}) {
             </section>
 
             {/* Admin Access Trigger */}
-            <AdminTrigger lang={lang} t={t} />
+            <AdminTrigger lang={lang} t={t}/>
 
             <Footer t={t} lang={lang}/>
         </main>

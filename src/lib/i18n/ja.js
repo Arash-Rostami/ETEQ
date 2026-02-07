@@ -286,5 +286,19 @@ export const ja = {
         backToContact: "お問い合わせページへ",
         reply: "返信",
         delete: "削除"
+    },
+    alts: {
+        logo: "ETEQエンジニアリング ロゴ",
+        heroPlaceholder: "ETEQエンジニアリング戦略の可視化",
+        consultation: "エンジニアリングコンサルティングと戦略立案セッション",
+        aiConsultation: "データ主導のエンジニアリング分析とAI支援による最適化",
+        aiConsultationSide: "戦略的エンジニアリングロードマップと技術実装",
+        founderVideo: "ETEQ創業者兼リードコンサルタント、ダリウシ・ロスタミ",
+        profile: "ダリウシ・ロスタミ - ETEQシニアエンジニアリングコンサルタント",
+        industryPharma: "医薬品製造施設の最適化",
+        industryLifeSciences: "ライフサイエンスの研究および生産エンジニアリング",
+        industryFoodBev: "食品・飲料加工の効率化ソリューション",
+        industryGlass: "ガラス・容器製造のオペレーショナル・エクセレンス",
+        industryProcess: "プロセス産業のエンジニアリングとサステナビリティ"
     }
 };

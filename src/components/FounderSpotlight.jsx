@@ -32,6 +32,7 @@ export default function FounderSpotlight({ t }) {
                                             preload="none"
                                             className="w-full h-full object-cover lazy-video"
                                             data-src="/eteq.mp4"
+                                            aria-label={t.alts.founderVideo}
                                         />
                                     </div>
                                     <div className="headline-small text-[var(--on-surface)] mb-1">{t.founder.name}</div>
@@ -46,7 +47,7 @@ export default function FounderSpotlight({ t }) {
 
                             {/* Right: Content */}
                             <div className="p-10 lg:p-16 flex flex-col justify-center">
-                            <h2 className="headline-large text-[var(--on-surface)] mb-8 flex items-center">
+                                <h2 className="headline-large text-[var(--on-surface)] mb-8 flex items-center">
                                     <span className="material-symbols-outlined mr-4 text-4xl text-[var(--primary)]">format_quote</span>
                                     {t.founder.title}
                                 </h2>

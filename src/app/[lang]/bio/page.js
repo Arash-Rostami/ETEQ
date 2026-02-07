@@ -1,26 +1,28 @@
 import Image from 'next/image';
-import { useTranslation } from "@/lib/i18n/useTranslation";
+import {useTranslation} from "@/lib/i18n/useTranslation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {createMetadata} from "@/lib/seo/metadata";
 
 
-export async function generateMetadata({ params }) {
-    const { lang } = await params;
-    const t = await useTranslation(lang);
-    return {
-        title: `ETEQ | ${t.bioPage.title} - Dariushi Rosutami`,
-        description: t.bioPage.subtitle,
-    };
+export async function generateMetadata({params}) {
+    return createMetadata({
+        params,
+        key: 'bioPage',
+        slug: 'bio',
+        descKey: 'subtitle',
+        titleSuffix: ' - Dariushi Rosutami'
+    });
 }
 
-export default async function BioPage({ params }) {
-    const { lang } = await params;
+export default async function BioPage({params}) {
+    const {lang} = await params;
     const t = await useTranslation(lang);
     const page = t.bioPage;
 
     return (
         <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
-            <Header t={t} lang={lang} />
+            <Header t={t} lang={lang}/>
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
@@ -41,7 +43,8 @@ export default async function BioPage({ params }) {
                     </div>
                 </div>
                 {/* Decorative background */}
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[var(--color-purple)]/10 to-transparent -z-10"></div>
+                <div
+                    className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[var(--color-purple)]/10 to-transparent -z-10"></div>
             </section>
 
             <section className="py-24 bg-[var(--background)]">
@@ -56,7 +59,7 @@ export default async function BioPage({ params }) {
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <Image
                                         src="/bio.jpg"
-                                        alt="Profile"
+                                        alt={t.alts.profile}
                                         fill
                                         className="p-4 object-cover opacity-60 rounded-lg"
                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -89,7 +92,8 @@ export default async function BioPage({ params }) {
                             </div>
 
                             {/* Languages Card */}
-                            <div className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] animate-reveal-up delay-300">
+                            <div
+                                className="bg-[var(--surface-container)] p-8 rounded-[var(--shape-large)] border border-[var(--outline)]/10 shadow-[var(--elevation-1)] animate-reveal-up delay-300">
                                 <h3 className="label-large text-[var(--primary)] font-bold uppercase tracking-widest mb-6 flex items-center">
                                     <span className="material-symbols-outlined mr-2 text-xl">language</span>
                                     Language Support
@@ -109,7 +113,8 @@ export default async function BioPage({ params }) {
                         <div className="lg:col-span-8 space-y-12 animate-reveal-up delay-400">
                             <div className="prose prose-lg max-w-none">
                                 {page.content.map((paragraph, idx) => (
-                                    <p key={idx} className="body-large text-[var(--on-surface-variant)] leading-relaxed mb-8 last:mb-0">
+                                    <p key={idx}
+                                       className="body-large text-[var(--on-surface-variant)] leading-relaxed mb-8 last:mb-0">
                                         {paragraph}
                                     </p>
                                 ))}
@@ -117,26 +122,32 @@ export default async function BioPage({ params }) {
 
                             {/* Specialties Grid */}
                             <div className="pt-8 border-t border-[var(--outline)]/10">
-                                <h3 className="headline-small text-[var(--on-surface)] mb-8">Expertise & Specialties</h3>
+                                <h3 className="headline-small text-[var(--on-surface)] mb-8">Expertise &
+                                    Specialties</h3>
                                 <div className="grid sm:grid-cols-2 gap-4">
                                     {page.specialties.map((spec, idx) => (
                                         <div key={idx}
                                              className="flex items-start p-4 rounded-xl bg-[var(--surface-container)] hover:bg-[var(--primary-container)]/10 transition-colors group animate-reveal-up"
-                                             style={{ animationDelay: `${(idx * 100) + 500}ms` }}
+                                             style={{animationDelay: `${(idx * 100) + 500}ms`}}
                                         >
-                                            <span className="material-symbols-outlined text-[var(--primary)] mr-3 group-hover:scale-110 transition-transform">check_circle</span>
-                                            <span className="body-large text-[var(--on-surface)] font-medium">{spec}</span>
+                                            <span
+                                                className="material-symbols-outlined text-[var(--primary)] mr-3 group-hover:scale-110 transition-transform">check_circle</span>
+                                            <span
+                                                className="body-large text-[var(--on-surface)] font-medium">{spec}</span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
                             {/* Call to Action */}
-                            <div className="mt-16 p-10 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-4)] relative overflow-hidden group animate-reveal-up delay-700">
-                                <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                            <div
+                                className="mt-16 p-10 rounded-[var(--shape-extra-large)] bg-eteq-gradient text-white shadow-[var(--elevation-4)] relative overflow-hidden group animate-reveal-up delay-700">
+                                <div
+                                    className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                                     <div className="text-center md:text-left">
                                         <h3 className="headline-medium mb-2">Work Directly with Dariushi</h3>
-                                        <p className="body-large opacity-90">Leverage 35 years of engineering excellence for your next project.</p>
+                                        <p className="body-large opacity-90">Leverage 35 years of engineering excellence
+                                            for your next project.</p>
                                     </div>
                                     <a
                                         href={`/${lang}/contact`}
@@ -146,15 +157,17 @@ export default async function BioPage({ params }) {
                                     </a>
                                 </div>
                                 {/* Decorative elements */}
-                                <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
-                                <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-black/10 rounded-full blur-2xl"></div>
+                                <div
+                                    className="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
+                                <div
+                                    className="absolute -bottom-12 -left-12 w-48 h-48 bg-black/10 rounded-full blur-2xl"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <Footer t={t} lang={lang} />
+            <Footer t={t} lang={lang}/>
         </main>
     );
 }

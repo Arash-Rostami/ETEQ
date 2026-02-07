@@ -88,7 +88,8 @@ export default function Hero({t}) {
                                 className="absolute bottom-10 left-0 w-48 h-48 border-4 border-[var(--color-bright-cyan)] rounded-[var(--shape-extra-large)] -rotate-12 opacity-30"></div>
 
                             <div
-                                className="absolute inset-4 bg-white/10 dark:bg-black/10 backdrop-blur-xl border border-white/20 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-4)] flex items-center justify-center overflow-hidden group">
+                                className="absolute inset-4 bg-white/10 dark:bg-black/10 backdrop-blur-xl border border-white/20 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-4)] flex items-center justify-center overflow-hidden group"
+                                aria-label={t.alts.heroPlaceholder}>
                                 <div className="p-8 text-center">
                                     <div
                                         className="text-6xl font-black bg-clip-text text-transparent mb-4 gradient-text text-shadow-drop-center">

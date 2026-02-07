@@ -1,16 +1,16 @@
 import {useTranslation} from "@/lib/i18n/useTranslation";
+import {createMetadata} from "@/lib/seo/metadata";
 import Link from 'next/link';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
 
 export async function generateMetadata({params}) {
-    const {lang} = await params;
-    const t = await useTranslation(lang);
-    return {
-        title: `ETEQ | ${t.aboutPage.title}`,
-        description: t.aboutPage.intro,
-    };
+    return createMetadata({
+        params,
+        key: 'aboutPage',
+        slug: 'about'
+    });
 }
 
 export default async function AboutPage({params}) {
@@ -53,12 +53,16 @@ export default async function AboutPage({params}) {
                             <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
                                 {page.founderContext}
                             </p>
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6">
+                            <div
+                                className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6">
                                 <div className="flex items-center">
-                                    <span className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
+                                    <span
+                                        className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
                                     <div>
-                                        <p className="label-large text-[var(--on-surface)] font-bold">Dariushi Rosutami</p>
-                                        <p className="label-medium text-[var(--on-surface-variant)]">Founder & Lead Consultant</p>
+                                        <p className="label-large text-[var(--on-surface)] font-bold">Dariushi
+                                            Rosutami</p>
+                                        <p className="label-medium text-[var(--on-surface-variant)]">Founder & Lead
+                                            Consultant</p>
                                     </div>
                                 </div>
                                 <Link
@@ -66,7 +70,8 @@ export default async function AboutPage({params}) {
                                     className="flex items-center text-[var(--primary)] font-bold label-large hover:underline group"
                                 >
                                     {t.founder.viewFullBio || 'View Full Bio'}
-                                    <span className="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                    <span
+                                        className="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-1">arrow_forward</span>
                                 </Link>
                             </div>
                         </div>
@@ -75,7 +80,7 @@ export default async function AboutPage({params}) {
                             <div
                                 className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-20 pointer-events-none"></div>
 
-                            <ImageCarousel/>
+                            <ImageCarousel t={t}/>
 
                             <div
                                 className="absolute bottom-6 left-6 right-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 z-30">

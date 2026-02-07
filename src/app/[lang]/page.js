@@ -10,14 +10,15 @@ import ExperienceTimeline from '@/components/ExperienceTimeline';
 import Certifications from '@/components/Certifications';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import {createMetadata} from "@/lib/seo/metadata";
 
 export async function generateMetadata({params}) {
-    const {lang} = await params;
-    const t = await useTranslation(lang);
-    return {
-        title: `ETEQ | ${t.hero.title}`,
-        description: t.hero.subtitle,
-    };
+    return createMetadata({
+        params,
+        key: 'hero',
+        slug: '',
+        descKey: 'subtitle'
+    });
 }
 
 export default async function HomePage({params}) {
