@@ -26,7 +26,10 @@ export default function IndustriesServed({ t }) {
                             className={`group flex items-center bg-[var(--surface)] hover:bg-eteq-gradient px-8 py-4 rounded-full shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/20 hover:border-transparent cursor-default reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
                             style={{ transitionDelay: `${200 + index * 100}ms` }}
                         >
-                            <span className="material-symbols-outlined mr-3 text-[var(--primary)] transition-colors text-2xl group-hover:text-[var(--color-coral)]">
+                            <span
+                                className="material-symbols-outlined mr-3 text-[var(--primary)] transition-colors text-2xl group-hover:text-[var(--color-coral)]"
+                                title={t.alts[`industry${['Pharma', 'LifeSciences', 'FoodBev', 'Glass', 'Process'][index]}`]}
+                            >
                                 {industryIcons[index] || 'business_center'}
                             </span>
                             <span className="label-large text-[var(--on-surface)] group-hover:text-[var(--primary)]  transition-colors font-bold uppercase tracking-wider">

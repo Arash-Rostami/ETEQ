@@ -32,6 +32,7 @@ export default function FounderSpotlight({ t }) {
                                             preload="none"
                                             className="w-full h-full object-cover lazy-video"
                                             data-src="/eteq.mp4"
+                                            aria-label={t.alts.founderVideo}
                                         />
                                     </div>
                                     <div className="headline-small text-[var(--on-surface)] mb-1">{t.founder.name}</div>

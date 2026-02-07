@@ -36,9 +36,9 @@ export default function Header({t}) {
         >
             <div className="container mx-auto px-4 h-full">
                 <div className="flex justify-between items-center h-full">
-                    <Link href={`/${lang}`} className="flex items-center space-x-2 group">
+                    <Link href={`/${lang}`} className="flex items-center space-x-2 group" aria-label={t.alts.logo}>
                         <div
-                            className="w-10 h-10 rounded-xl bg-eteq-gradient flex items-center justify-center shadow-[var(--elevation-1)] group-hover:shadow-[var(--elevation-2)] transition-all">
+                            className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-eteq-gradient flex items-center justify-center shadow-[var(--elevation-1)] group-hover:shadow-[var(--elevation-2)] transition-all">
                             <span className="text-white font-bold text-xl">E</span>
                         </div>
                         <div className="flex flex-col">
@@ -88,7 +88,7 @@ export default function Header({t}) {
                         <div className="relative" ref={contactRef}>
                             <button
                                 onClick={toggleContact}
-                                className={`flex items-center justify-center w-10 h-10 rounded-full border transition-all 
+                                className={`flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border transition-all
                                     ${contactOpen
                                     ? 'bg-[var(--primary)] text-[var(--on-primary)] border-[var(--primary)] shadow-[var(--elevation-2)]'
                                     : 'border-[var(--outline)] hover:bg-[var(--surface-variant)] text-[var(--on-surface)]'}`}
@@ -147,7 +147,7 @@ export default function Header({t}) {
 
                         <button
                             onClick={toggleTheme}
-                            className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all text-[var(--on-surface)]"
+                            className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all text-[var(--on-surface)]"
                             aria-label="Toggle dark mode"
                         >
                             <span className="material-symbols-outlined text-xl">
@@ -157,7 +157,7 @@ export default function Header({t}) {
 
                         <button
                             onClick={toggleLanguage}
-                            className="flex items-center justify-center w-10 h-10 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all label-large text-[var(--on-surface)] font-bold"
+                            className="flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-[var(--outline)] hover:bg-[var(--surface-variant)] transition-all label-large text-[var(--on-surface)] font-bold"
                             aria-label={lang === 'en' ? 'Switch to Japanese' : 'Switch to English'}
                         >
                             {lang === 'en' ? 'JP' : 'EN'}
@@ -171,7 +171,7 @@ export default function Header({t}) {
                         </Link>
 
                         <button
-                            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-[var(--on-surface)]"
+                            className="md:hidden w-11 h-11 flex items-center justify-center rounded-full text-[var(--on-surface)]"
                             onClick={toggleMobileMenu}
                         >
                             <span className="material-symbols-outlined">

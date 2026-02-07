@@ -1,17 +1,18 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 const IMAGES = [
-    { src: '/consultation.png', alt: 'Consultation' },
-    { src: '/aiconsultation.png', alt: 'AI Consultation' },
-    { src: '/aiconsultationside.png', alt: 'AI Consultation Side' },
+    { src: '/consultation.png', altKey: 'consultation' },
+    { src: '/aiconsultation.png', altKey: 'aiConsultation' },
+    { src: '/aiconsultationside.png', altKey: 'aiConsultationSide' },
 ]
 
 const DURATION = 5000
 const TRANSITION_MS = 1400
 
-export default function ImageCarousel() {
+export default function ImageCarousel({ t }) {
     const [active, setActive] = useState(0)
     const [prev, setPrev] = useState(null)
     const [tick, setTick] = useState(0)
@@ -76,14 +77,16 @@ export default function ImageCarousel() {
                                 transition: hovered ? 'transform 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : undefined,
                             }}
                         >
-                            <img
+                            <Image
                                 src={img.src}
-                                alt={img.alt}
-                                className="w-full h-full object-cover"
+                                alt={t?.alts?.[img.altKey] || "ETEQ"}
+                                fill
+                                className="object-cover"
                                 style={{
                                     filter: hovered && isActive ? 'brightness(1.08) saturate(1.15)' : 'brightness(1) saturate(1)',
                                     transition: 'filter 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                                 }}
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                         </div>
                     </div>

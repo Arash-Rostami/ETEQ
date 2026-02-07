@@ -10,6 +10,14 @@ export async function generateMetadata({params}) {
     return {
         title: `ETEQ | ${t.aboutPage.title}`,
         description: t.aboutPage.intro,
+        alternates: {
+            canonical: `/${lang}/about`,
+            languages: {
+                'en': '/en/about',
+                'ja': '/ja/about',
+                'x-default': '/en/about',
+            },
+        },
     };
 }
 
@@ -75,7 +83,7 @@ export default async function AboutPage({params}) {
                             <div
                                 className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity z-20 pointer-events-none"></div>
 
-                            <ImageCarousel/>
+                            <ImageCarousel t={t}/>
 
                             <div
                                 className="absolute bottom-6 left-6 right-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 z-30">
