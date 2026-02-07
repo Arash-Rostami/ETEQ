@@ -1,10 +1,12 @@
-const translation = {
-    en: () => import("@/lib/i18n/en").then((module) => module.en),
-    ja: () => import("@/lib/i18n/ja").then((module) => module.ja),
-    de: () => import("@/lib/i18n/de").then((module) => module.de),
-    fr: () => import("@/lib/i18n/fr").then((module) => module.fr),
-};
+import {defaultLanguage, languages} from '@/lib/i18n/config';
+
+const translationMap = Object.fromEntries(
+    languages.map(lang => [
+        lang.code, () => import(`@/lib/i18n/${lang.code}`).then((module) => module[lang.code])
+    ])
+);
 
 export const useTranslation = async (locale) => {
-    return translation[locale]?.() ?? await translation.en();
+    const loader = translationMap[locale] || translationMap[defaultLanguage];
+    return await loader();
 };

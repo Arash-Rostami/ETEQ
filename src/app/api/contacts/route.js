@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db/mongoose';
 import Contact from '@/models/Contact';
+import { defaultLanguage } from '@/lib/i18n/config';
 
 export async function GET(request) {
     const authHeader = request.headers.get('authorization');
@@ -35,7 +36,7 @@ export async function POST(request) {
             title,
             contactInfo,
             message,
-            lang: lang || 'en'
+            lang: lang || defaultLanguage
         });
 
         return NextResponse.json({ success: true, data: newContact }, { status: 201 });

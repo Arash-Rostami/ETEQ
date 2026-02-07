@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import AdminTrigger from "@/components/AdminTrigger";
 import {createMetadata} from "@/lib/seo/metadata";
+import {getFontClass} from "@/lib/i18n/config";
 
 export async function generateMetadata({params}) {
     return createMetadata({
@@ -20,8 +21,8 @@ export default async function ContactPage({params}) {
     const page = t.contactPage;
 
     return (
-        <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
-            <Header t={t} lang={lang}/>
+        <main className={getFontClass(lang)}>
+            <Header t={t}/>
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">

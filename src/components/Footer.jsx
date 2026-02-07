@@ -7,7 +7,7 @@ import Modal from '@/components/Modal';
 
 export default function Footer({t}) {
     const {isOpen: shareOpen, message: shareMessage, toggle: toggleShare, close: closeShare, share} = useShare(t);
-    const {lang, toggle: toggleLanguage} = useLingo();
+    const {lang, changeLang, languages} = useLingo();
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
 
@@ -42,60 +42,65 @@ export default function Footer({t}) {
                                         e.stopPropagation();
                                         toggleShare();
                                     }}
-                                    className="group w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#FF7F6E] hover:to-[#7B5C9D] transition-all duration-300 border border-white/10 hover:border-transparent hover:scale-110 shadow-lg hover:shadow-[#FF7F6E]/20"
+                                    className={`group w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 border shadow-lg
+            ${shareOpen
+                                        ? 'bg-[var(--surface-container-high)] text-[var(--primary)] border-[var(--surface-container-high)] scale-110'
+                                        : 'bg-white/5 border-white/10 text-white hover:bg-gradient-to-br hover:from-[#FF7F6E] hover:to-[#7B5C9D] hover:border-transparent hover:scale-110'}`}
                                 >
-                                    <span
-                                        className="material-symbols-outlined text-sm group-hover:text-white transition-colors">share</span>
+                                    <span className="material-symbols-outlined text-[20px]">share</span>
                                 </button>
 
                                 {shareOpen && (
                                     <div
-                                        className="absolute bottom-full left-0 mb-2 w-48 rounded-[var(--shape-large)] border border-white/10 py-2 animate-fade-in"
+                                        className="absolute bottom-full left-0 mb-3 w-56 rounded-[16px] py-2 animate-scale-in origin-bottom-left overflow-hidden ring-1 ring-[var(--outline-variant)]/20"
                                         style={{
-                                            backgroundColor: 'var(--custom-color)',
-                                            boxShadow: 'var(--elevation-5)'
+                                            backgroundColor: 'var(--surface-container-high)',
+                                            boxShadow: 'var(--elevation-3)'
                                         }}
                                         onClick={(e) => e.stopPropagation()}
                                     >
+                                        <div className="px-4 py-2 border-b border-[var(--outline-variant)]/20 mb-1">
+                <span className="text-[10px] uppercase tracking-wider text-[var(--primary)] font-bold opacity-80">
+                    {t.footer.share?.title || 'Share'}
+                </span>
+                                        </div>
+
                                         {shareMessage ? (
-                                            <div className="px-4 py-3 text-sm flex items-center"
-                                                 style={{color: 'var(--color-vibrant-green)'}}>
+                                            <div
+                                                className="px-4 py-3 text-sm flex items-center text-[var(--color-vibrant-green)]">
                                                 <span
                                                     className="material-symbols-outlined text-sm mr-2">check_circle</span>
                                                 {shareMessage}
                                             </div>
                                         ) : (
-                                            <>
+                                            <div className="flex flex-col">
                                                 <button
                                                     onClick={() => share('native')}
-                                                    className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
+                                                    className="w-full px-4 py-3 text-left text-sm text-[var(--on-surface)] hover:bg-[var(--on-surface)]/8 transition-colors flex items-center group"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3"
-                                                          style={{color: 'var(--color-coral)'}}>share_windows</span>
+                                                    <span
+                                                        className="material-symbols-outlined text-[18px] mr-3 text-[#FF7F6E] group-hover:scale-110 transition-transform">share_windows</span>
                                                     {t.footer.share.title}
                                                 </button>
                                                 <button
                                                     onClick={() => share('copy')}
-                                                    className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
+                                                    className="w-full px-4 py-3 text-left text-sm text-[var(--on-surface)] hover:bg-[var(--on-surface)]/8 transition-colors flex items-center group"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3"
-                                                          style={{color: 'var(--color-purple)'}}>content_copy</span>
+                                                    <span className="material-symbols-outlined text-[18px] mr-3 text-[#7B5C9D] group-hover:scale-110 transition-transform">content_copy</span>
                                                     {t.footer.share.copyLink}
                                                 </button>
                                                 <button
                                                     onClick={() => share('email')}
-                                                    className="w-full px-4 py-3 text-left text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors flex items-center"
+                                                    className="w-full px-4 py-3 text-left text-sm text-[var(--on-surface)] hover:bg-[var(--on-surface)]/8 transition-colors flex items-center group"
                                                 >
-                                                    <span className="material-symbols-outlined text-sm mr-3"
-                                                          style={{color: 'var(--color-coral)'}}>email</span>
+                                                    <span className="material-symbols-outlined text-[18px] mr-3 text-[#FF7F6E] group-hover:scale-110 transition-transform">email</span>
                                                     {t.footer.share.sendEmail}
                                                 </button>
-                                            </>
+                                            </div>
                                         )}
                                     </div>
                                 )}
-                            </div>
-                        </div>
+                            </div>                        </div>
 
                         {/* Col 2: Quick Links */}
                         <div>
@@ -172,28 +177,28 @@ export default function Footer({t}) {
                                 {t.footer.missionStatement}
                             </p>
 
-                            {/* Animated Language Toggle */}
-                            <button
-                                onClick={toggleLanguage}
-                                className="group relative inline-flex items-center p-1 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300"
-                            >
-                                <div className={`
-                                    absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] rounded-full bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] shadow-lg transition-all duration-500 ease-out
-                                    ${lang === 'ja' ? 'translate-x-full' : 'translate-x-0'}
-                                `}></div>
-                                <span className={`
-                                    relative z-10 px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 w-16 text-center
-                                    ${lang === 'en' ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}
-                                `}>
-                                    EN
-                                </span>
-                                <span className={`
-                                    relative z-10 px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors duration-300 w-16 text-center
-                                    ${lang === 'ja' ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}
-                                `}>
-                                    JP
-                                </span>
-                            </button>
+                            {/* Animated Language Toggle (4 Options) */}
+                            <div className="group relative inline-flex items-center p-1 rounded-full bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-300">
+                                <div
+                                    className="absolute left-1 top-1 bottom-1 rounded-full bg-gradient-to-r from-[#FF7F6E] to-[#7B5C9D] shadow-lg transition-all duration-500 ease-out"
+                                    style={{
+                                        width: 'calc(25% - 2px)',
+                                        transform: `translateX(${languages.findIndex(l => l.code === lang) * 100}%)`
+                                    }}
+                                ></div>
+                                {languages.map((l) => (
+                                    <button
+                                        key={l.code}
+                                        onClick={() => changeLang(l.code)}
+                                        className={`
+                                            relative z-10 px-3 py-2 text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 w-12 text-center
+                                            ${lang === l.code ? 'text-white' : 'text-gray-500 hover:text-gray-300'}
+                                        `}
+                                    >
+                                        {l.label}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

@@ -3,6 +3,7 @@ import {useTranslation} from "@/lib/i18n/useTranslation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {createMetadata} from "@/lib/seo/metadata";
+import {getFontClass} from "@/lib/i18n/config";
 
 
 export async function generateMetadata({params}) {
@@ -21,8 +22,8 @@ export default async function BioPage({params}) {
     const page = t.bioPage;
 
     return (
-        <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
-            <Header t={t} lang={lang}/>
+        <main className={getFontClass(lang)}>
+            <Header t={t} />
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">

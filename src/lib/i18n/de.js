@@ -8,62 +8,64 @@ export const de = {
         bio: "Bio",
         industries: "Branchen",
         callUs: "Anrufen",
-        sendEmail: "E-Mail senden"
+        sendEmail: "E-Mail senden",
+        quickContact: "Schnellkontakt",
+        switchLanguage: "Sprache wechseln"
     },
     hero: {
-        title: "Senior Engineering Expertise",
-        subtitle: "Direkter Zugang zu 35 Jahren Führungserfahrung in Nachhaltigkeit und Operational Excellence. Bewährtes Engineering ohne den Overhead großer Beratungsfirmen.",
+        title: "Ingenieur-Expertise auf höchstem Niveau",
+        subtitle: "Direkter Zugang zu 35 Jahren Führungserfahrung in Nachhaltigkeit und Operational Excellence sowie bewährtem Engineering – ohne den Overhead, die Verzögerungen oder Junior-Berater großer Firmen.",
         cta1: "Unsere Leistungen",
-        cta2: "Kontakt"
+        cta2: "Kontaktieren Sie uns"
     },
     trustBuilders: {
         title: "Nachgewiesene Ergebnisse",
-        subtitle: "Nachgewiesene Wirkung in den Bereichen Nachhaltigkeit und Effizienz für weltweit führende Hersteller.",
+        subtitle: "Demonstrierte Wirkung in den Bereichen Nachhaltigkeit, Effizienz und Operational Excellence für weltweit führende Hersteller.",
         stats: [
-            { value: "76%", label: "CO₂-Reduktion Erreicht", icon: "eco" },
+            { value: "76%", label: "CO₂-Reduktion erreicht", icon: "eco" },
             { value: "17%", label: "Energieeinsparung", icon: "bolt" },
             { value: "15%", label: "Produktivitätssteigerung", icon: "precision_manufacturing" },
-            { value: "20%", label: "Kostensenkung", icon: "trending_down" },
+            { value: "20%", label: "Kostensenkung (OpEx)", icon: "trending_down" },
             { value: "Null", label: "FDA/PMDA Audit-Mängel", icon: "verified" },
-            { value: "7.400+", label: "Stunden durch RPA gespart", icon: "schedule" },
+            { value: "7.400+", label: "Stunden durch Automatisierung gespart", icon: "schedule" },
             { value: "59", label: "Zusätzliche Produktionstage/Jahr", icon: "calendar_today" },
-            { value: "15+", label: "Jahre Senior Leadership", icon: "workspace_premium" },
-            { value: "35+", label: "Engineering Leadership", icon: "military_tech" },
+            { value: "15+", label: "Jahre im Senior Management", icon: "workspace_premium" },
+            { value: "35+", label: "Jahre Engineering-Führung", icon: "military_tech" },
             { value: "F500", label: "Praxiserprobte Strategien", icon: "stars" },
-            { value: "Global", label: "Multi-Site Implementierung", icon: "public" },
+            { value: "Global", label: "Standortübergreifende Umsetzung", icon: "public" },
             { value: "ROI", label: "Messbarer Geschäftserfolg", icon: "analytics" }
         ]
     },
     services: {
         title: "Unsere Leistungen",
-        subtitle: "Strategische Engineering-Lösungen und Nachhaltigkeits-Roadmaps zur Optimierung globaler Abläufe.",
+        subtitle: "Strategische Engineering-Lösungen und Nachhaltigkeits-Roadmaps, entwickelt zur Optimierung globaler Abläufe und für messbare Ergebnisse.",
         learnMore: "Mehr erfahren",
         showLess: "Weniger anzeigen",
         items: [
             {
                 title: "Engineering-Strategie & Organisationsentwicklung",
-                summary: "Transformieren Sie Ihre Engineering-Kapazitäten mit umfassender Strategieentwicklung.",
-                fullDescription: "Vom Aufbau leistungsstarker Teams bis zur Optimierung der Zusammenarbeit schaffen wir Rahmenbedingungen für messbare Ergebnisse."
+                summary: "Transformieren Sie Ihre Engineering-Kapazitäten mit umfassender Strategieentwicklung und Organisationsstrukturierung.",
+                fullDescription: "Vom Aufbau leistungsstarker Teams bis zur Optimierung der funktionsübergreifenden Zusammenarbeit schaffen wir Rahmenbedingungen, die messbare Ergebnisse in Fertigung, Pharma und Life Sciences liefern."
             },
             {
                 title: "Net Zero & Umwelt-Roadmap Entwicklung",
-                summary: "Erreichen Sie ehrgeizige Nachhaltigkeitsziele mit datengestützten Net Zero Roadmaps.",
-                fullDescription: "Wir entwickeln umfassende Umweltstrategien, die Compliance sicherstellen und gleichzeitig die Energieeffizienz optimieren."
+                summary: "Erreichen Sie ehrgeizige Nachhaltigkeitsziele mit datengestützten, auf Ihren Betrieb zugeschnittenen Net Zero Roadmaps.",
+                fullDescription: "Wir entwickeln umfassende Umweltstrategien von der ersten Bewertung bis zur Umsetzung, stellen Compliance sicher, optimieren die Energieeffizienz, reduzieren den CO₂-Fußabdruck und maximieren den ROI von Nachhaltigkeitsinvestitionen."
             },
             {
                 title: "Energieoptimierung & Effizienzlösungen",
-                summary: "Senken Sie Betriebskosten und Umweltbelastung durch systematische Energieaudits.",
-                fullDescription: "Unsere Methoden identifizieren Optimierungspotenziale in Ihren Anlagen zur Reduzierung des Energieverbrauchs."
+                summary: "Senken Sie Betriebskosten und Umweltbelastungen durch systematische Energieaudits und Effizienzverbesserungen.",
+                fullDescription: "Unsere bewährten Methoden identifizieren Optimierungspotenziale in Ihren Anlagen, von Maßnahmen auf Geräteebene bis hin zu systemweiten Upgrades, und liefern messbare Reduzierungen des Energieverbrauchs pro Quadratmeter."
             },
             {
-                title: "CAPEX-Planung & Anlagenmanagement",
-                summary: "Navigieren Sie sicher durch komplexe Investitionsprojekte mit Expertenwissen.",
-                fullDescription: "Wir verwalten den gesamten Lebenszyklus von Machbarkeitsstudien bis zur Installationsüberwachung, termingerecht und im Budget."
+                title: "CAPEX-Planung & Anlagen-Installationsmanagement",
+                summary: "Navigieren Sie sicher durch komplexe Investitionsprojekte mit Expertenwissen in CAPEX-Budgetierung und Anlagenplanung.",
+                fullDescription: "Wir managen den gesamten Lebenszyklus von Machbarkeitsstudien und Budgetvorbereitung bis zur Auftragnehmerauswahl und Installationsüberwachung, um sicherzustellen, dass Projekte termingerecht, im Budget und im Einklang mit Ihren strategischen Zielen realisiert werden."
             },
             {
                 title: "Arbeitssicherheit & Regulatory Compliance",
-                summary: "Schützen Sie Ihre Mitarbeiter und sichern Sie die Einhaltung gesetzlicher Vorschriften.",
-                fullDescription: "Basierend auf internationalen Standards entwickeln wir Sicherheitskonzepte, die Risiken minimieren und die Sicherheitskultur stärken."
+                summary: "Schützen Sie Ihre Mitarbeiter und sichern Sie die Einhaltung gesetzlicher Vorschriften durch umfassende Sicherheitskonzepte.",
+                fullDescription: "Basierend auf fundiertem Fachwissen zu internationalen Sicherheitsstandards und Protokollen erstellen wir maßgeschneiderte Sicherheitsrahmenbedingungen, die Risiken minimieren, die Sicherheitskultur verbessern und die Compliance in globalen Betriebsabläufen gewährleisten."
             }
         ]
     },
@@ -85,26 +87,26 @@ export const de = {
     founder: {
         title: "Gründer im Fokus",
         name: "Dariushi Rosutami",
-        role: "Senior Engineering Consultant",
-        bio: "Dariushi Rosutami ist eine erfahrene Führungskraft mit über 35 Jahren Erfahrung bei Takeda, DSM und Danone.",
+        role: "Leitender Engineering-Berater", // Fully translated
+        bio: "Dariushi Rosutami ist eine erfahrene Führungskraft mit über 35 Jahren Erfahrung in der Förderung von Operational Excellence und Nachhaltigkeit in der globalen Prozessindustrie. Nach Führungspositionen bei Takeda, DSM und Danone bringt er umfassende, direkte Expertise bei ETEQ ein.",
         credentials: ["PMP 2014", "Lean Six Sigma Green Belt 2017", "ISO Auditor", "LOTOTO Master"],
-        viewFullBio: "Vollständige Bio ansehen"
+        viewFullBio: "Vollständige Biografie ansehen"
     },
     industries: {
-        title: "Branchen",
-        list: ["Pharma", "Life Sciences", "Lebensmittel & Getränke", "Glas/Behälter", "Prozessindustrie"],
-        subtitle: "Spezialisierte Engineering-Strategie für Hochpräzisions-Fertigungssektoren.",
+        title: "Bediente Branchen",
+        list: ["Pharmazeutik", "Life Sciences", "Lebensmittel & Getränke", "Glas/Behälter", "Prozessindustrie"],
+        subtitle: "Spezialisierte Engineering-Strategie und Betriebsberatung für Hochpräzisions-Fertigungssektoren.",
         globalExperience: "Globale Erfahrung"
     },
     timeline: {
         title: "Erfahrungsschatz",
-        subtitle: "Eine Karriere an der Schnittstelle von komplexem Engineering und globaler Strategie.",
+        subtitle: "Eine Karriere definiert durch Führung an der Schnittstelle von komplexem Engineering und globaler Geschäftsstrategie.",
         events: [
-            { year: "Aktuell", company: "ETEQ Engineering", role: "Gründer & Lead Consultant", description: "Boutique-Beratung für Nachhaltigkeit und Operational Excellence." },
-            { year: "Früher", company: "Takeda", role: "Engineering Leadership", description: "76% CO₂-Reduktion und null FDA/PMDA Audit-Mängel." },
-            { year: "Früher", company: "DSM Japan", role: "Operational Excellence", description: "Leitung von Produktion, Qualitätssicherung und SHE." },
-            { year: "Früher", company: "Danone Japan", role: "Manufacturing Lead", description: "Produktivitätssteigerung und CO₂-Reduktionsprogramme." },
-            { year: "Karrierebeginn", company: "Japanische Industrie", role: "Engineering Grundlagen", description: "Produktionsmanagement und Fabrikneubauprojekte." }
+            { year: "Aktuell", company: "ETEQ Engineering", role: "Gründer & Leitender Berater", description: "Leitung einer Boutique-Beratung für Nachhaltigkeit und Operational Excellence in der globalen Prozessindustrie." },
+            { year: "Früher", company: "Takeda", role: "Engineering-Leitung", description: "Erzielung von 76% CO₂-Reduktion, 17% Energieeinsparung, null FDA/PMDA Audit-Mängeln und über 7.400 durch RPA eingesparten Stunden." },
+            { year: "Früher", company: "DSM Japan", role: "Operational Excellence", description: "Leitung von Produktionsmanagement, Qualitätssicherung und SHE (Sicherheit, Gesundheit, Umwelt) im gesamten Betrieb." },
+            { year: "Früher", company: "Danone Japan", role: "Fertigungsleitung", description: "Vorantreiben von Produktivitätsverbesserungen und Management umfassender Energie- und CO₂-Reduktionsprogramme." },
+            { year: "Karrierebeginn", company: "Japanische Fertigungsindustrie", role: "Engineering Grundlagen", description: "Management von Produktion, Qualitätskontrolle und Leitung großer Fabrikneubauprojekte." }
         ]
     },
     certifications: {
@@ -118,57 +120,80 @@ export const de = {
         ]
     },
     cta: {
-        title: "Bereit für die Transformation Ihrer Abläufe?",
-        subtitle: "Lassen Sie uns besprechen, wie wir Ihren Erfolg unterstützen können.",
+        title: "Bereit für die Transformation Ihrer Engineering-Abläufe?",
+        subtitle: "Lassen Sie uns besprechen, wie unsere Expertise Ihren Erfolg vorantreiben kann.",
         cta1: "Beratung anfordern",
         cta2: "Fallstudien ansehen"
     },
     footer: {
-        tagline: "Senior Engineering Expertise, direkt geliefert.",
-        quickLinks: "Quick Links",
-        contactInfo: "Kontakt-Info",
+        tagline: "Führende Ingenieur-Expertise, direkt geliefert.", // Fully translated
+        quickLinks: "Schnellzugriff",
+        contactInfo: "Kontaktinformationen",
         followUs: "Folgen Sie uns",
         rights: "Alle Rechte vorbehalten.",
         location: "Tokio, Japan",
-        missionStatement: "Stärkung der Industrie durch Exzellenz und Innovation.",
+        missionStatement: "Stärkung der Industrie durch strategische Exzellenz und nachhaltige Innovation.",
         share: {
             title: "Teilen",
             copyLink: "Link kopieren",
             sendEmail: "E-Mail senden",
             success: "Erfolgreich geteilt!",
-            copied: "Link kopiert!"
+            copied: "Link in die Zwischenablage kopiert!"
         },
         privacyPolicy: "Datenschutzerklärung",
         privacyPolicyContent: [
-            "ETEQ Engineering Consultancy schätzt Ihre Privatsphäre.",
-            "Erhobene Daten: Name, E-Mail, Telefon bei Kontaktanfragen.",
-            "Nutzung: Bearbeitung Ihrer Anfragen und Serviceverbesserung.",
-            "Wir verkaufen keine Daten an Dritte."
+            "ETEQ Engineering Consultancy schätzt Ihre Privatsphäre und verpflichtet sich zum Schutz Ihrer persönlichen Daten.",
+            "",
+            "Informationen, die wir sammeln:",
+            "• Kontaktinformationen (Name, E-Mail, Telefon), wenn Sie uns kontaktieren",
+            "• Nutzungsdaten zur Verbesserung unseres Website-Erlebnisses",
+            "• Cookies für Funktionalität und Analyse",
+            "",
+            "Wie wir Ihre Informationen nutzen:",
+            "• Um auf Ihre Anfragen zu antworten und Beratungsleistungen zu erbringen",
+            "• Um relevante Updates zu unseren Dienstleistungen zu senden (mit Ihrer Zustimmung)",
+            "• Um unsere Website und das Nutzererlebnis zu verbessern",
+            "",
+            "Wir verkaufen oder teilen Ihre persönlichen Daten nicht mit Dritten. Ihre Daten werden sicher gespeichert und nur so lange wie nötig aufbewahrt.",
+            "",
+            "Kontaktieren Sie uns unter info@eteq.jp für Fragen zum Datenschutz."
         ],
         termsOfService: "Nutzungsbedingungen",
         termsOfServiceContent: [
-            "Mit der Nutzung dieser Website akzeptieren Sie unsere Bedingungen.",
-            "Leistungen: Beratung unterliegt separaten schriftlichen Vereinbarungen.",
-            "Geistiges Eigentum: Alle Inhalte sind Eigentum von ETEQ.",
-            "Anwendbares Recht: Japanisches Recht, Gerichtsstand Tokio."
+            "Durch den Zugriff und die Nutzung der ETEQ Engineering Consultancy Website akzeptieren Sie diese Bedingungen.",
+            "",
+            "Dienstleistungen:",
+            "ETEQ bietet Engineering-Beratungsleistungen an, einschließlich Nachhaltigkeitsstrategie, Operational Excellence und Beratung zur Einhaltung gesetzlicher Vorschriften. Alle Engagements unterliegen separaten schriftlichen Vereinbarungen.",
+            "",
+            "Geistiges Eigentum:",
+            "Alle Inhalte auf dieser Website, einschließlich Texte, Grafiken und Logos, sind Eigentum von ETEQ und urheberrechtlich geschützt.",
+            "",
+            "Haftungsbeschränkung:",
+            "ETEQ haftet nicht für indirekte, zufällige oder Folgeschäden, die aus der Nutzung unserer Website oder Dienstleistungen entstehen.",
+            "",
+            "Geltendes Recht:",
+            "Diese Bedingungen unterliegen den Gesetzen von Japan. Gerichtsstand für alle Streitigkeiten ist Tokio.",
+            "",
+            "Letzte Aktualisierung: 2026"
         ]
     },
     bioPage: {
         title: "Berater-Profil",
-        subtitle: "Über 35 Jahre exzellente Führung im Engineering",
+        subtitle: "Über 35 Jahre herausragende Führung im Engineering",
         content: [
-            "Dariushi Rosutami verfügt über mehr als 35 Jahre Erfahrung in der Pharma- und Lebensmittelindustrie.",
-            "Als Head of Engineering bei Takeda leitete er strategische Transformationen: 76% CO₂-Reduktion und 17% Energieersparnis.",
-            "Er ist PMP-zertifiziert, Lean Six Sigma Green Belt und ISO-Qualitätsauditor.",
-            "Dariushi ist mehrsprachig (Japanisch, Englisch, Französisch und Grundkenntnisse in Deutsch)."
+            "Dariushi Rosutami verfügt über mehr als 35 Jahre herausragende Führungserfahrung im operativen Engineering in der Pharma-, Life-Sciences- und Lebensmittelindustrie, davon 15 Jahre in leitenden Positionen bei globalen und japanischen Unternehmen.",
+            "Als Head of Engineering bei der Takeda Pharmaceutical Company Limited leitete Dariushi strategische Transformationsinitiativen, die bemerkenswerte Ergebnisse lieferten: eine Reduzierung der CO₂-Emissionen um 76% durch Dekarbonisierungs- und Elektrifizierungsprojekte, eine standortweite Energiereduzierung um 17% im Einklang mit Net-Zero-Zielen und eine Verbesserung der Produktionseffizienz um 15% bei gleichzeitiger Senkung der jährlichen Betriebskosten um 20%. Seine Führung sparte über 7.400 Stunden durch Robotic Process Automation (RPA) ein, was 59 zusätzlichen Produktionstagen jährlich entspricht, und hielt null Audit-Mängel bei FDA- und PMDA-Inspektionen aufrecht.",
+            "Vor seiner Zeit bei Takeda bekleidete Dariushi leitende Positionen bei DSM Japan als Direktor für Produktionsmanagement, Qualitätssicherung und SHE sowie bei Danone Japan als Senior Operations Manager, wo er Produktivitätsverbesserungen vorantrieb, zuverlässige Organisationen aufbaute und umfassende Energie- und CO₂-Reduktionsprogramme leitete. Seine Karriere umfasst auch Führungspositionen bei einem etablierten japanischen Fertigungsunternehmen mit langer Tradition, wo er Produktion und Qualitätskontrolle leitete und große Fabrikneubauprojekte steuerte.",
+            "Dariushi ist PMP-zertifiziert, zertifizierter Lean Six Sigma Green Belt und zertifizierter Qualitätsauditor (ISO9001, ISO14001, FSSC22000). Er ist mehrsprachig (Japanisch auf Muttersprachniveau mit Kanji-Kenntnissen Level 2, verhandlungssicheres Englisch, konversationssicheres Französisch und Grundkenntnisse in Deutsch), was eine nahtlose Zusammenarbeit in globalen Operationen ermöglicht.",
+            "Bei ETEQ nutzt Dariushi diese umfassende operative Erfahrung, um Organisationen dabei zu helfen, messbare Ergebnisse in den Bereichen Nachhaltigkeit, Operational Excellence und Einhaltung gesetzlicher Vorschriften zu erzielen. Sein praxisnaher Ansatz liefert umsetzbare Strategien, die sich in komplexen, hochregulierten Fertigungsumgebungen bewährt haben."
         ],
         specialties: [
-            "Pharma & Life Sciences",
-            "Lebensmittelherstellung",
+            "Pharmazeutik & Life Sciences",
+            "Lebensmittel- & Getränkeherstellung",
             "Net Zero & Dekarbonisierung",
             "Operational Excellence",
             "Regulatory Compliance (FDA/PMDA)",
-            "Prozessautomatisierung (RPA)"
+            "Robotic Process Automation (RPA)"
         ],
         languages: [
             { name: "Japanisch", level: "" },
@@ -179,25 +204,25 @@ export const de = {
     },
     aboutPage: {
         title: "Über ETEQ",
-        intro: "ETEQ ist eine Boutique-Engineering-Beratung, basierend auf 35 Jahren Führungserfahrung.",
-        founderTitle: "Expertise durch Führung",
-        founderContext: "Unser Gründer war Engineering-Leiter bei Takeda, DSM und Danone.",
+        intro: "ETEQ ist eine Boutique-Engineering-Beratung, gegründet auf über 35 Jahren bewährter operativer Führungserfahrung in der Pharma-, Life-Sciences- und Lebensmittelindustrie.",
+        founderTitle: "Expertise geschmiedet durch Führung",
+        founderContext: "Unser Gründer, Dariushi Rosutami, bekleidete Positionen als Head of Engineering bei Branchenführern wie Takeda Pharmaceutical, DSM Japan und Danone Japan, wo er direkt für die Erzielung transformativer Ergebnisse verantwortlich war.",
         differentiation: {
             title: "Was macht ETEQ anders?",
-            subtitle: "Eine agile Alternative zu großen Beratungsfirmen.",
+            subtitle: "Als Boutique-Firma bieten wir das, was große Beratungsunternehmen nicht können.",
             points: [
-                { title: "Senior Expertise", description: "Direkter Zugang zu Experten statt Junior-Beratern.", icon: "award_star" },
-                { title: "Schnelle Reaktion", description: "Agile Abläufe für schnelle Projektabwicklung.", icon: "bolt" },
-                { title: "Kosteneffizienz", description: "Effiziente Lösungen ohne hohen Overhead.", icon: "savings" },
-                { title: "Bewährte Strategien", description: "Praktische Strategien statt grauer Theorie.", icon: "verified" }
+                { title: "Senior Expertise", description: "Direkter Zugang zu Senior-Expertise vom ersten Tag an, keine Ebenen von Junior-Beratern.", icon: "award_star" },
+                { title: "Schnelle Reaktion", description: "Agile Abläufe und flexible Engagement-Modelle für schnelle Projektabwicklung.", icon: "bolt" },
+                { title: "Kosteneffizienz", description: "Effiziente Lösungen ohne die Gemeinkosten großer Firmen.", icon: "savings" },
+                { title: "Bewährte Strategien", description: "Praktische, umsetzbare Strategien, geformt durch jahrzehntelange Ergebnisse, nicht durch Theorien.", icon: "verified" }
             ]
         },
         results: {
-            title: "Unsere Erfolge",
-            subtitle: "Echte Ergebnisse in hochregulierten Branchen.",
+            title: "Unsere Erfolgsbilanz",
+            subtitle: "Dies sind keine Prognosen – es sind tatsächliche Ergebnisse, die in hochregulierten Umgebungen erzielt wurden.",
             stats: [
                 { value: "76%", label: "CO₂ Reduktion", icon: "eco" },
-                { value: "17%", label: "Energieersparnis", icon: "bolt" },
+                { value: "17%", label: "Energieeinsparung", icon: "bolt" },
                 { value: "15%", label: "Effizienzgewinn", icon: "precision_manufacturing" },
                 { value: "20%", label: "OpEx Reduktion", icon: "trending_down" },
                 { value: "Null", label: "Audit-Mängel", icon: "verified" },
@@ -205,77 +230,81 @@ export const de = {
             ]
         },
         expertise: {
-            title: "Performance transformieren",
-            description: "Expertise in Engineering-Strategie, Net Zero, CAPEX und Compliance (GMP, FDA, ISO).",
-            closing: "ETEQ bietet die nötige Senior-Expertise für exzellente Ergebnisse.",
+            title: "Performance Transformieren",
+            description: "Mit tiefgreifender Expertise in Engineering-Strategie, Net-Zero-Implementierung, Energieoptimierung, CAPEX-Planung, Arbeitssicherheit und Regulatory Compliance (GMP, FDA, ISO, Lebensmittelsicherheit) liefert ETEQ datengestützte Lösungen, die die operative Leistung transformieren und gleichzeitig die ökologische Verantwortung vorantreiben.",
+            closing: "Ob es um die Entwicklung von Net-Zero-Roadmaps, die Optimierung der Anlagenleistung, das Erreichen von Regulatory Compliance oder den Aufbau von Engineering-Kapazitäten geht – ETEQ bietet die Senior-Level-Expertise und persönliche Beratung, die nötig ist, um Exzellenz zu erreichen – effizient und effektiv.",
             cta: "Projekt besprechen"
         }
     },
     contactPage: {
-        title: "Kontakt",
+        title: "Kontaktieren Sie uns",
         subtitle: "Direkter Zugang zu Engineering-Exzellenz",
-        intro: "Lassen Sie uns über Ihre Herausforderungen in den Bereichen Nachhaltigkeit oder Betriebseffizienz sprechen.",
+        intro: "Ob Sie die Energieeffizienz optimieren, eine Net-Zero-Roadmap entwickeln oder Ihre operative Leistung transformieren möchten – wir sind hier, um zu helfen. Kontaktieren Sie uns direkt, um Ihre spezifischen Herausforderungen zu besprechen.",
         form: {
             name: "Vollständiger Name",
-            title: "Betreff / Projektname",
-            contactInfo: "E-Mail oder Telefon",
+            title: "Betreff / Projekttitel",
+            contactInfo: "E-Mail oder Telefonnummer",
             message: "Ihre Nachricht",
-            submit: "Senden",
-            sending: "Sendet...",
-            success: "Danke! Ihre Nachricht wurde gesendet.",
-            sendAnother: "Weitere Nachricht senden",
-            error: "Ein Fehler ist aufgetreten.",
+            submit: "Nachricht senden",
+            sending: "Wird gesendet...",
+            success: "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.",
+            sendAnother: "Eine weitere Nachricht senden",
+            error: "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
             validation: {
                 required: "Dieses Feld ist erforderlich",
-                invalidContact: "Bitte gültige Kontaktdaten eingeben"
+                invalidContact: "Bitte geben Sie eine gültige E-Mail oder Telefonnummer ein"
             }
         },
         trustBadge: {
             years: "35+ Jahre",
-            description: "Senior Engineering Leadership direkt für Sie."
+            description: "Senior Engineering Leadership direkt für Sie bereitgestellt."
         },
         info: {
             title: "Direktberatung",
-            description: "Arbeiten Sie direkt mit unserer Geschäftsführung.",
+            description: "Arbeiten Sie direkt mit unserer Geschäftsführung zusammen, um Ihre komplexesten Engineering-Herausforderungen zu lösen.",
             email: "E-Mail",
             location: "Standort",
             phone: "Telefon",
-            response: "Antwortzeit: innerhalb von 24h"
+            response: "Standard-Antwortzeit: innerhalb von 24 Stunden"
         }
     },
     admin: {
-        title: "Admin-Bereich",
-        subtitle: "Bitte geben Sie den Sicherheitsschlüssel ein.",
+        adminLabel: "Admin",
+        title: "Admin-Zugang",
+        subtitle: "Bitte geben Sie den Sicherheitsschlüssel ein, um fortzufahren.",
         keyPlaceholder: "Sicherheitsschlüssel",
-        login: "Login",
-        logout: "Logout",
+        login: "Anmelden",
+        logout: "Abmelden",
         cancel: "Abbrechen",
         invalidKey: "Ungültiger Schlüssel",
         messagesTitle: "Kontaktanfragen",
         inbox: "Posteingang",
         totalMessages: "Nachrichten insgesamt",
-        noMessages: "Keine Nachrichten.",
+        noMessages: "Noch keine Nachrichten.",
         refresh: "Aktualisieren",
-        deleteConfirm: "Nachricht löschen?",
+        deleteConfirm: "Sind Sie sicher, dass Sie diese Nachricht löschen möchten?",
         deleteFailed: "Löschen fehlgeschlagen",
         accessDenied: "Zugriff verweigert",
-        accessDeniedDesc: "Keine Berechtigung.",
+        accessDeniedDesc: "Sie haben keine Berechtigung, diese Seite anzuzeigen.",
         backToContact: "Zurück zum Kontakt",
         reply: "Antworten",
         delete: "Löschen"
     },
+    common: {
+        close: "Schließen"
+    },
     alts: {
         logo: "ETEQ Engineering Logo",
-        heroPlaceholder: "Strategie-Visualisierung",
-        consultation: "Strategische Planungssitzung",
-        aiConsultation: "Datengestützte Engineering-Analyse",
-        aiConsultationSide: "Technische Roadmap",
-        founderVideo: "Dariushi Rosutami, ETEQ Gründer",
-        profile: "Dariushi Rosutami - Senior Consultant",
-        industryPharma: "Pharma-Anlagenoptimierung",
-        industryLifeSciences: "Life Sciences Engineering",
-        industryFoodBev: "Effizienz in Lebensmittelproduktion",
-        industryGlass: "Glasherstellung Operational Excellence",
-        industryProcess: "Verfahrenstechnik"
+        heroPlaceholder: "ETEQ Engineering Strategie-Visualisierung",
+        consultation: "Engineering-Beratung und strategische Planungssitzung",
+        aiConsultation: "Datengestützte Engineering-Analyse und KI-Optimierung",
+        aiConsultationSide: "Strategische Engineering-Roadmap und technische Umsetzung",
+        founderVideo: "Dariushi Rosutami, ETEQ Gründer und Lead Consultant",
+        profile: "Dariushi Rosutami - Senior Engineering Consultant bei ETEQ",
+        industryPharma: "Optimierung pharmazeutischer Fertigungsanlagen",
+        industryLifeSciences: "Life Sciences Forschung und Produktionsengineering",
+        industryFoodBev: "Effizienzlösungen für die Lebensmittel- und Getränkeverarbeitung",
+        industryGlass: "Operational Excellence in der Glas- und Behälterherstellung",
+        industryProcess: "Verfahrenstechnik und Nachhaltigkeit"
     }
 };
