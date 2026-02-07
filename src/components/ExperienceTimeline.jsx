@@ -39,9 +39,9 @@ export default function ExperienceTimeline({ t }) {
                                     <div className="w-full h-full rounded-full bg-eteq-gradient opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
 
-                                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16'}`}>
+                                <div className={`ml-12 md:ml-0 md:w-1/2 w-[calc(100%-48px)] ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16'}`}>
                                     <div
-                                        className="group/card cursor-pointer"
+                                        className="group/card cursor-pointer w-full"
                                         style={{ perspective: '1000px' }}
                                         onClick={() => toggleFlip(index)}
                                     >
