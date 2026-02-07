@@ -1,18 +1,32 @@
 'use client';
 
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/navigation';
 import AdminModal from '@/components/AdminModal';
-import {useTranslation} from "@/lib/i18n/useTranslation";
+import {useAdminAuth} from '@/hooks/useAdminAuth';
 
-export default  function AdminTrigger({lang}) {
+export default function AdminTrigger({lang, t}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const t = useTranslation(lang);
+    const {isAdmin, checkAuth} = useAdminAuth();
+    const router = useRouter();
+
+    useEffect(() => {
+        checkAuth();
+    }, [checkAuth]);
+
+    const handleClick = () => {
+        if (isAdmin) {
+            router.push(`/${lang}/admin/contact`);
+        } else {
+            setIsModalOpen(true);
+        }
+    };
 
     return (
         <>
             <div className="mt-12 pb-8 border-b border-[var(--outline)]/10 flex justify-center">
                 <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={handleClick}
                     className="flex items-center space-x-2 text-[var(--on-surface-variant)] opacity-30 hover:opacity-100 transition-all duration-500 hover:text-[var(--primary)] group"
                 >
                     <span
@@ -27,7 +41,7 @@ export default  function AdminTrigger({lang}) {
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 lang={lang}
-                t={t}
+                t={t?.admin}
             />
         </>
     );

@@ -35,9 +35,9 @@ export default function AdminModal({isOpen, onClose, lang, t}) {
         setIsProcessing(true);
         setError(false);
 
-        const isValid = await verifyKey(key);
+        const result = await verifyKey(key);
 
-        if (isValid) {
+        if (result.success) {
             router.push(`/${lang}/admin/contact`);
             onClose();
         } else {
