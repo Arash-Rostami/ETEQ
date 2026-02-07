@@ -1,9 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function ExperienceTimeline({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+    const [flippedIndices, setFlippedIndices] = useState([]);
+
+    const toggleFlip = (index) => {
+        setFlippedIndices(prev =>
+            prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+        );
+    };
     const events = t.timeline.events;
 
     return (
@@ -31,8 +39,16 @@ export default function ExperienceTimeline({ t }) {
                                     <div className="w-full h-full rounded-full bg-eteq-gradient opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 </div>
 
-                                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16'}`}>                                    <div className="group/card" style={{ perspective: '1000px' }}>
-                                    <div className="relative w-full transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)]" style={{ transformStyle: 'preserve-3d' }}>
+                                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16'}`}>
+                                    <div
+                                        className="group/card cursor-pointer"
+                                        style={{ perspective: '1000px' }}
+                                        onClick={() => toggleFlip(index)}
+                                    >
+                                    <div
+                                        className={`relative w-full transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)] ${flippedIndices.includes(index) ? '[transform:rotateY(180deg)]' : ''}`}
+                                        style={{ transformStyle: 'preserve-3d' }}
+                                    >
 
                                         {/* Front */}
                                         <div className="bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 animate-fade-in group-hover:border-[var(--primary)]/20" style={{ backfaceVisibility: 'hidden' }}>

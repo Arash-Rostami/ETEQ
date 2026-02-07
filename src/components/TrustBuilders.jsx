@@ -1,11 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import {useIntersectionObserver} from '@/hooks/useIntersectionObserver';
 import {colors} from '@/contexts/colors'
 
 
 export default function TrustBuilders({t}) {
     const [ref, isVisible] = useIntersectionObserver({threshold: 0.2});
+    const [activeStat, setActiveStat] = useState(null);
+
+    const triggerStat = (originalIndex) => {
+        setActiveStat(originalIndex);
+        setTimeout(() => setActiveStat(null), 1000);
+    };
 
     const shimmerPairs = colors.shimmerPairs;
     const trustData = t?.trustBuilders || {};
@@ -37,11 +44,13 @@ export default function TrustBuilders({t}) {
                     {marqueeStats.map((stat, index) => {
                         const originalIndex = index % (stats.length || 1);
                         const [colorA, colorB] = shimmerPairs[originalIndex % shimmerPairs.length];
+                        const isActive = activeStat === originalIndex;
 
                         return (
                             <div
                                 key={index}
-                                className="flex-shrink-0 mx-4 w-[260px] md:w-[320px] relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-4)] transition-all duration-500 flex flex-col items-center text-center p-8 overflow-hidden group/card"
+                                onClick={() => triggerStat(originalIndex)}
+                                className={`flex-shrink-0 mx-4 w-[260px] md:w-[320px] relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-2)] hover:shadow-[var(--elevation-4)] transition-all duration-500 flex flex-col items-center text-center p-8 overflow-hidden group/card cursor-pointer ${isActive ? 'shadow-[var(--elevation-4)] scale-[1.02]' : ''}`}
                                 style={{
                                     '--shimmer-a': colorA,
                                     '--shimmer-b': colorB
@@ -49,28 +58,28 @@ export default function TrustBuilders({t}) {
                             >
                                 {/* Holographic Shimmer Edge - Top */}
                                 <div
-                                    className="absolute top-0 left-0 right-0 h-[2px] holographic-edge opacity-60 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                                    className={`absolute top-0 left-0 right-0 h-[2px] holographic-edge transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-60 group-hover/card:opacity-100'}`}></div>
 
                                 {/* Secondary subtle edge - Bottom */}
                                 <div
-                                    className="absolute bottom-0 left-0 right-0 h-[1px] holographic-edge opacity-30 group-hover/card:opacity-60 transition-opacity duration-300"
+                                    className={`absolute bottom-0 left-0 right-0 h-[1px] holographic-edge transition-opacity duration-300 ${isActive ? 'opacity-60' : 'opacity-30 group-hover/card:opacity-60'}`}
                                     style={{animationDirection: 'reverse', animationDuration: '4s'}}></div>
 
                                 {/* Inner glow on hover */}
                                 <div
-                                    className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"
+                                    className={`absolute inset-0 transition-opacity duration-700 pointer-events-none ${isActive ? 'opacity-100' : 'opacity-0 group-hover/card:opacity-100'}`}
                                     style={{
                                         background: `radial-gradient(circle at 50% 0%, ${colorA}10 0%, transparent 50%)`
                                     }}></div>
 
                                 {/* Icon with chromatic reflection */}
                                 <div
-                                    className="relative w-14 h-14 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mb-6 overflow-hidden group-hover/card:scale-110 transition-transform duration-500">
+                                    className={`relative w-14 h-14 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mb-6 overflow-hidden transition-transform duration-500 ${isActive ? 'scale-110' : 'group-hover/card:scale-110'}`}>
                                     <div
-                                        className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 holographic-edge"
+                                        className={`absolute inset-0 transition-opacity duration-500 holographic-edge ${isActive ? 'opacity-100' : 'opacity-0 group-hover/card:opacity-100'}`}
                                         style={{animationDuration: '2s'}}></div>
                                     <span
-                                        className="material-symbols-outlined text-3xl text-[var(--on-surface-variant)] group-hover/card:text-[var(--primary)] transition-colors duration-300 relative z-10">
+                                        className={`material-symbols-outlined text-3xl transition-colors duration-300 relative z-10 ${isActive ? 'text-[var(--primary)]' : 'text-[var(--on-surface-variant)] group-hover/card:text-[var(--primary)]'}`}>
                                         {stat?.icon || 'analytics'}
                                     </span>
                                 </div>
@@ -79,16 +88,16 @@ export default function TrustBuilders({t}) {
                                 <div
                                     className="display-medium font-bold text-[var(--on-surface)] mb-2 tracking-tight relative">
                                     <span
-                                        className="group-hover/card:opacity-0 transition-opacity duration-300">{stat?.value || '0'}</span>
+                                        className={`transition-opacity duration-300 ${isActive ? 'opacity-0' : 'group-hover/card:opacity-0'}`}>{stat?.value || '0'}</span>
                                     <span
-                                        className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-[var(--shimmer-a)] to-[var(--shimmer-b)] bg-clip-text text-transparent">
+                                        className={`absolute inset-0 transition-opacity duration-300 bg-gradient-to-r from-[var(--shimmer-a)] to-[var(--shimmer-b)] bg-clip-text text-transparent ${isActive ? 'opacity-100' : 'opacity-0 group-hover/card:opacity-100'}`}>
                                         {stat?.value || '0'}
                                     </span>
                                 </div>
 
                                 {/* Label */}
                                 <div
-                                    className="label-large text-[var(--on-surface-variant)] font-medium max-w-[220px] group-hover/card:text-[var(--on-surface)] transition-colors duration-300">
+                                    className={`label-large font-medium max-w-[220px] transition-colors duration-300 ${isActive ? 'text-[var(--on-surface)]' : 'text-[var(--on-surface-variant)] group-hover/card:text-[var(--on-surface)]'}`}>
                                     {stat?.label || 'Stat'}
                                 </div>
                             </div>

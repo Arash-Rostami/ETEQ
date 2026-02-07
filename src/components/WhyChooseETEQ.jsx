@@ -1,9 +1,16 @@
 'use client';
 
+import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function WhyChooseETEQ({ t }) {
     const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
+    const [activePoint, setActivePoint] = useState(null);
+
+    const triggerPoint = (index) => {
+        setActivePoint(index);
+        setTimeout(() => setActivePoint(null), 1000);
+    };
     const points = t.whyChoose.points;
     const icons = [
         'person_check', 'history', 'bolt', 'sync_alt',
@@ -23,10 +30,11 @@ export default function WhyChooseETEQ({ t }) {
                             {points.map((point, index) => (
                                 <div
                                     key={index}
-                                    className={`flex items-start space-x-4 p-4 rounded-2xl hover:bg-[var(--surface)] transition-all duration-300 group reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
+                                    onClick={() => triggerPoint(index)}
+                                    className={`flex items-start space-x-4 p-4 rounded-2xl hover:bg-[var(--surface)] transition-all duration-300 group reveal-hidden reveal-up cursor-pointer ${isVisible ? 'reveal-visible' : ''} ${activePoint === index ? 'bg-[var(--surface)]' : ''}`}
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center group-hover:bg-eteq-gradient group-hover:text-white transition-all">
+                                    <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-[var(--primary-container)] text-[var(--primary)] flex items-center justify-center transition-all ${activePoint === index ? 'bg-eteq-gradient text-white' : 'group-hover:bg-eteq-gradient group-hover:text-white'}`}>
                                         <span className="material-symbols-outlined text-xl">{icons[index] || 'check'}</span>
                                     </div>
                                     <div>

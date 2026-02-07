@@ -21,7 +21,7 @@ export default function Hero({t}) {
 
     return (
         <section ref={ref}
-                 className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-[var(--background)]">
+                 className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 overflow-hidden bg-[var(--background)]">
             <div className="absolute inset-0 z-0">
                 <div
                     className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[var(--color-coral)]/20 rounded-full blur-[120px] animate-pulse"></div>
@@ -121,7 +121,7 @@ export default function Hero({t}) {
                 </div>
             </div>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <div className="lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 flex flex-col items-center mt-12 lg:mt-0 mb-8 lg:mb-0 relative z-20">
                 <button
                     onClick={scrollToBottom}
                     className="group flex flex-col items-center space-y-3 focus:outline-none"
