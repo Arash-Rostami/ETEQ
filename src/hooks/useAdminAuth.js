@@ -13,26 +13,33 @@ export function useAdminAuth() {
         setIsAdmin(false);
     }, []);
 
-    const verifyKey = useCallback(async (key) => {
+    const verifyKey = useCallback(async (key, isCheckOnly = false) => {
         try {
             const response = await fetch('/api/admin/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ key }),
             });
+
+            if (!response.ok) {
+                return { success: false, errorType: 'server_error' };
+            }
+
             const data = await response.json();
 
             if (data.success) {
-                const expiry = new Date().getTime() + 3600000; // 1 hour
-                localStorage.setItem('admin_key', JSON.stringify({ key, expiry }));
+                if (!isCheckOnly) {
+                    const expiry = new Date().getTime() + 3600000; // 1 hour
+                    localStorage.setItem('admin_key', JSON.stringify({ key, expiry }));
+                }
                 setAdminKey(key);
                 setIsAdmin(true);
-                return true;
+                return { success: true };
             }
-            return false;
+            return { success: false, errorType: 'invalid_key' };
         } catch (error) {
             console.error('Verification error:', error);
-            return false;
+            return { success: false, errorType: 'network_error' };
         }
     }, []);
 
@@ -55,19 +62,27 @@ export function useAdminAuth() {
                 return false;
             }
 
-            const isValid = await verifyKey(key);
-            if (!isValid) {
-                logout();
+            const result = await verifyKey(key, true);
+
+            // If it's a network error or server error, we TRUST the stored key (don't logout)
+            // since we know it was previously valid and hasn't expired.
+            if (result.success || result.errorType === 'network_error' || result.errorType === 'server_error') {
+                setAdminKey(key);
+                setIsAdmin(true);
                 setLoading(false);
-                return false;
+                return true;
             }
 
-            setAdminKey(key);
-            setIsAdmin(true);
+            // If explicitly invalid, logout
+            if (result.errorType === 'invalid_key') {
+                logout();
+            }
+
             setLoading(false);
-            return true;
+            return false;
         } catch (error) {
-            logout();
+            // Unexpected error (like JSON parse) - safer to fail but maybe not logout
+            // unless it's clearly corrupted. Let's keep it simple.
             setLoading(false);
             return false;
         }
