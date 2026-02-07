@@ -15,9 +15,9 @@ export default function ExperienceTimeline({ t }) {
     const events = t.timeline.events;
 
     return (
-        <section ref={ref} className="py-24 bg-[var(--background)] relative overflow-hidden">
+        <section ref={ref} className="py-20 bg-[var(--background)] relative overflow-hidden">
             <div className="container mx-auto px-4">
-                <div className={`text-center max-w-3xl mx-auto mb-12 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
+                <div className={`text-center max-w-3xl mx-auto mb-8 reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
                     <h2 className="display-medium text-[var(--on-surface)] mb-4">{t.timeline.title}</h2>
                     <div className="h-1.5 w-24 bg-eteq-gradient mx-auto rounded-full mb-6"></div>
                     <p className="body-large text-[var(--on-surface-variant)]">
@@ -28,7 +28,7 @@ export default function ExperienceTimeline({ t }) {
                 <div className="max-w-4xl mx-auto relative">
                     <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-coral)] via-[var(--color-purple)] to-[var(--color-deep-blue)] -translate-x-1/2 rounded-full opacity-30"></div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-3">
                         {events.map((event, index) => (
                             <div
                                 key={index}
@@ -46,20 +46,20 @@ export default function ExperienceTimeline({ t }) {
                                         onClick={() => toggleFlip(index)}
                                     >
                                         <div
-                                            className={`relative w-full min-h-[220px] md:min-h-[200px] transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)] ${flippedIndices.includes(index) ? '[transform:rotateY(180deg)]' : ''}`}
+                                            className={`relative w-full min-h-[180px] md:min-h-[160px] transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)] ${flippedIndices.includes(index) ? '[transform:rotateY(180deg)]' : ''}`}
                                             style={{ transformStyle: 'preserve-3d' }}
                                         >
 
                                             {/* Front */}
-                                            <div className="w-full h-full bg-[var(--surface)] p-6 md:p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 animate-fade-in group-hover:border-[var(--primary)]/20 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden' }}>
-                                                <div className="label-large text-[var(--primary)] font-bold mb-2 uppercase tracking-widest">{event.year}</div>
-                                                <h3 className="headline-small text-[var(--on-surface)] mb-1">{event.company}</h3>
-                                                <div className="body-large text-[var(--on-surface-variant)] font-medium mb-4">{event.role}</div>
+                                            <div className="w-full h-full bg-[var(--surface)] p-5 md:p-6 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 animate-fade-in group-hover:border-[var(--primary)]/20 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden' }}>
+                                                <div className="label-large text-[var(--primary)] font-bold mb-1 uppercase tracking-widest">{event.year}</div>
+                                                <h3 className="headline-small text-[var(--on-surface)] mb-0.5">{event.company}</h3>
+                                                <div className="body-large text-[var(--on-surface-variant)] font-medium mb-3">{event.role}</div>
                                                 <div className={`h-0.5 w-12 bg-[var(--primary-container)] group-hover:w-full transition-all duration-700 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto md:mr-0'}`}></div>
                                             </div>
 
                                             {/* Back */}
-                                            <div className="absolute inset-0 w-full h-full bg-[var(--surface)] p-6 md:p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-3)] border border-[var(--outline)]/10 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                                            <div className="absolute inset-0 w-full h-full bg-[var(--surface)] p-5 md:p-6 rounded-[var(--shape-large)] shadow-[var(--elevation-3)] border border-[var(--outline)]/10 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
                                                 <div className="label-large text-[var(--primary)] font-bold mb-2 uppercase tracking-widest">{event.year}</div>
                                                 <p className="body-large text-[var(--on-surface-variant)] leading-relaxed">{event.description}</p>
                                             </div>
