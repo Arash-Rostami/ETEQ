@@ -19,7 +19,7 @@ export default function AdminContactsClient({t, lang}) {
 
     useEffect(() => {
         if (isAdmin) fetchContacts();
-    }, [isAdmin]);
+    }, [isAdmin, fetchContacts]);
 
 
     const handleDelete = async (id) => {
