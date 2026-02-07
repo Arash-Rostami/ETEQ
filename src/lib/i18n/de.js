@@ -8,7 +8,9 @@ export const de = {
         bio: "Bio",
         industries: "Branchen",
         callUs: "Anrufen",
-        sendEmail: "E-Mail senden"
+        sendEmail: "E-Mail senden",
+        quickContact: "Schnellkontakt",
+        switchLanguage: "Sprache wechseln"
     },
     hero: {
         title: "Senior Engineering Expertise",
@@ -244,6 +246,7 @@ export const de = {
         }
     },
     admin: {
+        adminLabel: "Admin",
         title: "Admin-Bereich",
         subtitle: "Bitte geben Sie den Sicherheitsschlüssel ein.",
         keyPlaceholder: "Sicherheitsschlüssel",
@@ -263,6 +266,9 @@ export const de = {
         backToContact: "Zurück zum Kontakt",
         reply: "Antworten",
         delete: "Löschen"
+    },
+    common: {
+        close: "Schließen"
     },
     alts: {
         logo: "ETEQ Engineering Logo",

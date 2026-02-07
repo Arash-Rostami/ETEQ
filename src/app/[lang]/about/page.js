@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
+import {getFontClass} from "@/lib/i18n/config";
 
 export async function generateMetadata({params}) {
     return createMetadata({
@@ -19,7 +20,7 @@ export default async function AboutPage({params}) {
     const page = t.aboutPage;
 
     return (
-        <main className={lang === 'ja' ? 'font-noto' : 'font-poppins'}>
+        <main className={getFontClass(lang)}>
             <Header t={t} lang={lang}/>
 
             <section className="relative pt-32 pb-20 overflow-hidden bg-[var(--surface-container)]">
