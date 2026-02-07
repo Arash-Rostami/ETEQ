@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import {useCallback, useState} from 'react';
 
 export function useAdminAuth() {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -13,26 +13,31 @@ export function useAdminAuth() {
         setIsAdmin(false);
     }, []);
 
-    const verifyKey = useCallback(async (key) => {
+    const verifyKey = useCallback(async (key, isCheckOnly = false) => {
         try {
             const response = await fetch('/api/admin/verify', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ key }),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({key}),
             });
+
+            if (!response.ok) return {success: false, errorType: 'server_error'};
+
             const data = await response.json();
 
             if (data.success) {
-                const expiry = new Date().getTime() + 3600000; // 1 hour
-                localStorage.setItem('admin_key', JSON.stringify({ key, expiry }));
+                if (!isCheckOnly) {
+                    const expiry = new Date().getTime() + 3600000; // 1 hour
+                    localStorage.setItem('admin_key', JSON.stringify({key, expiry}));
+                }
                 setAdminKey(key);
                 setIsAdmin(true);
-                return true;
+                return {success: true};
             }
-            return false;
+            return {success: false, errorType: 'invalid_key'};
         } catch (error) {
             console.error('Verification error:', error);
-            return false;
+            return {success: false, errorType: 'network_error'};
         }
     }, []);
 
@@ -46,7 +51,7 @@ export function useAdminAuth() {
         }
 
         try {
-            const { key, expiry } = JSON.parse(stored);
+            const {key, expiry} = JSON.parse(stored);
             const now = new Date().getTime();
 
             if (now > expiry) {
@@ -55,19 +60,19 @@ export function useAdminAuth() {
                 return false;
             }
 
-            const isValid = await verifyKey(key);
-            if (!isValid) {
-                logout();
-                setLoading(false);
-                return false;
-            }
+            const result = await verifyKey(key, true);
 
-            setAdminKey(key);
-            setIsAdmin(true);
+            if (result.success || result.errorType === 'network_error' || result.errorType === 'server_error') {
+                setAdminKey(key);
+                setIsAdmin(true);
+                setLoading(false);
+                return true;
+            }
+            if (result.errorType === 'invalid_key') logout();
+
             setLoading(false);
-            return true;
+            return false;
         } catch (error) {
-            logout();
             setLoading(false);
             return false;
         }
