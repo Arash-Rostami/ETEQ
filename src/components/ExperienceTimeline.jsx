@@ -46,12 +46,12 @@ export default function ExperienceTimeline({ t }) {
                                         onClick={() => toggleFlip(index)}
                                     >
                                         <div
-                                            className={`relative w-full transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)] ${flippedIndices.includes(index) ? '[transform:rotateY(180deg)]' : ''}`}
+                                            className={`relative w-full min-h-[280px] md:min-h-[240px] transition-transform duration-700 ease-in-out group-hover/card:[transform:rotateY(180deg)] ${flippedIndices.includes(index) ? '[transform:rotateY(180deg)]' : ''}`}
                                             style={{ transformStyle: 'preserve-3d' }}
                                         >
 
                                             {/* Front */}
-                                            <div className="bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 animate-fade-in group-hover:border-[var(--primary)]/20" style={{ backfaceVisibility: 'hidden' }}>
+                                            <div className="w-full h-full bg-[var(--surface)] p-6 md:p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-3)] transition-all duration-300 border border-[var(--outline)]/10 animate-fade-in group-hover:border-[var(--primary)]/20 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden' }}>
                                                 <div className="label-large text-[var(--primary)] font-bold mb-2 uppercase tracking-widest">{event.year}</div>
                                                 <h3 className="headline-small text-[var(--on-surface)] mb-1">{event.company}</h3>
                                                 <div className="body-large text-[var(--on-surface-variant)] font-medium mb-4">{event.role}</div>
@@ -59,9 +59,9 @@ export default function ExperienceTimeline({ t }) {
                                             </div>
 
                                             {/* Back */}
-                                            <div className="absolute inset-0 bg-[var(--surface)] p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-3)] border border-[var(--outline)]/10 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                                            <div className="absolute inset-0 w-full h-full bg-[var(--surface)] p-6 md:p-8 rounded-[var(--shape-large)] shadow-[var(--elevation-3)] border border-[var(--outline)]/10 flex flex-col justify-center" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
                                                 <div className="label-large text-[var(--primary)] font-bold mb-2 uppercase tracking-widest">{event.year}</div>
-                                                <p className="body-large text-[var(--on-surface-variant)]">{event.description}</p>
+                                                <p className="body-large text-[var(--on-surface-variant)] leading-relaxed">{event.description}</p>
                                             </div>
                                         </div>
                                     </div>
