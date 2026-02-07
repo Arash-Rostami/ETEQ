@@ -41,20 +41,17 @@ export function useTheme() {
         });
 
         transition.ready.then(() => {
-            const clipPath = [
-                `circle(0px at ${x}px ${y}px)`,
-                `circle(${endRadius}px at ${x}px ${y}px)`,
-            ];
             document.documentElement.animate(
                 {
-                    clipPath: isDark ? [...clipPath].reverse() : clipPath,
+                    clipPath: [
+                        `circle(0px at ${x}px ${y}px)`,
+                        `circle(${endRadius}px at ${x}px ${y}px)`,
+                    ],
                 },
                 {
-                    duration: 500,
-                    easing: "ease-in-out",
-                    pseudoElement: isDark
-                        ? "::view-transition-old(root)"
-                        : "::view-transition-new(root)",
+                    duration: 650,
+                    easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                    pseudoElement: "::view-transition-new(root)",
                 }
             );
         });

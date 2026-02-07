@@ -540,18 +540,12 @@ section {
     mix-blend-mode: normal;
 }
 
-.dark::view-transition-old(root) {
+::view-transition-old(root) {
     z-index: 1;
-}
-.dark::view-transition-new(root) {
-    z-index: 999;
 }
 
-::view-transition-old(root) {
-    z-index: 999;
-}
 ::view-transition-new(root) {
-    z-index: 1;
+    z-index: 999;
 }
 
 .animate-pulse-slow {
