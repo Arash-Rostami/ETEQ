@@ -347,5 +347,12 @@ export const fr = {
         industryFoodBev: "Solutions d'efficacité de traitement agroalimentaire",
         industryGlass: "Excellence opérationnelle fabrication verre et conteneurs",
         industryProcess: "Ingénierie des industries de procédés et durabilité"
+    },
+    chatWidget: {
+        title: "Assistant IA",
+        maintenance: "Maintenance",
+        updating: "Mise à jour",
+        maintenanceSub: "L'assistant IA sera de retour sous peu",
+        maintenanceNote: "Veuillez patienter quelques minutes"
     }
 };
