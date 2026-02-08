@@ -32,8 +32,8 @@ export default function ChatWidget({ t, lang }) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 bg-eteq-gradient text-white shrink-0">
                     <div className="flex items-center gap-3">
-                        <div className={`w-2.5 h-2.5 rounded-full ${maintenance ? 'bg-yellow-400 animate-pulse' : 'bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.6)]'}`}></div>
-                        <span className="font-bold text-title-medium tracking-wide">{maintenance ? t.chatWidget.maintenance : t.chatWidget.title}</span>
+                        <div className={`w-2.5 h-2.5 rounded-full ${maintenance ? 'bg-yellow-400 animate-pulse' : ''}`}></div>
+                        <span className="font-bold text-title-medium tracking-wide">{maintenance ? t.chatWidget.maintenance : ''}</span>
                     </div>
                     <div className="flex items-center gap-1">
                         {!maintenance && (
@@ -92,6 +92,7 @@ export default function ChatWidget({ t, lang }) {
                 }
                 `}
                 aria-label="Open AI Assistant"
+                title="Open AI Assistant"
             >
                 <span className="material-symbols-outlined text-3xl md:text-4xl">smart_toy</span>
             </button>
