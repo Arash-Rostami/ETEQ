@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 
 export function useChatWidget() {
     const [chatOpen, setChatOpen] = useState(false);
     const [maximized, setMaximized] = useState(false);
 
-    const maintenance = true;
+    const maintenance = false;
 
     const toggleChat = () => setChatOpen(prev => !prev);
     const openChat = () => setChatOpen(true);
