@@ -6,7 +6,7 @@ export function useChatWidget() {
     const [chatOpen, setChatOpen] = useState(false);
     const [maximized, setMaximized] = useState(false);
 
-    const maintenance = false;
+    const maintenance = true;
 
     const toggleChat = () => setChatOpen(prev => !prev);
     const openChat = () => setChatOpen(true);
