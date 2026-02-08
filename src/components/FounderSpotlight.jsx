@@ -1,54 +1,61 @@
 'use client'
 
-import { useLingo } from '@/hooks/useLingo';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import {useEffect, useState} from 'react';
+import {useLingo} from '@/hooks/useLingo';
+import {useIntersectionObserver} from '@/hooks/useIntersectionObserver';
 
-export default function FounderSpotlight({ t }) {
-    const [ref, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-    const { lang } = useLingo();
+export default function FounderSpotlight({t}) {
+    const [ref, isVisible] = useIntersectionObserver({threshold: 0.1});
+    const {lang} = useLingo();
+    const [shouldLoad, setShouldLoad] = useState(false);
     const credentials = t.founder.credentials;
+
+    useEffect(() => {
+        if (isVisible) setShouldLoad(true);
+    }, [isVisible]);
 
     return (
         <section ref={ref} id="bio" className="py-24 bg-[var(--background)] relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
-                    <div className={`relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-3)] overflow-hidden reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
-                        {/* Gradient Border Accent */}
-                        <div className="absolute inset-0 p-px bg-eteq-gradient -z-10 rounded-[var(--shape-extra-large)] opacity-50"></div>
+                    <div
+                        className={`relative bg-[var(--surface)] rounded-[var(--shape-extra-large)] shadow-[var(--elevation-3)] overflow-hidden reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>
+                        <div
+                            className="absolute inset-0 p-px bg-eteq-gradient -z-10 rounded-[var(--shape-extra-large)] opacity-50"></div>
 
                         <div className="grid lg:grid-cols-2 items-stretch">
-                            {/* Left: Image Placeholder */}
-                            <div className="relative bg-[var(--surface-variant)] min-h-[400px] flex items-center justify-center group overflow-hidden">
-                                <div className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
+                            <div
+                                className="relative bg-[var(--surface-variant)] min-h-[400px] flex items-center justify-center group overflow-hidden">
+                                <div
+                                    className="absolute inset-0 bg-eteq-gradient opacity-10 group-hover:opacity-20 transition-opacity duration-700"></div>
                                 <div className="relative z-10 text-center p-8">
                                     <div
-                                        className="w-48 h-48 rounded-full bg-[var(--surface)] shadow-[var(--elevation-2)] mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-white/50">
-                                        <video
-                                            src="/eteq.mp4"
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                            preload="none"
-                                            className="w-full h-full object-cover lazy-video"
-                                            data-src="/eteq.mp4"
-                                            aria-label={t.alts.founderVideo}
-                                        />
+                                        className="w-48 h-48 rounded-full bg-[var(--surface)] shadow-[var(--elevation-2)] mx-auto mb-6 flex items-center justify-center overflow-hidden border-4 border-white/50 relative">
+                                        {shouldLoad && (
+                                            <video
+                                                src="/eteq.mp4"
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                className="w-full h-full object-cover"
+                                                aria-label={t.alts.founderVideo}
+                                            />
+                                        )}
                                     </div>
                                     <div className="headline-small text-[var(--on-surface)] mb-1">{t.founder.name}</div>
                                     <div
                                         className="label-large text-[var(--primary)] font-bold tracking-widest uppercase">{t.founder.role}</div>
                                 </div>
 
-                                {/* Background Abstract Element */}
                                 <div
                                     className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
                             </div>
 
-                            {/* Right: Content */}
                             <div className="p-10 lg:p-16 flex flex-col justify-center">
                                 <h2 className="headline-large text-[var(--on-surface)] mb-8 flex items-center">
-                                    <span className="material-symbols-outlined mr-4 text-4xl text-[var(--primary)]">format_quote</span>
+                                    <span
+                                        className="material-symbols-outlined mr-4 text-4xl text-[var(--primary)]">format_quote</span>
                                     {t.founder.title}
                                 </h2>
 
@@ -61,9 +68,10 @@ export default function FounderSpotlight({ t }) {
                                         <div
                                             key={index}
                                             className={`flex items-center space-x-3 bg-[var(--surface-container)] p-4 rounded-xl border border-[var(--outline)]/10 hover:border-[var(--primary)]/30 transition-colors group reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}
-                                            style={{ transitionDelay: `${400 + index * 100}ms` }}
+                                            style={{transitionDelay: `${400 + index * 100}ms`}}
                                         >
-                                            <span className="material-symbols-outlined text-[var(--primary)] group-hover:scale-110 transition-transform">verified</span>
+                                            <span
+                                                className="material-symbols-outlined text-[var(--primary)] group-hover:scale-110 transition-transform">verified</span>
                                             <span className="label-large text-[var(--on-surface)]">{cred}</span>
                                         </div>
                                     ))}
@@ -82,8 +90,8 @@ export default function FounderSpotlight({ t }) {
                 </div>
             </div>
 
-            {/* Background Decorative Gradient */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[var(--color-purple)]/5 to-transparent -z-10"></div>
+            <div
+                className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[var(--color-purple)]/5 to-transparent -z-10"></div>
         </section>
     );
 }

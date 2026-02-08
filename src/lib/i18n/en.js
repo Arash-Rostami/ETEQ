@@ -306,5 +306,12 @@ export const en = {
         industryFoodBev: "Food and beverage processing efficiency solutions",
         industryGlass: "Glass and container manufacturing operational excellence",
         industryProcess: "Process industry engineering and sustainability"
+    },
+    chatWidget: {
+        title: "AI Assistant",
+        maintenance: "Maintenance",
+        updating: "Updating",
+        maintenanceSub: "The AI assistant will return shortly",
+        maintenanceNote: "Please wait a few minutes"
     }
 };
