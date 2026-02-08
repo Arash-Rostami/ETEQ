@@ -306,5 +306,12 @@ export const ja = {
         industryFoodBev: "食品・飲料加工の効率化ソリューション",
         industryGlass: "ガラス・容器製造のオペレーショナル・エクセレンス",
         industryProcess: "プロセス産業のエンジニアリングとサステナビリティ"
+    },
+    chatWidget: {
+        title: "AIアシスタント",
+        maintenance: "メンテナンス中",
+        updating: "更新中",
+        maintenanceSub: "AIアシスタントは間もなく復帰します",
+        maintenanceNote: "数分お待ちください"
     }
 };

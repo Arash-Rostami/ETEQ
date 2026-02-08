@@ -10,6 +10,7 @@ import ExperienceTimeline from '@/components/ExperienceTimeline';
 import Certifications from '@/components/Certifications';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 import {createMetadata} from "@/lib/seo/metadata";
 import {getFontClass} from "@/lib/i18n/config";
 
@@ -41,6 +42,7 @@ export default async function HomePage({params}) {
                 <FinalCTA t={t} lang={lang}/>
             </div>
             <Footer t={t}/>
+            <ChatWidget t={t} lang={lang}/>
         </main>
     );
 }

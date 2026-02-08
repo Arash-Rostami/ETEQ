@@ -306,5 +306,12 @@ export const de = {
         industryFoodBev: "Effizienzlösungen für die Lebensmittel- und Getränkeverarbeitung",
         industryGlass: "Operational Excellence in der Glas- und Behälterherstellung",
         industryProcess: "Verfahrenstechnik und Nachhaltigkeit"
+    },
+    chatWidget: {
+        title: "KI-Assistent",
+        maintenance: "Wartung",
+        updating: "Aktualisierung",
+        maintenanceSub: "Der KI-Assistent wird in Kürze zurückkehren",
+        maintenanceNote: "Bitte warten Sie einige Minuten"
     }
 };
