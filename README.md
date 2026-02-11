@@ -1,56 +1,60 @@
-# ETEQ: Engineering the Future. Precision Consultancy via Japanese Innovation.
+# ETEQ: The Digital Cortex of Engineering Excellence
 
-## The Vision
-ETEQ represents the convergence of **35+ years of elite engineering leadership** and **state-of-the-art digital architecture**. Founded by Dariushi Rosutami—former Head of Engineering at Takeda Pharmaceutical, DSM Japan, and Danone Japan—this platform is not merely a website; it is a **digital manifesto of operational excellence**.
+## A Visionary Product Showcase
+Welcome to the architectural blueprint of **ETEQ**—a platform that transcends traditional web development. This is not merely a corporate site; it is a **High-Velocity Digital Intelligence System** engineered to serve the global elite of the manufacturing world.
 
-We bridge the gap between complex industrial challenges—Net Zero roadmaps, FDA/PMDA compliance, and CAPEX planning—and elegant, high-velocity digital solutions. ETEQ delivers **Monozukuri-grade precision** directly to global manufacturing leaders in Pharmaceutical, Life Sciences, and Food & Beverage sectors.
-
----
-
-## Core Service Pillars
-
-### 1. Strategic Technical Auditing
-**Derived from our Data-Driven Methodologies**
-Our consultancy is built on a foundation of rigorous analysis. Just as our code parses data with exactitude, our engineering audits identify inefficiencies with surgical precision.
-*   **76% CO₂ Reduction:** Proven decarbonization strategies.
-*   **17% Energy Savings:** Measurable impact on operational costs.
-*   **Zero Audit Findings:** Flawless regulatory compliance (FDA, PMDA, ISO).
-
-### 2. High-Velocity Digital Transformation
-**Powered by Next.js & React Architecture**
-Speed is the currency of the modern enterprise. Our digital presence leverages the **Next.js App Router** to deliver "Instant-Access Intelligence."
-*   **Global Performance Optimization:** Server-Side Rendering (SSR) ensures our insights are delivered with milliseconds of latency, anywhere in the world.
-*   **Modular Solution Blueprints:** Our React component architecture mirrors our engineering philosophy—modular, scalable, and built for complex system integration.
-
-### 3. Global Standard Compliance
-**Embedded in our Logic**
-Reliability is non-negotiable. Our systems are architected to meet the highest international standards, reflecting our expertise in GMP, ISO9001, and ISO14001.
-*   **Multilingual Intelligence:** Native-level support for Japanese, English, French, and German facilitates seamless cross-border collaboration.
-*   **Secure Client Gateways:** Enterprise-grade API routes ensure confidential data handling and secure communication channels.
+Built on the bleeding edge of the **Next.js App Router**, this repository represents the convergence of **Japanese Monozukuri precision** and **Cognitive Digital Strategy**. It is designed to operate as a 24/7 autonomous consultant, bridging the gap between physical engineering mastery and digital ubiquity.
 
 ---
 
-## The "Japan Edge": Precision & Monozukuri
-At ETEQ, we embody the spirit of **Monozukuri**—the relentless pursuit of perfection in craftsmanship. Our approach is defined by:
-*   **Kaizen (Continuous Improvement):** We don't just solve problems; we optimize systems for long-term resilience.
-*   **Omotenashi (Anticipatory Service):** Our digital interfaces, including our AI-assisted engagement tools, are designed to anticipate client needs before they are articulated.
-*   **Unwavering Reliability:** With a track record of managing major factory construction projects and driving productivity in high-stakes environments, we deliver results you can trust.
+## Super Intelligent Features: The 100% In-App Advantage
+
+### 1. Quadrilingual Neural Interface (QNI)
+**Global Reach, Zero Latency.**
+The system features a sophisticated **Internationalization Engine (`src/lib/i18n`)** that functions as a real-time linguistic bridge. It does not simply "translate"; it contextually adapts the user experience across four major industrial languages:
+*   **English (EN):** The global standard for business.
+*   **Japanese (JA):** The language of Monozukuri and precision.
+*   **French (FR) & German (DE):** The pillars of European industrial compliance.
+*   **Technical Insight:** Utilizing dynamic routing `[lang]`, the system eliminates hydration mismatches and ensures instant, SEO-perfect content delivery for every region.
+
+### 2. AI-Driven Consultant Avatar
+**24/7 Executive Access.**
+Embedded within the core architecture is the **Smart Chat Widget (`src/components/ChatWidget.jsx`)**, a digital twin of our senior engineering leadership.
+*   **Always-On Intelligence:** Leveraging an external neural network (`persol-ai`), this component provides instant, context-aware responses to complex engineering queries.
+*   **Adaptive UI:** The interface features state-aware maximizing/minimizing logic, ensuring it remains unobtrusive until needed—respecting the user's cognitive load.
+
+### 3. Cognitive SEO Architecture
+**Algorithmic Visibility Protocol.**
+Our **Metadata Generation Engine (`src/lib/seo/metadata.js`)** is not static; it is a dynamic, logic-driven system that speaks the language of search algorithms.
+*   **Smart Alternates:** The system automatically generates `hreflang` tags for all supported languages, creating a "semantic web" that ensures the right content reaches the right engineer, anywhere in the world.
+*   **Contextual Meta-Tags:** Dynamic title and description injection based on route parameters ensures maximum click-through rates from high-value prospects.
+
+### 4. Predictive UX Dynamics
+**Respect for Human Attention.**
+Powered by our custom **Intersection Observer Hook (`src/hooks/useIntersectionObserver.js`)**, the interface feels alive, anticipating user behavior.
+*   **Resource Optimization:** Heavy assets (like the Founder Spotlight video) are strictly lazy-loaded. They exist only when the user's gaze falls upon them, saving bandwidth and battery.
+*   **Narrative Reveals:** Elements don't just "load"; they "reveal" themselves in a choreographed sequence, guiding the user's eye through the story of engineering excellence.
+
+### 5. Fortified Command Nexus
+**Secure Operational Control.**
+Hidden behind a secure route (`src/app/api/admin`) lies the **Admin Command Center**.
+*   **Cryptographic Access:** Protected by server-side secret key validation, ensuring that sensitive client data and inquiries remain strictly confidential.
+*   **Direct-to-Database:** Seamless integration with MongoDB (via Mongoose) allows for real-time monitoring of client engagement without third-party dependencies.
 
 ---
 
-## Interactive Portfolio: A Living Blueprint
-This platform serves as a **Living Portfolio of Technical Excellence**, demonstrating our capabilities in real-time.
-
-*   **Seamless Enterprise Connectivity:** Our backend services facilitate direct, secure access to senior leadership, bypassing the layers of junior consultants found in traditional firms.
-*   **Data-Driven Decision Engines:** From our "Experience Timeline" to our "Trust Builders," every interactive element is designed to provide transparent, verifiable proof of our impact.
+## The "Japan Edge": Code as Monozukuri
+In this repository, **Code Quality = Manufacturing Quality**.
+*   **Modular Solution Blueprints:** Our React components (`src/components`) are built like precision machinery—modular, reusable, and tested for tolerance.
+*   **Kaizen-Ready Architecture:** The project structure is designed for continuous improvement. New features can be "bolted on" without disrupting the core stability of the platform.
 
 ---
 
-### Transform Your Operations
-**ETEQ: Senior Engineering Expertise, Delivered Directly.**
+## Transform Your Digital Presence
+**ETEQ: Where Engineering Meets Intelligence.**
 
-*   **Location:** Tokyo, Japan
-*   **Focus:** Sustainability, Operational Excellence, Regulatory Compliance
-*   **Founder:** Dariushi Rosutami (PMP, Lean Six Sigma Green Belt)
+*   **Technology Stack:** Next.js (App Router), React, MongoDB, Tailwind CSS
+*   **Core Philosophy:** Precision, Speed, Intelligence
+*   **Founder:** Dariushi Rosutami (Senior Engineering Consultant)
 
-*Connect with us to engineer your future.*
+*Explore the code. Witness the future.*
