@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ETEQ: Engineering the Future. Precision Consultancy via Japanese Innovation.
 
-## Getting Started
+## The Vision
+ETEQ represents the convergence of **35+ years of elite engineering leadership** and **state-of-the-art digital architecture**. Founded by Dariushi Rosutami—former Head of Engineering at Takeda Pharmaceutical, DSM Japan, and Danone Japan—this platform is not merely a website; it is a **digital manifesto of operational excellence**.
 
-First, run the development server:
+We bridge the gap between complex industrial challenges—Net Zero roadmaps, FDA/PMDA compliance, and CAPEX planning—and elegant, high-velocity digital solutions. ETEQ delivers **Monozukuri-grade precision** directly to global manufacturing leaders in Pharmaceutical, Life Sciences, and Food & Beverage sectors.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Core Service Pillars
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 1. Strategic Technical Auditing
+**Derived from our Data-Driven Methodologies**
+Our consultancy is built on a foundation of rigorous analysis. Just as our code parses data with exactitude, our engineering audits identify inefficiencies with surgical precision.
+*   **76% CO₂ Reduction:** Proven decarbonization strategies.
+*   **17% Energy Savings:** Measurable impact on operational costs.
+*   **Zero Audit Findings:** Flawless regulatory compliance (FDA, PMDA, ISO).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. High-Velocity Digital Transformation
+**Powered by Next.js & React Architecture**
+Speed is the currency of the modern enterprise. Our digital presence leverages the **Next.js App Router** to deliver "Instant-Access Intelligence."
+*   **Global Performance Optimization:** Server-Side Rendering (SSR) ensures our insights are delivered with milliseconds of latency, anywhere in the world.
+*   **Modular Solution Blueprints:** Our React component architecture mirrors our engineering philosophy—modular, scalable, and built for complex system integration.
 
-## Learn More
+### 3. Global Standard Compliance
+**Embedded in our Logic**
+Reliability is non-negotiable. Our systems are architected to meet the highest international standards, reflecting our expertise in GMP, ISO9001, and ISO14001.
+*   **Multilingual Intelligence:** Native-level support for Japanese, English, French, and German facilitates seamless cross-border collaboration.
+*   **Secure Client Gateways:** Enterprise-grade API routes ensure confidential data handling and secure communication channels.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## The "Japan Edge": Precision & Monozukuri
+At ETEQ, we embody the spirit of **Monozukuri**—the relentless pursuit of perfection in craftsmanship. Our approach is defined by:
+*   **Kaizen (Continuous Improvement):** We don't just solve problems; we optimize systems for long-term resilience.
+*   **Omotenashi (Anticipatory Service):** Our digital interfaces, including our AI-assisted engagement tools, are designed to anticipate client needs before they are articulated.
+*   **Unwavering Reliability:** With a track record of managing major factory construction projects and driving productivity in high-stakes environments, we deliver results you can trust.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Interactive Portfolio: A Living Blueprint
+This platform serves as a **Living Portfolio of Technical Excellence**, demonstrating our capabilities in real-time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+*   **Seamless Enterprise Connectivity:** Our backend services facilitate direct, secure access to senior leadership, bypassing the layers of junior consultants found in traditional firms.
+*   **Data-Driven Decision Engines:** From our "Experience Timeline" to our "Trust Builders," every interactive element is designed to provide transparent, verifiable proof of our impact.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### Transform Your Operations
+**ETEQ: Senior Engineering Expertise, Delivered Directly.**
+
+*   **Location:** Tokyo, Japan
+*   **Focus:** Sustainability, Operational Excellence, Regulatory Compliance
+*   **Founder:** Dariushi Rosutami (PMP, Lean Six Sigma Green Belt)
+
+*Connect with us to engineer your future.*
