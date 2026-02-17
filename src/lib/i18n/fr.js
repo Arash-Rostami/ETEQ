@@ -7,6 +7,7 @@ export const fr = {
         about: "À Propos",
         bio: "Bio",
         industries: "Secteurs",
+        blog: "Blog",
         callUs: "Appelez-nous",
         sendEmail: "Envoyer un e-mail",
         quickContact: "Contact Rapide",
@@ -230,6 +231,34 @@ export const fr = {
     aboutPage: {
         title: "À Propos d'ETEQ",
         intro: "ETEQ est un cabinet de conseil boutique en ingénierie fondé sur plus de 35 ans de leadership opérationnel éprouvé dans les secteurs pharmaceutique, des sciences de la vie et de l'industrie agroalimentaire.",
+        companyTable: {
+            title: "Aperçu de l'entreprise",
+            name: "Nom de l'entreprise",
+            nameValue: "ETeQ LLC",
+            engName: "Nom anglais",
+            engNameValue: "ETeQ LLC",
+            rep: "Représentant",
+            repValue: "Dariushi Rostami",
+            business: "Description de l'activité",
+            businessValue: "Conseil en ingénierie",
+            fields: "Principaux domaines de soutien",
+            fieldsValue: "Pharmaceutique, Alimentaire, Fabrication chimique",
+            contact: "Contact",
+            contactValue: "Via la page de contact",
+            note: "* L'emplacement est basé sur les informations d'enregistrement. Ci-dessus se trouve le lieu d'activité."
+        },
+        message: {
+            title: "Message du représentant",
+            content: [
+                "Depuis plus de 35 ans, je suis impliqué dans l'ingénierie, la qualité, la sécurité et l'énergie dans les industries manufacturières et pharmaceutiques.",
+                "Je crois que le véritable rôle d'un leader en ingénierie est de se tenir entre l'atelier et la direction, de prendre des décisions sous des contraintes limitées et d'assumer la responsabilité de la mise en œuvre.",
+                "Chez ETeQ LLC, nous nous plaçons du même point de vue que nos clients, en les soutenant sur la base de critères tels que 'est-ce réalisable ?' et 'cela durera-t-il sur le terrain ?'."
+            ]
+        },
+        values: {
+            title: "Ce que ETeQ valorise",
+            list: ["Penser à partir de l'atelier et des données", "Prioriser la sécurité, la qualité et l'approvisionnement stable", "Ne pas proposer ce qui ne peut être mis en œuvre"]
+        },
         founderTitle: "Une Expertise Forgée dans le Leadership",
         founderContext: "Notre fondateur, Dariushi Rosutami, a occupé des postes de Responsable de l'Ingénierie chez des leaders de l'industrie tels que Takeda Pharmaceutical, DSM Japon et Danone Japon, où il était directement responsable de résultats transformationnels.",
         differentiation: {
@@ -354,5 +383,40 @@ export const fr = {
         updating: "Mise à jour",
         maintenanceSub: "L'assistant IA sera de retour sous peu",
         maintenanceNote: "Veuillez patienter quelques minutes"
+    }
+    ,
+    servicesPage: {
+        title: "Services",
+        subtitle: "Soutien en ingénierie de bout en bout, de la stratégie à la mise en œuvre sur le terrain",
+        highlights: [
+            {title: "Perspective de terrain", text: "Des propositions pratiques qui ne finissent pas comme des 'châteaux en Espagne'"},
+            {title: "Axé sur les données", text: "Soutien à la décision basé sur des faits et des chiffres, pas sur l'intuition"},
+            {title: "Normes mondiales", text: "Application des méthodes d'ingénierie standard mondiales au Japon"}
+        ],
+        servicesList: [
+            {title: "Formulation de la stratégie d'ingénierie", items: ["Création de feuille de route à moyen et long terme", "Soutien à la planification CAPEX", "Planification de la stratégie de décarbonation/économie d'énergie"]},
+            {title: "Gestion de projet", items: ["Supervision de la conception de base/détaillée", "Sélection/soutien à la gestion des fournisseurs", "Gestion du calendrier/coûts"]},
+            {title: "Excellence opérationnelle", items: ["Amélioration de la productivité/résolution des goulots d'étranglement", "Soutien à la gestion des risques qualité", "Optimisation du plan de maintenance"]},
+            {title: "Organisation/Développement des talents", items: ["Conception de l'organisation d'ingénierie", "Formation des dirigeants de la prochaine génération", "Création de mécanismes de succession technologique"]}
+        ],
+        process: {
+            title: "Comment nous soutenons",
+            steps: [
+                {num: "1", title: "Consultation initiale", text: "Organiser les problèmes et les objectifs."},
+                {num: "2", title: "Compréhension de l'état actuel", text: "Vérifier le site et les données."},
+                {num: "3", title: "Analyse & Planification", text: "Organiser les priorités et les plans d'exécution."},
+                {num: "4", title: "Soutien à la mise en œuvre", text: "Établir sur le terrain."}
+            ]
+        },
+        cta: {
+            text: "Lors de la consultation initiale, nous clarifions la direction des problèmes et la marche à suivre. Veuillez d'abord nous parler de votre situation.",
+            button: "Contactez-nous"
+        }
+    },
+    blogPage: {
+        title: "Blog",
+        subtitle: "Diffuser des informations utiles pour le terrain telles que l'ingénierie, l'économie d'énergie et la théorie organisationnelle.",
+        readMore: "Lire la suite",
+        backToBlog: "Retour à la liste du blog"
     }
 };
