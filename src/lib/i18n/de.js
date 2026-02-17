@@ -7,6 +7,7 @@ export const de = {
         about: "Über Uns",
         bio: "Bio",
         industries: "Branchen",
+        blog: "Blog",
         callUs: "Anrufen",
         sendEmail: "E-Mail senden",
         quickContact: "Schnellkontakt",
@@ -205,6 +206,34 @@ export const de = {
     aboutPage: {
         title: "Über ETEQ",
         intro: "ETEQ ist eine Boutique-Engineering-Beratung, gegründet auf über 35 Jahren bewährter operativer Führungserfahrung in der Pharma-, Life-Sciences- und Lebensmittelindustrie.",
+        companyTable: {
+            title: "Unternehmensübersicht",
+            name: "Unternehmensname",
+            nameValue: "ETeQ LLC",
+            engName: "Englischer Name",
+            engNameValue: "ETeQ LLC",
+            rep: "Vertreter",
+            repValue: "Dariushi Rostami",
+            business: "Geschäftsbeschreibung",
+            businessValue: "Engineering Consulting",
+            fields: "Hauptunterstützungsfelder",
+            fieldsValue: "Pharmazie, Lebensmittel, Chemische Fertigung",
+            contact: "Kontakt",
+            contactValue: "Über Kontaktseite",
+            note: "* Der Standort basiert auf Registrierungsinformationen. Obenstehend ist der Geschäftsstandort."
+        },
+        message: {
+            title: "Nachricht vom Vertreter",
+            content: [
+                "Seit über 35 Jahren bin ich in den Bereichen Engineering, Qualität, Sicherheit und Energie in der Fertigungs- und Pharmaindustrie tätig.",
+                "Ich glaube, die wahre Rolle eines Engineering-Leaders besteht darin, zwischen der Fertigungsebene und dem Management zu stehen, Entscheidungen unter begrenzten Einschränkungen zu treffen und Verantwortung für die Umsetzung zu übernehmen.",
+                "Bei ETeQ LLC stehen wir aus derselben Perspektive wie unsere Kunden und unterstützen sie basierend auf den Kriterien 'kann es umgesetzt werden?' und 'wird es im Feld bestehen?'."
+            ]
+        },
+        values: {
+            title: "Was ETeQ schätzt",
+            list: ["Denken von der Fertigungsebene und Daten aus", "Sicherheit, Qualität und stabile Versorgung priorisieren", "Nichts vorschlagen, was nicht umgesetzt werden kann"]
+        },
         founderTitle: "Expertise geschmiedet durch Führung",
         founderContext: "Unser Gründer, Dariushi Rosutami, bekleidete Positionen als Head of Engineering bei Branchenführern wie Takeda Pharmaceutical, DSM Japan und Danone Japan, wo er direkt für die Erzielung transformativer Ergebnisse verantwortlich war.",
         differentiation: {
@@ -313,5 +342,40 @@ export const de = {
         updating: "Aktualisierung",
         maintenanceSub: "Der KI-Assistent wird in Kürze zurückkehren",
         maintenanceNote: "Bitte warten Sie einige Minuten"
+    }
+    ,
+    servicesPage: {
+        title: "Dienstleistungen",
+        subtitle: "Durchgängige Engineering-Unterstützung von der Strategie bis zur Feldumsetzung",
+        highlights: [
+            {title: "Feldperspektive", text: "Praktische Vorschläge, die nicht als 'Luftschlösser' enden"},
+            {title: "Datengetrieben", text: "Entscheidungsunterstützung basierend auf Fakten und Zahlen, nicht Intuition"},
+            {title: "Globale Standards", text: "Anwendung von weltweiten Engineering-Standards in Japan"}
+        ],
+        servicesList: [
+            {title: "Formulierung der Engineering-Strategie", items: ["Erstellung einer mittel- bis langfristigen Roadmap", "Unterstützung bei der CAPEX-Planung", "Planung der Dekarbonisierungs-/Energiesparstrategie"]},
+            {title: "Projektmanagement", items: ["Überwachung der Basis-/Detailplanung", "Auswahl/Managementunterstützung von Anbietern", "Zeitplan-/Kostenmanagement"]},
+            {title: "Operative Exzellenz", items: ["Produktivitätssteigerung/Engpassbeseitigung", "Unterstützung beim Qualitätsrisikomanagement", "Optimierung des Wartungsplans"]},
+            {title: "Organisations-/Talententwicklung", items: ["Design der Engineering-Organisation", "Ausbildung der nächsten Führungsgeneration", "Schaffung von Mechanismen zur Technologie-Nachfolge"]}
+        ],
+        process: {
+            title: "Wie wir unterstützen",
+            steps: [
+                {num: "1", title: "Erstberatung", text: "Probleme und Ziele organisieren."},
+                {num: "2", title: "Ist-Zustand erfassen", text: "Standort und Daten prüfen."},
+                {num: "3", title: "Analyse & Planung", text: "Prioritäten und Ausführungspläne organisieren."},
+                {num: "4", title: "Umsetzungsunterstützung", text: "Im Feld etablieren."}
+            ]
+        },
+        cta: {
+            text: "In der Erstberatung klären wir die Richtung der Probleme und das weitere Vorgehen. Bitte erzählen Sie uns zuerst Ihre Situation.",
+            button: "Kontaktieren Sie uns"
+        }
+    },
+    blogPage: {
+        title: "Blog",
+        subtitle: "Verbreitung nützlicher Informationen für das Feld wie Engineering, Energieeinsparung und Organisationstheorie.",
+        readMore: "Weiterlesen",
+        backToBlog: "Zurück zur Blog-Liste"
     }
 };
