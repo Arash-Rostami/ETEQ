@@ -51,16 +51,17 @@ export default async function AboutPage({params}) {
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="animate-reveal-up">
-                            <h2 className="headline-large text-[var(--on-surface)] mb-6">{page.founderTitle}</h2>
-                            <p className="body-large text-[var(--on-surface-variant)] mb-8 leading-relaxed">
-                                {page.founderContext}
-                            </p>
-                            <div
-                                className="flex flex-col sm:flex-row sm:items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-large)] border-l-4 border-[var(--primary)] shadow-[var(--elevation-1)] gap-6">
+                        <div className="animate-reveal-right">
+                            <h2 className="display-medium text-[var(--on-surface)] mb-8">{t.founder.title}</h2>
+                            <div className="prose prose-lg text-[var(--on-surface-variant)] mb-8">
+                                <p className="body-large mb-6">{t.founder.description1}</p>
+                                <p className="body-large mb-6">{t.founder.description2}</p>
+                            </div>
+                            <div className="flex items-center justify-between p-6 bg-[var(--surface-container)] rounded-[var(--shape-medium)] border-l-4 border-[var(--primary)]">
                                 <div className="flex items-center">
-                                    <span
-                                        className="material-symbols-outlined text-4xl text-[var(--primary)] mr-4">workspace_premium</span>
+                                    <div className="mr-4">
+                                        <span className="material-symbols-outlined text-4xl text-[var(--primary)]">verified_user</span>
+                                    </div>
                                     <div>
                                         <p className="label-large text-[var(--on-surface)] font-bold">Dariushi
                                             Rosutami</p>
@@ -98,43 +99,6 @@ export default async function AboutPage({params}) {
             </section>
 
             <CompanyValues t={t}/>
-
-            <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16 animate-reveal-up">
-                        <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.results.title}</h2>
-                        <p className="body-large text-[var(--on-surface-variant)] italic">
-                            {page.results.subtitle}
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        {t.trustBuilders.stats.map((stat, index) => (
-                            <div
-                                key={index}
-                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-reveal-up"
-                                style={{animationDelay: `${index * 100}ms`}}
-                            >
-                                <div
-                                    className="w-12 h-12 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
-                                    <span className="material-symbols-outlined text-2xl text-[var(--primary)]">
-                                        {stat.icon}
-                                    </span>
-                                </div>
-                                <div className="headline-small text-[var(--primary)] font-bold mb-2 tracking-tight">
-                                    {stat.value}
-                                </div>
-                                <div
-                                    className="label-small text-[var(--on-surface-variant)] font-bold uppercase tracking-wider h-[40px] flex items-center justify-center overflow-hidden">
-                                    {stat.label}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div
-                    className="absolute top-1/2 left-0 w-64 h-64 bg-[var(--color-coral)]/5 rounded-full blur-3xl -z-10"></div>
-            </section>
 
             <CompanyTable t={t}/>
 
@@ -186,6 +150,43 @@ export default async function AboutPage({params}) {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-16 animate-reveal-up">
+                        <h2 className="display-medium text-[var(--on-surface)] mb-4">{page.results.title}</h2>
+                        <p className="body-large text-[var(--on-surface-variant)] italic">
+                            {page.results.subtitle}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        {t.trustBuilders.stats.map((stat, index) => (
+                            <div
+                                key={index}
+                                className="bg-[var(--surface)] p-6 rounded-[var(--shape-extra-large)] shadow-[var(--elevation-1)] hover:shadow-[var(--elevation-4)] transition-all duration-500 text-center group animate-reveal-up"
+                                style={{animationDelay: `${index * 100}ms`}}
+                            >
+                                <div
+                                    className="w-12 h-12 rounded-2xl bg-[var(--surface-variant)] flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+                                    <span className="material-symbols-outlined text-2xl text-[var(--primary)]">
+                                        {stat.icon}
+                                    </span>
+                                </div>
+                                <div className="headline-small text-[var(--primary)] font-bold mb-2 tracking-tight">
+                                    {stat.value}
+                                </div>
+                                <div
+                                    className="label-small text-[var(--on-surface-variant)] font-bold uppercase tracking-wider h-[40px] flex items-center justify-center overflow-hidden">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div
+                    className="absolute top-1/2 left-0 w-64 h-64 bg-[var(--color-coral)]/5 rounded-full blur-3xl -z-10"></div>
             </section>
 
             <section className="py-24 bg-[var(--primary)] text-[var(--on-primary)] relative overflow-hidden">

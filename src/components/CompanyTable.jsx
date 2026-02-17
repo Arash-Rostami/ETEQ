@@ -7,7 +7,7 @@ export default function CompanyTable({t}) {
     const info = t.aboutPage.companyTable;
 
     return (
-        <section ref={ref} className="py-24 bg-[var(--background)] relative overflow-hidden">
+        <section ref={ref} className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-4xl mx-auto">
                     <div className={`mb-12 text-center reveal-hidden reveal-up ${isVisible ? 'reveal-visible' : ''}`}>

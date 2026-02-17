@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-const IMAGES = [
+const DEFAULT_IMAGES = [
     { src: '/consultation.png', altKey: 'consultation' },
     { src: '/aiconsultation.png', altKey: 'aiConsultation' },
     { src: '/aiconsultationside.png', altKey: 'aiConsultationSide' },
@@ -12,12 +12,14 @@ const IMAGES = [
 const DURATION = 5000
 const TRANSITION_MS = 1400
 
-export default function ImageCarousel({ t }) {
+export default function ImageCarousel({ t, images }) {
     const [active, setActive] = useState(0)
     const [prev, setPrev] = useState(null)
     const [tick, setTick] = useState(0)
     const [hovered, setHovered] = useState(false)
     const timeoutRef = useRef(null)
+
+    const carouselImages = images || DEFAULT_IMAGES
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -25,11 +27,11 @@ export default function ImageCarousel({ t }) {
             setActive(a => {
                 setPrev(a)
                 setTick(t => t + 1)
-                return (a + 1) % IMAGES.length
+                return (a + 1) % carouselImages.length
             })
         }, DURATION)
         return () => clearInterval(interval)
-    }, [])
+    }, [carouselImages.length])
 
     useEffect(() => {
         timeoutRef.current = setTimeout(() => setPrev(null), TRANSITION_MS)
@@ -51,10 +53,13 @@ export default function ImageCarousel({ t }) {
         .kb { animation: kenBurns ${DURATION + TRANSITION_MS}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
       `}</style>
 
-            {IMAGES.map((img, i) => {
+            {carouselImages.map((img, i) => {
                 const isActive = i === active
                 const isPrev = i === prev
                 const isVisible = isActive || isPrev
+
+                // Handle different alt text structures: via prop (altKey + t) or direct (alt)
+                const altText = img.alt || (t?.alts?.[img.altKey]) || "ETEQ Image"
 
                 return (
                     <div
@@ -79,7 +84,7 @@ export default function ImageCarousel({ t }) {
                         >
                             <Image
                                 src={img.src}
-                                alt={t?.alts?.[img.altKey] || "ETEQ"}
+                                alt={altText}
                                 fill
                                 className="object-cover"
                                 style={{
