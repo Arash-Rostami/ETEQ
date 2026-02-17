@@ -2,6 +2,8 @@ import {useTranslation} from "@/lib/i18n/useTranslation";
 import {createMetadata} from "@/lib/seo/metadata";
 import Link from 'next/link';
 import Header from "@/components/Header";
+import CompanyTable from '@/components/CompanyTable';
+import CompanyValues from '@/components/CompanyValues';
 import Footer from "@/components/Footer";
 import ImageCarousel from "@/components/ImageCarousel";
 import {getFontClass} from "@/lib/i18n/config";
@@ -95,6 +97,8 @@ export default async function AboutPage({params}) {
                 </div>
             </section>
 
+            <CompanyValues t={t}/>
+
             <section className="py-24 bg-[var(--surface-container)] relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-16 animate-reveal-up">
@@ -131,6 +135,8 @@ export default async function AboutPage({params}) {
                 <div
                     className="absolute top-1/2 left-0 w-64 h-64 bg-[var(--color-coral)]/5 rounded-full blur-3xl -z-10"></div>
             </section>
+
+            <CompanyTable t={t}/>
 
             <section className="py-24 bg-[var(--background)]">
                 <div className="container mx-auto px-4">

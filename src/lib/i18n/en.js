@@ -7,6 +7,7 @@ export const en = {
         about: "About",
         bio: "Bio",
         industries: "Industries",
+        blog: "Blog",
         callUs: "Call Us",
         sendEmail: "Send Email",
         quickContact: "Quick Contact",
@@ -205,6 +206,34 @@ export const en = {
     aboutPage: {
         title: "About ETEQ",
         intro: "ETEQ is a boutique engineering consulting firm founded on over 35 years of proven operational leadership across pharmaceutical, life sciences, and food & beverage manufacturing industries.",
+        companyTable: {
+            title: "Company Overview",
+            name: "Company Name",
+            nameValue: "ETeQ LLC",
+            engName: "English Name",
+            engNameValue: "ETeQ LLC",
+            rep: "Representative",
+            repValue: "Dariushi Rostami",
+            business: "Business Description",
+            businessValue: "Engineering Consulting",
+            fields: "Main Support Fields",
+            fieldsValue: "Pharmaceutical, Food, Chemical Manufacturing",
+            contact: "Contact",
+            contactValue: "Via Contact Page",
+            note: "* The location is based on registration information. The above is the business location."
+        },
+        message: {
+            title: "Message from Representative",
+            content: [
+                "For over 35 years, I have been involved in engineering, quality, safety, and energy in the manufacturing and pharmaceutical industries.",
+                "I believe the true role of an engineering leader is to stand between the shop floor and management, make decisions under limited constraints, and take responsibility for implementation.",
+                "At ETeQ LLC, we stand from the same perspective as our clients, supporting them based on criteria of 'can it be implemented?' and 'will it last in the field?'."
+            ]
+        },
+        values: {
+            title: "What ETeQ Values",
+            list: ["Think from the shop floor and data", "Prioritize safety, quality, and stable supply", "Do not propose what cannot be implemented"]
+        },
         founderTitle: "Expertise Forged in Leadership",
         founderContext: "Our founder, Dariushi Rosutami, held Head of Engineering positions at industry leaders including Takeda Pharmaceutical, DSM Japan, and Danone Japan, where he was directly responsible for delivering transformational results.",
         differentiation: {
@@ -313,5 +342,40 @@ export const en = {
         updating: "Updating",
         maintenanceSub: "The AI assistant will return shortly",
         maintenanceNote: "Please wait a few minutes"
+    }
+    ,
+    servicesPage: {
+        title: "Services",
+        subtitle: "End-to-end engineering support from strategy to field implementation",
+        highlights: [
+            {title: "Field Perspective", text: "Practical proposals that don't end as 'pie in the sky'"},
+            {title: "Data Driven", text: "Decision support based on facts and figures, not intuition"},
+            {title: "Global Standards", text: "Applying world-standard engineering methods in Japan"}
+        ],
+        servicesList: [
+            {title: "Engineering Strategy Formulation", items: ["Mid-to-long-term roadmap creation", "CAPEX planning support", "Decarbonization/Energy saving strategy planning"]},
+            {title: "Project Management", items: ["Supervision of basic/detailed design", "Vendor selection/management support", "Schedule/Cost management"]},
+            {title: "Operational Excellence", items: ["Productivity improvement/Bottleneck resolution", "Quality risk management support", "Maintenance plan optimization"]},
+            {title: "Organization/Talent Development", items: ["Engineering organization design", "Next-generation leader training", "Technology succession mechanism creation"]}
+        ],
+        process: {
+            title: "How We Support",
+            steps: [
+                {num: "1", title: "Initial Consultation", text: "Organize issues and objectives."},
+                {num: "2", title: "Current Status Grasp", text: "Check site and data."},
+                {num: "3", title: "Analysis & Planning", text: "Organize priorities and execution plans."},
+                {num: "4", title: "Implementation Support", text: "Establish in the field."}
+            ]
+        },
+        cta: {
+            text: "In the initial consultation, we clarify the direction of the issues and how to proceed. Please tell us your situation first.",
+            button: "Contact Us"
+        }
+    },
+    blogPage: {
+        title: "Blog",
+        subtitle: "Disseminating useful information for the field such as engineering, energy saving, and organizational theory.",
+        readMore: "Read More",
+        backToBlog: "Back to Blog List"
     }
 };
